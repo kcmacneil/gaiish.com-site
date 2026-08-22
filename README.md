@@ -1,10 +1,11 @@
 # devFirstVercel
 
-A basic static website hosted on Vercel.
+A front page about generative AI technologies, with a reference list of language models. Static site hosted on Vercel.
 
 ## Files
 
 - `index.html` — the page
+- `assets/hero.jpg` — hero image
 - `styles.css` — styling
 - `vercel.json` — Vercel config (static build, clean URLs)
 

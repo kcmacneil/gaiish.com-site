@@ -3,18 +3,196 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>devFirstVercel</title>
+    <title>devFirstVercel — Generative AI Technologies</title>
+    <meta
+      name="description"
+      content="An introduction to generative AI technologies — large language models, diffusion models, multimodal systems, retrieval augmented generation and agents — plus a reference list of today's leading language models."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main class="card">
-      <h1>devFirstVercel</h1>
-      <p>My first website deployed on Vercel.</p>
-      <ul class="links">
-        <li><a href="https://github.com/kcmacneil/devFirstVercel">Source on GitHub</a></li>
-        <li><a href="https://vercel.com/docs">Vercel docs</a></li>
-      </ul>
-      <p class="footer">Static site — plain HTML and CSS.</p>
+    <header class="hero">
+      <nav class="wordmark"><a href="/">Generative AI Technologies</a></nav>
+      <h1>Empowering Communication with AI</h1>
+      <p class="hero-sub">
+        How generative models write, reason, see and build — and the language models leading the way.
+      </p>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>What Is Generative AI?</h2>
+        <span class="rule"></span>
+        <p class="lede">
+          Generative AI describes models that produce new content — text, images, audio, video and code —
+          rather than only classifying what already exists. Trained on very large corpora, they learn the
+          statistical structure of language and media well enough to continue, translate, summarise and
+          invent. The result is a general-purpose interface: you describe the outcome you want in plain
+          language, and the model drafts it.
+        </p>
+      </section>
+
+      <section class="section alt">
+        <h2>Core Technologies</h2>
+        <span class="rule"></span>
+        <div class="grid">
+          <article class="card">
+            <h3>Transformers &amp; LLMs</h3>
+            <p>
+              The transformer's self-attention mechanism lets a model weigh every token against every
+              other, which is what makes long-range reasoning over text practical. Scaled up, these become
+              the large language models behind chat assistants and coding tools.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Diffusion Models</h3>
+            <p>
+              Image, audio and video generators learn to reverse a noising process: starting from random
+              noise, they denoise step by step toward a sample that matches your prompt. This underpins
+              tools such as Stable Diffusion, Imagen and modern video models.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Multimodal Systems</h3>
+            <p>
+              Modern frontier models accept more than text. Images, documents, audio and screen recordings
+              are encoded into the same representation space as language, so a single model can read a
+              chart, describe a photo or hold a spoken conversation.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Embeddings &amp; RAG</h3>
+            <p>
+              Embeddings turn content into vectors that capture meaning, enabling semantic search.
+              Retrieval augmented generation puts the retrieved passages into the prompt so answers are
+              grounded in your own documents instead of the model's memory alone.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Fine-Tuning &amp; Alignment</h3>
+            <p>
+              Pre-training is followed by instruction tuning and preference optimisation — RLHF, DPO and
+              related methods — which teach a model to follow instructions, refuse unsafe requests and
+              adopt a consistent voice. LoRA and other adapters make this affordable.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Agents &amp; Tool Use</h3>
+            <p>
+              Given tools — search, a shell, a database, an API — a model can plan, act, observe the result
+              and iterate. Function calling and protocols such as MCP standardise how those tools are
+              exposed, turning a chat model into a system that gets work done.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Language Models</h2>
+        <span class="rule"></span>
+        <p class="lede center">
+          A snapshot of widely used model families. Availability and versions change quickly — check each
+          provider for current releases.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Model family</th>
+                <th scope="col">Developer</th>
+                <th scope="col">Access</th>
+                <th scope="col">Known for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GPT</td>
+                <td>OpenAI</td>
+                <td>Proprietary API</td>
+                <td>General reasoning, multimodal chat, broad tooling ecosystem</td>
+              </tr>
+              <tr>
+                <td>Claude</td>
+                <td>Anthropic</td>
+                <td>Proprietary API</td>
+                <td>Long-context work, coding and agentic workflows</td>
+              </tr>
+              <tr>
+                <td>Gemini</td>
+                <td>Google DeepMind</td>
+                <td>Proprietary API</td>
+                <td>Very long context and native multimodal input</td>
+              </tr>
+              <tr>
+                <td>Llama</td>
+                <td>Meta</td>
+                <td>Open weights</td>
+                <td>Self-hosting and fine-tuning at many parameter sizes</td>
+              </tr>
+              <tr>
+                <td>Mistral &amp; Mixtral</td>
+                <td>Mistral AI</td>
+                <td>Open weights + API</td>
+                <td>Efficient dense and mixture-of-experts models</td>
+              </tr>
+              <tr>
+                <td>DeepSeek</td>
+                <td>DeepSeek AI</td>
+                <td>Open weights + API</td>
+                <td>Strong reasoning and code at low inference cost</td>
+              </tr>
+              <tr>
+                <td>Qwen</td>
+                <td>Alibaba Cloud</td>
+                <td>Open weights + API</td>
+                <td>Multilingual coverage and a wide size range</td>
+              </tr>
+              <tr>
+                <td>Grok</td>
+                <td>xAI</td>
+                <td>Proprietary API</td>
+                <td>Real-time context from the X platform</td>
+              </tr>
+              <tr>
+                <td>Command</td>
+                <td>Cohere</td>
+                <td>Proprietary API</td>
+                <td>Enterprise retrieval and RAG-oriented deployments</td>
+              </tr>
+              <tr>
+                <td>Gemma &amp; Phi</td>
+                <td>Google / Microsoft</td>
+                <td>Open weights</td>
+                <td>Small models that run on a laptop or at the edge</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <h2>Getting Started</h2>
+        <span class="rule"></span>
+        <p class="lede center">
+          Pick a hosted API for the fastest path, or open weights when you need control over data and cost.
+          Start with a clear prompt, add retrieval when answers must cite your own sources, and measure
+          quality with a small evaluation set before you scale.
+        </p>
+        <p class="links">
+          <a href="https://github.com/kcmacneil/devFirstVercel">Source on GitHub</a>
+          <a href="https://vercel.com/docs">Vercel docs</a>
+        </p>
+      </section>
     </main>
+
+    <footer>
+      <p>Built with plain HTML and CSS · Deployed on Vercel</p>
+    </footer>
   </body>
 </html>
