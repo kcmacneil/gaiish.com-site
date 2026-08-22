@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transformers & Large Language Models — Generative AI Technologies</title>
+    <meta name="description" content="The architecture behind modern text generation." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a href="/">Generative AI Technologies</a></nav>
+      <h1>Transformers &amp; Large Language Models</h1>
+      <p class="hero-sub">The architecture behind modern text generation</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Topics">
+      <ul>
+        <li><a href="/topics/transformers" class="current">Transformers &amp; LLMs</a></li>
+        <li><a href="/topics/diffusion">Diffusion Models</a></li>
+        <li><a href="/topics/multimodal">Multimodal Systems</a></li>
+        <li><a href="/topics/embeddings-rag">Embeddings &amp; RAG</a></li>
+        <li><a href="/topics/fine-tuning">Fine-Tuning &amp; Alignment</a></li>
+        <li><a href="/topics/agents">Agents &amp; Tool Use</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">A large language model is a transformer trained to predict the next token in a sequence. That single objective, applied to trillions of tokens, produces a system that can summarise, translate, answer questions and write code — because all of those tasks can be expressed as “continue this text sensibly”.</p>
+      </section>
+
+      <section class="prose">
+        <h2>How it works</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Tokenisation.</strong> Text is split into sub-word tokens by a scheme such as byte-pair encoding, so any string — including code and rare words — can be represented by a fixed vocabulary.</li>
+          <li><strong>Embedding and position.</strong> Each token becomes a vector. Positional information is added (learned embeddings, or rotary embeddings in most current models) because attention itself is order-agnostic.</li>
+          <li><strong>Self-attention.</strong> Every token computes queries, keys and values, and attends to the tokens it cares about. This is what lets a pronoun resolve to a noun forty lines earlier.</li>
+          <li><strong>Feed-forward blocks.</strong> Attention layers alternate with position-wise MLPs, wrapped in residual connections and normalisation, repeated dozens to hundreds of times.</li>
+          <li><strong>Decoding.</strong> The final layer produces a probability distribution over the vocabulary; sampling parameters such as temperature and top-p decide how adventurous the next token is.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Concepts worth knowing</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Context window</strong> — how many tokens the model can attend to at once. Larger windows allow whole codebases or long documents in a single prompt, at higher cost.</li>
+          <li><strong>Mixture of experts</strong> — only a subset of the network's parameters is activated per token, so a model can be very large in total capacity while remaining cheap to run.</li>
+          <li><strong>KV caching</strong> — keys and values from earlier tokens are reused during generation, which is why the first token of a response is slow and the rest arrive quickly.</li>
+          <li><strong>Quantisation</strong> — storing weights in 8- or 4-bit formats shrinks memory needs enough to run capable open-weight models on a single GPU or a laptop.</li>
+          <li><strong>Reasoning modes</strong> — models trained to produce intermediate reasoning before answering trade latency and tokens for accuracy on maths, planning and multi-step problems.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Practical notes</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li>Cost and latency scale with tokens in plus tokens out; trimming prompt boilerplate is often the cheapest win.</li>
+          <li>Models are stateless between calls — conversation memory is just prior turns replayed in the prompt.</li>
+          <li>Confident, fluent text is not evidence of correctness. Ground factual claims with retrieval or tool calls.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Further Reading</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a></li>
+          <li><a href="https://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other topics">
+        <a class="next" href="/topics/diffusion">Diffusion Models &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

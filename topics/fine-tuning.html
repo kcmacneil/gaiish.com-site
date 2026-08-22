@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fine-Tuning & Alignment — Generative AI Technologies</title>
+    <meta name="description" content="Turning a base model into a useful assistant." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a href="/">Generative AI Technologies</a></nav>
+      <h1>Fine-Tuning &amp; Alignment</h1>
+      <p class="hero-sub">Turning a base model into a useful assistant</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Topics">
+      <ul>
+        <li><a href="/topics/transformers">Transformers &amp; LLMs</a></li>
+        <li><a href="/topics/diffusion">Diffusion Models</a></li>
+        <li><a href="/topics/multimodal">Multimodal Systems</a></li>
+        <li><a href="/topics/embeddings-rag">Embeddings &amp; RAG</a></li>
+        <li><a href="/topics/fine-tuning" class="current">Fine-Tuning &amp; Alignment</a></li>
+        <li><a href="/topics/agents">Agents &amp; Tool Use</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">A freshly pre-trained model is a text continuation engine, not an assistant. Post-training — instruction tuning followed by preference optimisation — is what teaches it to follow instructions, keep a consistent voice and decline requests it should not fulfil.</p>
+      </section>
+
+      <section class="prose">
+        <h2>Stages</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Pre-training.</strong> Next-token prediction over a very large corpus; this is where general capability comes from, and it is far too expensive to repeat for most teams.</li>
+          <li><strong>Supervised fine-tuning.</strong> Curated prompt-and-response pairs teach the format and behaviour of an assistant.</li>
+          <li><strong>Preference optimisation.</strong> RLHF, DPO and relatives train the model on comparisons between responses, sharpening helpfulness and refusal behaviour.</li>
+          <li><strong>Reinforcement on verifiable rewards.</strong> For maths, code and other checkable domains, automatic graders provide the signal, which is how current reasoning models are trained.</li>
+          <li><strong>Distillation.</strong> A small model is trained on a large model's outputs, delivering most of the quality at a fraction of the cost.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Cheaper ways to adapt</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Prompting and few-shot examples</strong> — always try this first; it costs nothing to change and nothing to maintain.</li>
+          <li><strong>LoRA and QLoRA</strong> — train small low-rank adapters instead of full weights; hours on one GPU rather than a cluster.</li>
+          <li><strong>Preference tuning on your own data</strong> — DPO on a few thousand ranked pairs is often enough to fix tone and format drift.</li>
+          <li><strong>Structured output constraints</strong> — grammars and JSON schemas enforce shape without any training at all.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Practical notes</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li>Fine-tuning teaches behaviour and format; it is a poor way to add facts — use retrieval for knowledge.</li>
+          <li>Build the evaluation set before you train, or you will not be able to tell whether the tune helped.</li>
+          <li>Watch for catastrophic forgetting and for a narrow tune that degrades general reasoning.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Further Reading</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions (InstructGPT)</a></li>
+          <li><a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other topics">
+        <a class="prev" href="/topics/embeddings-rag">&larr; Embeddings &amp; RAG</a>
+        <a class="next" href="/topics/agents">Agents &amp; Tool Use &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

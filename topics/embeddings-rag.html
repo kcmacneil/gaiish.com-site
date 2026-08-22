@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Embeddings & Retrieval Augmented Generation — Generative AI Technologies</title>
+    <meta name="description" content="Grounding answers in your own content." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a href="/">Generative AI Technologies</a></nav>
+      <h1>Embeddings &amp; Retrieval Augmented Generation</h1>
+      <p class="hero-sub">Grounding answers in your own content</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Topics">
+      <ul>
+        <li><a href="/topics/transformers">Transformers &amp; LLMs</a></li>
+        <li><a href="/topics/diffusion">Diffusion Models</a></li>
+        <li><a href="/topics/multimodal">Multimodal Systems</a></li>
+        <li><a href="/topics/embeddings-rag" class="current">Embeddings &amp; RAG</a></li>
+        <li><a href="/topics/fine-tuning">Fine-Tuning &amp; Alignment</a></li>
+        <li><a href="/topics/agents">Agents &amp; Tool Use</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">A model only knows what was in its training data and what you put in the prompt. Retrieval augmented generation closes that gap: find the passages relevant to a question, place them in the prompt, and ask the model to answer from them — with citations.</p>
+      </section>
+
+      <section class="prose">
+        <h2>The pipeline</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Chunk.</strong> Split documents into passages that respect structure — headings, sections, function definitions — rather than arbitrary character counts.</li>
+          <li><strong>Embed.</strong> Convert each chunk into a vector with an embedding model, so semantic similarity becomes geometric distance.</li>
+          <li><strong>Index.</strong> Store the vectors in a vector database or a vector-capable store (pgvector, Elasticsearch, Pinecone, Qdrant) alongside metadata for filtering.</li>
+          <li><strong>Retrieve.</strong> At query time, embed the question, fetch the nearest chunks, and usually combine that with keyword search — hybrid retrieval beats either alone.</li>
+          <li><strong>Rerank and assemble.</strong> A cross-encoder reranker reorders candidates; the best few go into the prompt with instructions to cite and to say “I don't know” when the context is insufficient.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Design choices</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Chunk size and overlap</strong> — small chunks retrieve precisely but lose context; overlap or a parent-document strategy recovers it.</li>
+          <li><strong>Metadata filters</strong> — tenant, product, date and permission fields keep results relevant and enforce access control at retrieval time.</li>
+          <li><strong>Freshness</strong> — incremental re-indexing on document change matters more than raw retrieval quality for most internal tools.</li>
+          <li><strong>Query rewriting</strong> — expanding or decomposing a vague question before searching noticeably improves recall.</li>
+          <li><strong>Long context vs retrieval</strong> — large windows reduce the need for retrieval but not the need for it: cost, latency and precision still favour fetching only what matters.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Practical notes</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li>Evaluate retrieval separately from generation — most bad answers are retrieval failures, not model failures.</li>
+          <li>Keep a small labelled question set and measure recall@k plus answer faithfulness on every change.</li>
+          <li>Never place content in the prompt that the requesting user is not allowed to read.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Further Reading</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="https://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation (Lewis et al.)</a></li>
+          <li><a href="https://github.com/pgvector/pgvector">pgvector</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other topics">
+        <a class="prev" href="/topics/multimodal">&larr; Multimodal Systems</a>
+        <a class="next" href="/topics/fine-tuning">Fine-Tuning &amp; Alignment &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

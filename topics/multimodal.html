@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multimodal Systems — Generative AI Technologies</title>
+    <meta name="description" content="One model, many kinds of input." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a href="/">Generative AI Technologies</a></nav>
+      <h1>Multimodal Systems</h1>
+      <p class="hero-sub">One model, many kinds of input</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Topics">
+      <ul>
+        <li><a href="/topics/transformers">Transformers &amp; LLMs</a></li>
+        <li><a href="/topics/diffusion">Diffusion Models</a></li>
+        <li><a href="/topics/multimodal" class="current">Multimodal Systems</a></li>
+        <li><a href="/topics/embeddings-rag">Embeddings &amp; RAG</a></li>
+        <li><a href="/topics/fine-tuning">Fine-Tuning &amp; Alignment</a></li>
+        <li><a href="/topics/agents">Agents &amp; Tool Use</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">A multimodal model accepts more than text. Images, audio, documents and video are encoded into the same representation space as language, so a single model can read a chart, transcribe a meeting, describe a photograph or hold a spoken conversation without handing off to separate services.</p>
+      </section>
+
+      <section class="prose">
+        <h2>How it works</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Encoders per modality.</strong> A vision encoder turns image patches into tokens; an audio encoder does the same for spectrogram frames.</li>
+          <li><strong>Projection.</strong> Those tokens are mapped into the language model's embedding space by a small adapter, so the transformer treats them like words.</li>
+          <li><strong>Joint training.</strong> Contrastive pre-training (as in CLIP) aligns images with captions; instruction tuning on interleaved data teaches the model to answer questions about what it sees.</li>
+          <li><strong>Generation.</strong> Output may be text, or the model may call an image or speech model — and native any-to-any models increasingly emit audio and images directly.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>What it unlocks</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Document understanding</strong> — reading scanned invoices, forms and slides without a separate OCR pipeline.</li>
+          <li><strong>Visual question answering</strong> — interpreting screenshots, dashboards, diagrams and photographs.</li>
+          <li><strong>Speech interfaces</strong> — low-latency voice conversation with interruption handling, instead of transcribe-then-reply chains.</li>
+          <li><strong>Computer use</strong> — an agent that looks at a screenshot and decides where to click.</li>
+          <li><strong>Accessibility</strong> — automatic alt text, described video and live captioning.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Practical notes</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li>Images are not free: a high-resolution page can cost more tokens than several paragraphs of text.</li>
+          <li>Resolution and cropping drive accuracy — small text in a downscaled screenshot is the usual cause of misreads.</li>
+          <li>Ask for structured output (JSON with fields you name) when extracting data, and validate it before use.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Further Reading</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="https://arxiv.org/abs/2103.00020">CLIP: Learning Transferable Visual Models</a></li>
+          <li><a href="https://arxiv.org/abs/2204.14198">Flamingo: a Visual Language Model</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other topics">
+        <a class="prev" href="/topics/diffusion">&larr; Diffusion Models</a>
+        <a class="next" href="/topics/embeddings-rag">Embeddings &amp; RAG &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

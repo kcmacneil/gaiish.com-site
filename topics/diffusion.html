@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Diffusion Models — Generative AI Technologies</title>
+    <meta name="description" content="How machines generate images, audio and video." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a href="/">Generative AI Technologies</a></nav>
+      <h1>Diffusion Models</h1>
+      <p class="hero-sub">How machines generate images, audio and video</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Topics">
+      <ul>
+        <li><a href="/topics/transformers">Transformers &amp; LLMs</a></li>
+        <li><a href="/topics/diffusion" class="current">Diffusion Models</a></li>
+        <li><a href="/topics/multimodal">Multimodal Systems</a></li>
+        <li><a href="/topics/embeddings-rag">Embeddings &amp; RAG</a></li>
+        <li><a href="/topics/fine-tuning">Fine-Tuning &amp; Alignment</a></li>
+        <li><a href="/topics/agents">Agents &amp; Tool Use</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">Diffusion models learn to undo noise. During training, real samples are progressively corrupted with Gaussian noise; the network learns to predict that noise. At generation time it starts from pure noise and denoises step by step, steered by your prompt, until an image emerges.</p>
+      </section>
+
+      <section class="prose">
+        <h2>How it works</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Forward process.</strong> Noise is added to a training image over many timesteps until nothing recognisable remains.</li>
+          <li><strong>Reverse process.</strong> A network — historically a U-Net, increasingly a diffusion transformer — is trained to estimate the noise at each step so it can be subtracted.</li>
+          <li><strong>Latent space.</strong> Doing all of this on raw pixels is expensive, so most systems compress images with an autoencoder first and diffuse in that smaller latent space.</li>
+          <li><strong>Conditioning.</strong> Your prompt is encoded by a text model and injected via cross-attention; classifier-free guidance controls how strictly the result follows it.</li>
+          <li><strong>Sampling.</strong> Schedulers such as DDIM, DPM++ or flow-matching solvers reach a good sample in tens of steps instead of hundreds; distilled models manage a handful.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Controls and extensions</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Image-to-image and inpainting</strong> — start from an existing image, or restrict changes to a masked region.</li>
+          <li><strong>ControlNet and adapters</strong> — condition on pose, depth, edges or layout to keep composition under control.</li>
+          <li><strong>LoRA fine-tunes</strong> — teach a base model a specific style, product or character from a few dozen images.</li>
+          <li><strong>Upscaling and refiners</strong> — generate at moderate resolution, then enlarge with a model trained for detail.</li>
+          <li><strong>Video and audio</strong> — the same recipe extends across time with temporal attention, giving text-to-video and text-to-music systems.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Practical notes</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li>Guidance scale is a trade-off: too low ignores the prompt, too high produces oversaturated, brittle images.</li>
+          <li>Fix the random seed to make results reproducible while you iterate on wording.</li>
+          <li>Provenance matters — C2PA content credentials and watermarking are becoming the norm for generated media.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Further Reading</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a></li>
+          <li><a href="https://arxiv.org/abs/2112.10752">Latent Diffusion Models</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other topics">
+        <a class="prev" href="/topics/transformers">&larr; Transformers &amp; LLMs</a>
+        <a class="next" href="/topics/multimodal">Multimodal Systems &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

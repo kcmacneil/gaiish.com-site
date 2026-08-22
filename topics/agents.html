@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agents & Tool Use — Generative AI Technologies</title>
+    <meta name="description" content="From answering questions to getting work done." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a href="/">Generative AI Technologies</a></nav>
+      <h1>Agents &amp; Tool Use</h1>
+      <p class="hero-sub">From answering questions to getting work done</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Topics">
+      <ul>
+        <li><a href="/topics/transformers">Transformers &amp; LLMs</a></li>
+        <li><a href="/topics/diffusion">Diffusion Models</a></li>
+        <li><a href="/topics/multimodal">Multimodal Systems</a></li>
+        <li><a href="/topics/embeddings-rag">Embeddings &amp; RAG</a></li>
+        <li><a href="/topics/fine-tuning">Fine-Tuning &amp; Alignment</a></li>
+        <li><a href="/topics/agents" class="current">Agents &amp; Tool Use</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">An agent is a model in a loop with tools. It plans, calls a tool, observes the result and decides what to do next — repeating until the task is finished. The model supplies judgement; the tools supply facts, actions and side effects.</p>
+      </section>
+
+      <section class="prose">
+        <h2>The loop</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Tool definitions.</strong> Each tool is described by a name, a purpose and a typed parameter schema. The model emits a structured call rather than prose.</li>
+          <li><strong>Execution.</strong> Your runtime executes the call — a search, a shell command, a database query, an HTTP request — and returns the result as the next observation.</li>
+          <li><strong>Iteration.</strong> The model reads the observation, revises its plan, and continues until it reports completion or hits a limit you set.</li>
+          <li><strong>Protocols.</strong> MCP and similar standards let one tool server be reused across many models and clients instead of bespoke glue per integration.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Patterns that work</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Small, sharp tools</strong> — a few well-named tools with clear schemas beat one overloaded do-everything endpoint.</li>
+          <li><strong>Verification in the loop</strong> — let the agent run tests, linters or type checks so failures are caught by machine, not by the user.</li>
+          <li><strong>Sub-agents</strong> — delegate a bounded task with its own context, and return only the summary to the parent.</li>
+          <li><strong>Budgets and checkpoints</strong> — cap steps, time and spend; persist progress so a long task can resume.</li>
+          <li><strong>Human approval gates</strong> — require confirmation before irreversible actions such as payments, deletions or production deploys.</li>
+        </ul>
+      </section>
+      <section class="prose">
+        <h2>Practical notes</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li>Treat tool output as untrusted input: it can carry prompt injection, so keep privileges least-scoped and validate arguments.</li>
+          <li>Log every call and observation. Without traces, debugging an agent is guesswork.</li>
+          <li>Non-determinism is normal — evaluate agents on task success over many runs, not on a single transcript.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Further Reading</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting</a></li>
+          <li><a href="https://modelcontextprotocol.io/">Model Context Protocol</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other topics">
+        <a class="prev" href="/topics/fine-tuning">&larr; Fine-Tuning &amp; Alignment</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>
