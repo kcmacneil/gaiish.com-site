@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaiish Prompt Analyzer — Gaiish</title>
+    <meta name="description" content="Analyze a prompt in your browser against the six-part Gaiish framework with a transparent heuristic score." />
+    <link rel="canonical" href="https://gaiish.com/tools/prompt-analyzer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gaiish" />
+    <meta property="og:title" content="Gaiish Prompt Analyzer — Gaiish" />
+    <meta property="og:description" content="Analyze a prompt in your browser against the six-part Gaiish framework with a transparent heuristic score." />
+    <meta property="og:url" content="https://gaiish.com/tools/prompt-analyzer" />
+    <meta property="og:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gaiish Prompt Analyzer — Gaiish" />
+    <meta name="twitter:description" content="Analyze a prompt in your browser against the six-part Gaiish framework with a transparent heuristic score." />
+    <meta name="twitter:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Gaiish Prompt Analyzer","url":"https://gaiish.com/tools/prompt-analyzer","applicationCategory":"BusinessApplication","operatingSystem":"Web","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free browser-based heuristic analyzer for prompt structure. No account is required; prompt text is not sent to a server or analytics.","featureList":["Gaiish component breakdown","Heuristic score","Convert to Gaiish"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://gaiish.com/tools"},{"@type":"ListItem","position":3,"name":"Gaiish Prompt Analyzer","item":"https://gaiish.com/tools/prompt-analyzer"}]}</script>
+  </head>
+  <body class="doc">
+<nav class="sitenav" aria-label="Primary"><a class="brand" href="/">gaiish</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sitenav-list">Menu</button><ul id="sitenav-list"><li class="nav-group"><a href="/learn-gaiish">Learn</a><ul class="nav-sub"><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></li><li class="nav-group"><a href="/gaiish-language">Language</a><ul class="nav-sub"><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification v1.0</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/changelog">Changelog</a></li></ul></li><li class="nav-group"><a href="/examples">Examples</a><ul class="nav-sub"><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li></ul></li><li class="nav-group"><a href="/tools" class="current">Tools</a><ul class="nav-sub"><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></li><li class="nav-group"><a href="/prompt-engineering">Context</a><ul class="nav-sub"><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li></ul></li><li class="nav-group"><a href="/gaiish-for-business">Use</a><ul class="nav-sub"><li><a href="/gaiish-for-business">Gaiish for Business</a></li><li><a href="/gaiish-for-education">Gaiish for Education</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></li></ul></nav>
+    <header class="pagehead"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><a href="/tools">Tools</a><span aria-current="page">Gaiish Prompt Analyzer</span></nav><p class="eyebrow">Tool</p><h1>Gaiish Prompt Analyzer</h1><p class="page-lede">See which parts of your request are explicit, then decide what to improve. The result is a heuristic, not a validated measurement.</p><p class="page-meta">Last updated 2026-08-29 · <a href="/about">Author</a></p></header>
+    <main id="main">
+      <section class="prose">
+<div class="analyzer-layout">
+  <form id="prompt-analyzer-form" class="tool-form">
+    <p class="privacy-note"><strong>Private by design:</strong> this tool runs in your browser. Nothing you type is sent to a server or analytics.</p>
+    <label for="analyzer-input">Prompt to analyze</label>
+    <p id="hint-analyzer-input" class="field-hint">Paste a prompt. It will be inspected locally and never submitted.</p>
+    <textarea id="analyzer-input" aria-describedby="hint-analyzer-input" rows="12" placeholder="Write a marketing plan for my company."></textarea>
+    <div class="tool-actions"><button type="submit" class="cta cta-primary">Analyze Prompt</button><button type="button" id="analyzer-convert" class="cta">Convert to Gaiish</button><button type="button" id="analyzer-clear" class="cta">Clear</button></div>
+    <p id="analyzer-status" class="tool-status" role="status" aria-live="polite"></p>
+  </form>
+  <section id="analyzer-results" class="analyzer-results" aria-live="polite" aria-labelledby="analyzer-score-heading" hidden>
+    <p class="heuristic-warning"><strong>Heuristic only:</strong> this score reflects explicit Gaiish structure. It is not a validated measurement and does not judge truth, quality or model behaviour.</p>
+    <h2 id="analyzer-score-heading">Gaiish Score: <span id="analyzer-total">0</span><span class="score-out-of"> / 100</span></h2>
+    <p id="analyzer-band"></p>
+    <div id="analyzer-breakdown"></div>
+    <div class="analyzer-columns"><section><h2>What's Good</h2><ul id="analyzer-good"></ul></section><section><h2>What's Missing</h2><ul id="analyzer-missing"></ul></section></div>
+    <section><h2>Suggested Improvements</h2><ul id="analyzer-improvements"></ul></section>
+  </section>
+</div>
+</section>
+    </main>
+<footer class="sitefooter"><div class="footer-cols"><div><h2>Learn</h2><ul><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li><li><a href="/gaiish-map">Interactive Gaiish Map</a></li><li><a href="/changelog">Changelog</a></li></ul></div><div><h2>Tools</h2><ul><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></div><div><h2>Background</h2><ul><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></div></div><p class="footer-note">Gaiish is a language humans use to optimize communication with Generative AI models. · <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a> · Deployed on Vercel</p></footer>
+    <script src="/tools/analyzer-score.js" defer></script>
+    <script src="/tools/prompt-analyzer.js" defer></script>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

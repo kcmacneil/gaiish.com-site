@@ -217,6 +217,8 @@ SPEC = {
             ("See a full PRO example", "/gaiish-pro#worked-example"),
             ("Compare BASIC prompts", "/gaiish-basic#example-1"),
             ("Read practical syntax", "/gaiish-syntax"),
+            ("Browse all Gaiish examples", "/examples"),
+            ("Adapt a prompt from the library", "/prompt-library"),
         ]),
         ("h2", "13. Anti-patterns", "anti-patterns"),
         ("ul", [

@@ -22,6 +22,11 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
+## Site architecture
+
+Content modules, generated knowledge pages, browser tools, SEO data and deployment workflow
+are documented in [`docs/content-system.md`](docs/content-system.md).
+
 ## Deploy
 
 Connect this repository to Vercel (Add New → Project → import `gaiish.com-site`), or from the CLI:
@@ -30,5 +35,4 @@ Connect this repository to Vercel (Add New → Project → import `gaiish.com-si
 npx vercel        # preview deployment
 npx vercel --prod # production deployment
 ```
-
 

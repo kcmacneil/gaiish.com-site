@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaiish Prompt Builder — Gaiish</title>
+    <meta name="description" content="Build a structured Gaiish prompt in your browser with guided fields, local saving and clipboard support." />
+    <link rel="canonical" href="https://gaiish.com/tools/prompt-builder" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gaiish" />
+    <meta property="og:title" content="Gaiish Prompt Builder — Gaiish" />
+    <meta property="og:description" content="Build a structured Gaiish prompt in your browser with guided fields, local saving and clipboard support." />
+    <meta property="og:url" content="https://gaiish.com/tools/prompt-builder" />
+    <meta property="og:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gaiish Prompt Builder — Gaiish" />
+    <meta name="twitter:description" content="Build a structured Gaiish prompt in your browser with guided fields, local saving and clipboard support." />
+    <meta name="twitter:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Gaiish Prompt Builder","url":"https://gaiish.com/tools/prompt-builder","applicationCategory":"BusinessApplication","operatingSystem":"Web","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free browser-based form for building a Gaiish prompt. No account is required; entries are not sent to a server or analytics.","featureList":["Guided Gaiish fields","Local browser saving","Clipboard copy"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://gaiish.com/tools"},{"@type":"ListItem","position":3,"name":"Gaiish Prompt Builder","item":"https://gaiish.com/tools/prompt-builder"}]}</script>
+  </head>
+  <body class="doc">
+<nav class="sitenav" aria-label="Primary"><a class="brand" href="/">gaiish</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sitenav-list">Menu</button><ul id="sitenav-list"><li class="nav-group"><a href="/learn-gaiish">Learn</a><ul class="nav-sub"><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></li><li class="nav-group"><a href="/gaiish-language">Language</a><ul class="nav-sub"><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification v1.0</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/changelog">Changelog</a></li></ul></li><li class="nav-group"><a href="/examples">Examples</a><ul class="nav-sub"><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li></ul></li><li class="nav-group"><a href="/tools" class="current">Tools</a><ul class="nav-sub"><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></li><li class="nav-group"><a href="/prompt-engineering">Context</a><ul class="nav-sub"><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li></ul></li><li class="nav-group"><a href="/gaiish-for-business">Use</a><ul class="nav-sub"><li><a href="/gaiish-for-business">Gaiish for Business</a></li><li><a href="/gaiish-for-education">Gaiish for Education</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></li></ul></nav>
+    <header class="pagehead"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><a href="/tools">Tools</a><span aria-current="page">Gaiish Prompt Builder</span></nav><p class="eyebrow">Tool</p><h1>Gaiish Prompt Builder</h1><p class="page-lede">Fill in only what matters, then copy a clear prompt structure. Your entries stay in this browser.</p><p class="page-meta">Last updated 2026-08-29 · <a href="/about">Author</a></p></header>
+    <main id="main">
+      <section class="prose">
+<div class="tool-layout">
+  <form id="prompt-builder-form" class="tool-form">
+    <p class="privacy-note"><strong>Private by design:</strong> this tool runs in your browser. Nothing you type is sent to a server or analytics.</p>
+    <p class="form-intro">Fields marked recommended help most tasks. You can leave a field blank and add it later.</p>
+    <div class="field"><label for="builder-intent">Goal / Intent <span>(recommended)</span></label><p id="hint-builder-intent" class="field-hint">What outcome should this work support, and who will use it?</p><textarea id="builder-intent" name="intent" aria-describedby="hint-builder-intent" rows="3"></textarea></div>
+    <div class="field"><label for="builder-context">Context <span>(recommended)</span></label><p id="hint-builder-context" class="field-hint">Add the situation, audience and source material the model cannot infer.</p><textarea id="builder-context" name="context" aria-describedby="hint-builder-context" rows="4"></textarea></div>
+    <div class="field"><label for="builder-audience">Audience</label><p id="hint-builder-audience" class="field-hint">Who will read or use the result?</p><input id="builder-audience" name="audience" aria-describedby="hint-builder-audience" /></div>
+    <div class="field"><label for="builder-role">Role</label><p id="hint-builder-role" class="field-hint">What useful perspective or role should the model take?</p><input id="builder-role" name="role" aria-describedby="hint-builder-role" /></div>
+    <div class="field"><label for="builder-knowledge">Knowledge</label><p id="hint-builder-knowledge" class="field-hint">What sources, definitions or evidence should be authoritative?</p><textarea id="builder-knowledge" name="knowledge" aria-describedby="hint-builder-knowledge" rows="3"></textarea></div>
+    <div class="field"><label for="builder-instructions">Instructions <span>(recommended)</span></label><p id="hint-builder-instructions" class="field-hint">Name the action with a clear primary verb; number steps when order matters.</p><textarea id="builder-instructions" name="instructions" aria-describedby="hint-builder-instructions" rows="4"></textarea></div>
+    <div class="field"><label for="builder-constraints">Constraints</label><p id="hint-builder-constraints" class="field-hint">State scope, limits, tone, requirements and exclusions.</p><textarea id="builder-constraints" name="constraints" aria-describedby="hint-builder-constraints" rows="3"></textarea></div>
+    <div class="field"><label for="builder-output">Output</label><p id="hint-builder-output" class="field-hint">Describe the artefact: sections, fields, format and useful length.</p><textarea id="builder-output" name="output" aria-describedby="hint-builder-output" rows="3"></textarea></div>
+    <div class="field"><label for="builder-tone">Tone</label><p id="hint-builder-tone" class="field-hint">For example: concise, warm, formal or plain language.</p><input id="builder-tone" name="tone" aria-describedby="hint-builder-tone" /></div>
+    <div class="field"><label for="builder-validation">Validation</label><p id="hint-builder-validation" class="field-hint">How should the result be checked, and what should be flagged?</p><textarea id="builder-validation" name="validation" aria-describedby="hint-builder-validation" rows="3"></textarea></div>
+    <div class="tool-actions"><button type="submit" class="cta cta-primary">Generate Prompt</button><button type="button" id="builder-copy" class="cta">Copy Prompt</button><button type="button" id="builder-save" class="cta">Save locally</button><button type="button" id="builder-clear" class="cta">Clear</button></div>
+    <p id="builder-status" class="tool-status" role="status" aria-live="polite"></p>
+  </form>
+  <section class="prompt-result" aria-labelledby="builder-result-heading">
+    <h2 id="builder-result-heading">Your Gaiish Prompt</h2>
+    <p class="field-hint">Edit the fields above to update this preview.</p>
+    <pre id="builder-output-preview" tabindex="0"></pre>
+    <button type="button" id="builder-edit" class="cta">Edit fields</button>
+  </section>
+</div>
+</section>
+    </main>
+<footer class="sitefooter"><div class="footer-cols"><div><h2>Learn</h2><ul><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li><li><a href="/gaiish-map">Interactive Gaiish Map</a></li><li><a href="/changelog">Changelog</a></li></ul></div><div><h2>Tools</h2><ul><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></div><div><h2>Background</h2><ul><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></div></div><p class="footer-note">Gaiish is a language humans use to optimize communication with Generative AI models. · <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a> · Deployed on Vercel</p></footer>
+    <script src="/tools/prompt-builder.js" defer></script>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

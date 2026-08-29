@@ -434,6 +434,12 @@ METHOD = {
             ("Gaiish Syntax", "How to write the components down consistently.", "/gaiish-syntax"),
             ("Specification", "The formal, versioned definition.",
              "/gaiish-language/specification"),
+            ("Dictionary", "Definitions for Gaiish components and general AI terms.",
+             "/dictionary"),
+            ("Examples", "Traditional and structured prompts across real domains.",
+             "/examples"),
+            ("Prompt Library", "Adaptable prompts organised by use case.",
+             "/prompt-library"),
         ]),
     ],
 }

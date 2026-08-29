@@ -9,6 +9,30 @@
   <url><loc>https://gaiish.com/gaiish-syntax</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
   <url><loc>https://gaiish.com/gaiish-language</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
   <url><loc>https://gaiish.com/gaiish-language/specification</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/ai-model</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/agent</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/constraint</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/context</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/context-window</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/generative-ai</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/grounding</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/instruction</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/intent</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/iteration</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/large-language-model</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/hallucination</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/output-specification</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/prompt</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/prompt-framework</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/retrieval-augmented-generation</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/token</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/dictionary/validation</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/examples</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/prompt-library</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/tools</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/tools/prompt-builder</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://gaiish.com/tools/prompt-analyzer</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
   <url><loc>https://gaiish.com/prompt-engineering</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
   <url><loc>https://gaiish.com/gaiish-vs-prompt-engineering</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>
   <url><loc>https://gaiish.com/gaiish-for-business</loc><lastmod>2026-08-29</lastmod><priority>0.7</priority></url>

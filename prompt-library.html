@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaiish Prompt Library — Gaiish</title>
+    <meta name="description" content="A practical Gaiish prompt library organised by Business, Management, IT, Marketing, Education, Research and eight other use cases." />
+    <link rel="canonical" href="https://gaiish.com/prompt-library" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gaiish" />
+    <meta property="og:title" content="Gaiish Prompt Library — Gaiish" />
+    <meta property="og:description" content="A practical Gaiish prompt library organised by Business, Management, IT, Marketing, Education, Research and eight other use cases." />
+    <meta property="og:url" content="https://gaiish.com/prompt-library" />
+    <meta property="og:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gaiish Prompt Library — Gaiish" />
+    <meta name="twitter:description" content="A practical Gaiish prompt library organised by Business, Management, IT, Marketing, Education, Research and eight other use cases." />
+    <meta name="twitter:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Examples","item":"https://gaiish.com/examples"},{"@type":"ListItem","position":3,"name":"Gaiish Prompt Library","item":"https://gaiish.com/prompt-library"}]}</script>
+  </head>
+  <body class="doc">
+<nav class="sitenav" aria-label="Primary"><a class="brand" href="/">gaiish</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sitenav-list">Menu</button><ul id="sitenav-list"><li class="nav-group"><a href="/learn-gaiish">Learn</a><ul class="nav-sub"><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></li><li class="nav-group"><a href="/gaiish-language" class="current">Language</a><ul class="nav-sub"><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification v1.0</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/changelog">Changelog</a></li></ul></li><li class="nav-group"><a href="/examples">Examples</a><ul class="nav-sub"><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li></ul></li><li class="nav-group"><a href="/tools">Tools</a><ul class="nav-sub"><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></li><li class="nav-group"><a href="/prompt-engineering">Context</a><ul class="nav-sub"><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li></ul></li><li class="nav-group"><a href="/gaiish-for-business">Use</a><ul class="nav-sub"><li><a href="/gaiish-for-business">Gaiish for Business</a></li><li><a href="/gaiish-for-education">Gaiish for Education</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></li></ul></nav>
+    <header class="pagehead"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><a href="/examples">Examples</a><span aria-current="page">Gaiish Prompt Library</span></nav><p class="eyebrow">Reference</p><h1>Gaiish Prompt Library</h1><p class="page-lede">Reusable starting points for real work. Adapt the context and constraints; do not paste sensitive material into an unapproved system.</p><p class="page-meta">Last updated 2026-08-29 · <a href="/about">Author</a></p></header>
+    <main id="main">
+      <section class="prose"><h2 id="business">Business</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Quarterly decision brief</h3></section>
+      <section class="prose"><pre>INTENT:
+Help the leadership team decide whether to continue the pilot.
+
+CONTEXT:
+[paste pilot metrics and customer notes]
+The pilot has run for one quarter; separate observed results from customer opinions.
+
+INSTRUCTION:
+Summarise evidence for continuation, change or stop.
+
+CONSTRAINTS:
+Do not infer causation. Preserve metric definitions and flag missing baselines.
+
+OUTPUT:
+Recommendation, evidence table, risks and decision questions.
+
+VALIDATION:
+Check every number against the supplied metrics and list unsupported conclusions.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The decision, evidence boundary and review shape are explicit, so the brief supports a real choice rather than a generic summary.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/intent">Intent</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h3>Process handoff</h3></section>
+      <section class="prose"><pre>INTENT:
+Give the next operator a reliable handoff for today&#x27;s unresolved work.
+
+CONTEXT:
+[paste ticket list and notes]
+The next operator has 30 minutes and can change status but cannot approve refunds.
+
+INSTRUCTION:
+Group the work by urgency and write the next action for each item.
+
+CONSTRAINTS:
+Do not close a ticket without evidence. Keep customer identifiers exactly as supplied.
+
+OUTPUT:
+Priority table with ticket, evidence, owner and next action.
+
+VALIDATION:
+Flag missing owners, missing evidence and any item needing approval.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> Context, authority limits and validation make the handoff useful to another person and safer to act on.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/context">Context</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h2 id="management">Management</h2><span class="rule"></span></section>
+      <section class="prose"><h3>One-to-one preparation</h3></section>
+      <section class="prose"><pre>GOAL:
+Help a manager prepare a constructive 30-minute one-to-one.
+
+CONTEXT:
+[paste role description and recent notes]
+The employee has asked to discuss priorities and support.
+
+ACTION:
+Draft five open questions and a two-item agenda.
+
+OUTPUT:
+Agenda first, then questions with the purpose of each.
+
+CONSTRAINTS:
+Do not diagnose performance or infer feelings from silence.
+
+VALIDATION:
+Mark questions that rely on an assumption not present in the notes.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The goal and boundaries keep the model from turning sparse notes into a performance judgement.</p></section>
+      <section class="prose"><p class="links"><a href="/gaiish-basic">Gaiish BASIC</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h3>Team planning</h3></section>
+      <section class="prose"><pre>INTENT:
+Turn the team&#x27;s committed work into a realistic fortnight plan.
+
+CONTEXT:
+[paste backlog and capacity notes]
+Four people are available for 10 working days; production incidents take priority.
+
+INSTRUCTION:
+Group work by dependency, identify a critical path and propose a plan.
+
+CONSTRAINTS:
+Do not schedule more capacity than stated. Mark estimates as estimates.
+
+OUTPUT:
+Plan by day, dependency list and risks requiring a manager decision.
+
+VALIDATION:
+Recheck capacity totals and list every assumption.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> Capacity is context and a hard constraint; validation checks arithmetic instead of rewarding a confident schedule.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/context">Context</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h2 id="information-technology">Information Technology</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Architecture review</h3></section>
+      <section class="prose"><pre>INTENT:
+Identify the two largest operational risks in this proposed service architecture.
+
+CONTEXT:
+[paste architecture diagram and requirements]
+The service must support the stated traffic range and a weekday on-call team.
+
+INSTRUCTION:
+Trace request flow, identify failure points and compare each with the requirements.
+
+CONSTRAINTS:
+Use only the supplied design. Distinguish a design gap from a missing diagram detail.
+
+OUTPUT:
+Risk table with component, failure mode, evidence, impact and open question.
+
+VALIDATION:
+Cite the diagram or requirement for each risk and mark unsupported assumptions.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The source boundary and failure-oriented output make the review specific without pretending to know an undocumented deployment.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/grounding">Grounding</a><a href="/dictionary/output-specification">Output Specification</a></p></section>
+      <section class="prose"><h3>Runbook draft</h3></section>
+      <section class="prose"><pre>INTENT:
+Help an on-call engineer recover the documented service failure safely.
+
+CONTEXT:
+[paste incident notes and approved runbook fragments]
+The engineer may restart the worker but may not change database schema.
+
+INSTRUCTION:
+Order the diagnostic and recovery steps, with a stop condition after each risky action.
+
+CONSTRAINTS:
+Do not invent commands. Preserve rollback steps and escalation contacts.
+
+OUTPUT:
+Numbered runbook with prerequisites, steps, stop conditions and escalation.
+
+VALIDATION:
+Check every command against the supplied fragments and flag any missing prerequisite.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> Role and permission context plus stop conditions turn prose into a safer operational artefact.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/instruction">Instruction</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h2 id="marketing">Marketing</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Campaign brief</h3></section>
+      <section class="prose"><pre>INTENT:
+Plan a 30-day campaign that increases qualified demo requests from practice owners.
+
+CONTEXT:
+[paste product notes and existing campaign results]
+Team: one marketer half-time. Audience: private dental practices with 2–6 chairs.
+
+INSTRUCTION:
+Propose channels, messages, weekly activities and a measurement plan.
+
+CONSTRAINTS:
+Budget is $5,000. No paid search or new engineering. Do not claim results not in the source.
+
+OUTPUT:
+Strategy, weekly plan, budget table, message examples and measures.
+
+VALIDATION:
+Check activities against budget and staffing and list assumptions.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The campaign has a buyer, resource boundary, exclusions and measurement shape rather than a request for generic ideas.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/intent">Intent</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h3>Customer story interview</h3></section>
+      <section class="prose"><pre>INTENT:
+Prepare an interview guide that reveals why a customer adopted the product.
+
+CONTEXT:
+[paste account notes]
+Interview length: 30 minutes. The customer has agreed to discuss workflow, not confidential finances.
+
+INSTRUCTION:
+Write eight open questions in a logical sequence.
+
+CONSTRAINTS:
+Do not lead the customer toward a preferred answer. Avoid questions about restricted information.
+
+OUTPUT:
+Question, purpose and optional follow-up for each item.
+
+VALIDATION:
+Flag any question that assumes a benefit or asks for restricted information.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The goal, interview context and ethical constraints produce questions that can generate evidence instead of praise.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/context">Context</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h2 id="education">Education</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Lesson activity</h3></section>
+      <section class="prose"><pre>GOAL:
+Help students practise distinguishing evidence from interpretation.
+
+CONTEXT:
+[paste source passage]
+Students are 14 and have 25 minutes. They know the vocabulary in the lesson glossary.
+
+ACTION:
+Create a short worked example and a paired classification activity.
+
+OUTPUT:
+Teacher instructions, student handout and answer key.
+
+CONSTRAINTS:
+Use only the passage and glossary. Keep reading level accessible.
+
+VALIDATION:
+Quote the passage for every answer-key decision and mark ambiguous items.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The output serves both teacher and student, while the source-only constraint makes the activity auditable.</p></section>
+      <section class="prose"><p class="links"><a href="/gaiish-basic">Gaiish BASIC</a><a href="/dictionary/context">Context</a></p></section>
+      <section class="prose"><h3>Feedback rubric</h3></section>
+      <section class="prose"><pre>INTENT:
+Give a student actionable feedback on an argument draft without rewriting it for them.
+
+CONTEXT:
+[paste draft and assignment rubric]
+The student is revising a first draft.
+
+INSTRUCTION:
+Identify one strength and the three highest-impact revisions, each tied to a rubric criterion.
+
+CONSTRAINTS:
+Do not invent citations or supply a replacement essay. Use encouraging, specific language.
+
+OUTPUT:
+Criterion, evidence in draft, revision suggestion and question for the student.
+
+VALIDATION:
+Check each comment against the draft and rubric and flag criteria not evidenced.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The rubric and evidence columns keep feedback tied to the student's work and preserve student agency.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/constraint">Constraint</a><a href="/dictionary/output-specification">Output Specification</a></p></section>
+      <section class="prose"><h2 id="research">Research</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Literature extraction</h3></section>
+      <section class="prose"><pre>INTENT:
+Create a traceable extraction table for studies relevant to the stated review question.
+
+CONTEXT:
+[paste papers or abstracts]
+Review question: [question]. The supplied text is the only source authority.
+
+INSTRUCTION:
+Extract population, intervention, comparison, outcome and limitation for each study.
+
+CONSTRAINTS:
+Do not infer absent methods or results. Quote page or section references when present.
+
+OUTPUT:
+One row per study plus a Missing information column.
+
+VALIDATION:
+Compare every row with the source and list studies where the supplied text is incomplete.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The evidence boundary, extraction schema and missing-information rule reduce the temptation to fill gaps.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/grounding">Grounding</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h3>Research question refinement</h3></section>
+      <section class="prose"><pre>INTENT:
+Turn the project idea into one answerable research question and a list of definitions to resolve.
+
+CONTEXT:
+[paste project notes]
+Audience: supervisor reviewing feasibility. No data has been collected yet.
+
+INSTRUCTION:
+Identify the proposed phenomenon, population, comparison and outcome, then draft two candidate questions.
+
+CONSTRAINTS:
+Do not claim the question is novel or feasible without evidence. Preserve uncertainty.
+
+OUTPUT:
+Assumptions, candidate questions, what each would measure and feasibility questions.
+
+VALIDATION:
+Mark every claim that requires a source or a decision from the supervisor.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The prompt separates a framing exercise from unsupported claims about novelty or feasibility.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/intent">Intent</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h2 id="writing">Writing</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Editorial outline</h3></section>
+      <section class="prose"><pre>INTENT:
+Give an editor a usable outline for an article that explains the decision behind the topic.
+
+CONTEXT:
+[paste source notes]
+Audience: informed general readers. The article must distinguish sourced facts from interpretation.
+
+INSTRUCTION:
+Propose a thesis, section sequence and evidence needed for each section.
+
+CONSTRAINTS:
+Do not invent sources or settle disputed claims. Keep the outline under 500 words.
+
+OUTPUT:
+Headline options, thesis, numbered outline and open research questions.
+
+VALIDATION:
+Flag each section that lacks supplied evidence.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The outline asks for the structure of an article while keeping research gaps visible.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/intent">Intent</a><a href="/dictionary/output-specification">Output Specification</a></p></section>
+      <section class="prose"><h3>Plain-language edit</h3></section>
+      <section class="prose"><pre>INTENT:
+Help a resident understand what action the policy requires of them.
+
+CONTEXT:
+[paste policy]
+Audience: residents with no specialist knowledge. Legal review will use the edited draft.
+
+INSTRUCTION:
+Rewrite the policy explanation in plain language without changing obligations.
+
+CONSTRAINTS:
+Preserve dates, exceptions and defined terms. No more than 400 words. Do not add legal advice.
+
+OUTPUT:
+Heading, short explanation, required action and questions the resident may need to ask.
+
+VALIDATION:
+Compare every obligation and date with the source and list any ambiguous term.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> Audience, source authority and preservation constraints make “plain language” a controlled rewrite rather than a paraphrase.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/context">Context</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h2 id="analysis">Analysis</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Spreadsheet interpretation</h3></section>
+      <section class="prose"><pre>INTENT:
+Explain the three material changes in this monthly operating report for a finance review.
+
+CONTEXT:
+[paste table]
+Definitions: revenue excludes tax; variance is actual minus plan. The reader has not seen prior months.
+
+INSTRUCTION:
+Calculate stated variances, identify trends and separate observation from possible explanation.
+
+CONSTRAINTS:
+Do not invent causes. Preserve units and rounding. Show calculations.
+
+OUTPUT:
+Executive summary, variance table, observations and questions for the data owner.
+
+VALIDATION:
+Recalculate each variance against the supplied values and flag missing periods.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> Definitions in Context and calculation checks prevent familiar business language from hiding a changed metric meaning.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/context">Context</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h3>Options analysis</h3></section>
+      <section class="prose"><pre>INTENT:
+Help a project owner choose between the three options using the stated criteria.
+
+CONTEXT:
+[paste options and criteria]
+The owner values reversibility and delivery time above optional scope.
+
+INSTRUCTION:
+Compare options criterion by criterion and identify the trade-off of the leading option.
+
+CONSTRAINTS:
+Use only the supplied criteria and facts. Do not convert qualitative claims into false precision.
+
+OUTPUT:
+Comparison matrix, leading option, trade-off and two questions before commitment.
+
+VALIDATION:
+Check each comparison cell against the source and mark unknowns.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The prompt makes decision priorities explicit without pretending qualitative evidence is more precise than it is.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/intent">Intent</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h2 id="productivity">Productivity</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Inbox triage</h3></section>
+      <section class="prose"><pre>GOAL:
+Turn today&#x27;s inbox into a short list of actions for the owner.
+
+CONTEXT:
+[paste messages]
+The owner has 45 minutes. Messages containing personal or confidential details must not be reproduced.
+
+ACTION:
+Group messages by action, urgency and waiting-on-person.
+
+OUTPUT:
+A table with message subject, action, due date if stated and suggested reply; omit message bodies.
+
+CONSTRAINTS:
+Do not infer urgency from tone alone. Preserve stated dates.
+
+VALIDATION:
+Check each due date against the source and flag ambiguous ownership.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> BASIC supplies a time limit, privacy boundary and usable table without turning triage into a new workflow.</p></section>
+      <section class="prose"><p class="links"><a href="/gaiish-basic">Gaiish BASIC</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h3>Weekly planning</h3></section>
+      <section class="prose"><pre>INTENT:
+Create a realistic weekly plan that protects the two stated priorities.
+
+CONTEXT:
+[paste tasks and calendar constraints]
+Available focus time is 12 hours. Meetings and fixed deadlines are listed below.
+
+INSTRUCTION:
+Sequence tasks by dependency and deadline and identify what must be deferred.
+
+CONSTRAINTS:
+Do not schedule more than 12 focus hours. Leave 20% unallocated for interruptions.
+
+OUTPUT:
+Day-by-day plan, deferred list and risks.
+
+VALIDATION:
+Check hours, dependencies and deadlines and list assumptions.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The plan is constrained by real capacity and includes a deliberate deferral decision instead of fitting every task into an impossible week.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/intent">Intent</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h2 id="software-development">Software Development</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Code review</h3></section>
+      <section class="prose"><pre>INTENT:
+Find correctness, security and maintainability risks before this change is merged.
+
+CONTEXT:
+[paste diff and relevant tests]
+The code handles user-provided filenames. Existing conventions are in the adjacent module.
+
+INSTRUCTION:
+Review the diff, trace error paths and compare behaviour with the tests.
+
+CONSTRAINTS:
+Report only issues supported by the diff or supplied files. Do not rewrite the patch.
+
+OUTPUT:
+Findings ordered by severity with file/line, evidence, impact and suggested test.
+
+VALIDATION:
+Check each finding against the exact diff and distinguish a confirmed issue from a question.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The review has a severity-aware output and evidence rule, helping a developer act on findings without accepting speculation.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/context">Context</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h3>Test design</h3></section>
+      <section class="prose"><pre>INTENT:
+Add tests that expose the boundary cases in the date parser.
+
+CONTEXT:
+[paste parser, current tests and accepted date formats]
+The parser must reject ambiguous dates rather than guessing.
+
+INSTRUCTION:
+List partitions and write test cases for valid, invalid and ambiguous inputs.
+
+CONSTRAINTS:
+Use the accepted formats only. Do not change production code or invent a locale rule.
+
+OUTPUT:
+Test table with input, expected result, reason and missing coverage.
+
+VALIDATION:
+Check every expected result against the supplied format rules.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The format rules and reject-on-ambiguity constraint turn a broad testing request into inspectable coverage.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/constraint">Constraint</a><a href="/dictionary/output-specification">Output Specification</a></p></section>
+      <section class="prose"><h2 id="customer-service">Customer Service</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Ticket categorisation</h3></section>
+      <section class="prose"><pre>INTENT:
+Route incoming tickets to the correct team without losing evidence of uncertainty.
+
+CONTEXT:
+[paste ticket text and routing rules]
+Categories and escalation triggers are listed in the rules.
+
+INSTRUCTION:
+Assign one category, identify any escalation trigger and quote the supporting phrase.
+
+CONSTRAINTS:
+Do not infer a trigger absent from the rules. If no category fits, mark Unclear.
+
+OUTPUT:
+Ticket ID, category, evidence, escalation and confidence note.
+
+VALIDATION:
+Compare each assignment with the routing rules and list unclear cases.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The routing rules become explicit knowledge and the Unclear outcome prevents forced classifications.</p></section>
+      <section class="prose"><p class="links"><a href="/gaiish-pro">Knowledge</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h3>Support macro</h3></section>
+      <section class="prose"><pre>INTENT:
+Draft a reusable reply for customers who cannot complete the documented setup step.
+
+CONTEXT:
+[paste help article and approved policy]
+Audience: new customers. The agent can link the article but cannot change account settings.
+
+INSTRUCTION:
+Draft a reply that diagnoses the documented step, links the relevant section and asks for one missing detail.
+
+CONSTRAINTS:
+Do not promise a fix or ask for passwords. Under 140 words.
+
+OUTPUT:
+Customer-facing reply and one internal escalation note.
+
+VALIDATION:
+Check links, permissions and promises against the supplied material.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The prompt protects account boundaries, gives the customer a next step and separates the reusable response from escalation.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/context">Context</a><a href="/dictionary/constraint">Constraint</a></p></section>
+      <section class="prose"><h2 id="human-resources">Human Resources</h2><span class="rule"></span></section>
+      <section class="prose"><h3>Interview guide</h3></section>
+      <section class="prose"><pre>INTENT:
+Create a structured interview guide that tests the stated competencies fairly.
+
+CONTEXT:
+[paste role description and competency rubric]
+Interview length: 45 minutes. All candidates receive the same core questions.
+
+INSTRUCTION:
+Write one primary question and one follow-up for each competency.
+
+CONSTRAINTS:
+Do not ask about protected characteristics or infer them from a response. Keep questions job-related.
+
+OUTPUT:
+Question sequence, competency tested, evidence to listen for and permitted follow-up.
+
+VALIDATION:
+Check every question against the rubric and flag any question that is not job-related.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The rubric, consistent core questions and explicit boundaries support a reviewable process without pretending a prompt makes hiring objective.</p></section>
+      <section class="prose"><p class="links"><a href="/gaiish-method#constraints">Constraints</a><a href="/dictionary/validation">Validation</a></p></section>
+      <section class="prose"><h3>Policy explanation</h3></section>
+      <section class="prose"><pre>INTENT:
+Help employees understand the steps and contact point in the leave policy.
+
+CONTEXT:
+[paste approved policy]
+Audience: employees; HR will approve the final explanation.
+
+INSTRUCTION:
+Rewrite the procedure in plain language while preserving eligibility and deadlines.
+
+CONSTRAINTS:
+Do not interpret an employee&#x27;s individual eligibility. Preserve defined terms and escalation contacts.
+
+OUTPUT:
+Short explanation, numbered steps, deadline table and questions for HR.
+
+VALIDATION:
+Compare every deadline and eligibility statement with the policy and list ambiguous wording.</pre></section>
+      <section class="prose"><p><strong>Why this works:</strong> The source and approval boundary make the rewrite useful while keeping individual decisions with HR.</p></section>
+      <section class="prose"><p class="links"><a href="/dictionary/context">Context</a><a href="/dictionary/output-specification">Output Specification</a></p></section>
+    </main>
+<footer class="sitefooter"><div class="footer-cols"><div><h2>Learn</h2><ul><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li><li><a href="/gaiish-map">Interactive Gaiish Map</a></li><li><a href="/changelog">Changelog</a></li></ul></div><div><h2>Tools</h2><ul><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></div><div><h2>Background</h2><ul><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></div></div><p class="footer-note">Gaiish is a language humans use to optimize communication with Generative AI models. · <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a> · Deployed on Vercel</p></footer>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

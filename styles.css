@@ -1349,3 +1349,267 @@ button.hotspot {
     grid-template-columns: 1fr;
   }
 }
+
+/* Knowledge and browser tools */
+.az-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  max-width: 46rem;
+  margin: 0 auto 2rem;
+}
+
+.az-jump a {
+  display: inline-block;
+  min-width: 2rem;
+  padding: 0.25rem 0.45rem;
+  border: 1px solid #b9d7df;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.az-jump a:hover,
+.az-jump a:focus-visible {
+  color: #ffffff;
+  background: var(--accent);
+}
+
+.term-marker {
+  max-width: 46rem;
+  margin: 1.2rem auto 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.gaiish-term {
+  color: #6c4bb3;
+}
+
+.general-term {
+  color: #0f6f8f;
+}
+
+.term-heading {
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.term-heading:hover,
+.term-heading:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.tool-layout,
+.analyzer-layout {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.tool-form,
+.prompt-result,
+.analyzer-results {
+  padding: 1.5rem;
+  background: #f6f6f6;
+  border-top: 3px solid #27b6c8;
+}
+
+.tool-form label {
+  display: block;
+  margin-top: 1rem;
+  color: #0f6f8f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tool-form label span {
+  color: #6c4bb3;
+  font-size: 0.65rem;
+}
+
+.form-intro,
+.field-hint,
+.privacy-note {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.form-intro {
+  margin-top: 0;
+}
+
+.field {
+  margin-top: 1.15rem;
+}
+
+.field label {
+  margin-top: 0;
+}
+
+.field-hint {
+  margin: 0.2rem 0 0.4rem;
+}
+
+.tool-form input,
+.tool-form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #9bbbc5;
+  border-radius: 0;
+  background: #ffffff;
+  color: var(--ink);
+  font: 0.92rem/1.55 var(--sans);
+}
+
+.tool-form textarea {
+  resize: vertical;
+}
+
+.tool-form input:focus,
+.tool-form textarea:focus {
+  outline: 3px solid rgba(39, 182, 200, 0.35);
+  outline-offset: 2px;
+  border-color: #0f6f8f;
+}
+
+.tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+button.cta {
+  cursor: pointer;
+  background: transparent;
+  font-family: var(--sans);
+}
+
+button.cta:hover,
+button.cta:focus-visible {
+  color: #040c1a;
+  background: #7fd6e6;
+}
+
+.tool-status {
+  min-height: 1.6em;
+  margin-bottom: 0;
+  color: #0f6f8f;
+  font-size: 0.8rem;
+}
+
+.prompt-result {
+  align-self: start;
+  position: sticky;
+  top: 1rem;
+}
+
+.prompt-result h2,
+.analyzer-results h2 {
+  margin-top: 0;
+}
+
+.prompt-result pre {
+  min-height: 22rem;
+  margin: 1rem 0;
+  background: #071b30;
+  color: #dbeaf2;
+}
+
+.heuristic-warning {
+  padding: 0.85rem 1rem;
+  background: #fff8e7;
+  border-left: 3px solid #b77c18;
+  color: #5d4a24;
+  font-size: 0.82rem;
+}
+
+.score-out-of {
+  color: var(--muted);
+  font-size: 0.8em;
+}
+
+.score-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.score-item {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #9bbbc5;
+  background: #ffffff;
+}
+
+.score-item > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.score-item p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.score-strong {
+  border-left-color: #2c8b68;
+}
+
+.score-partial {
+  border-left-color: #b77c18;
+}
+
+.score-absent {
+  border-left-color: #a64b5e;
+}
+
+.score-state {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.analyzer-results ul {
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.analyzer-columns {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.analyzer-columns h2,
+.analyzer-results > section h2 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 48rem) {
+  .tool-layout,
+  .analyzer-layout,
+  .analyzer-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .prompt-result {
+    position: static;
+  }
+}

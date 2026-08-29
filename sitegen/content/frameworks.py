@@ -106,6 +106,8 @@ BASIC = {
         ("links", [
             ("Write it down with Gaiish Syntax", "/gaiish-syntax"),
             ("Try the Prompt Builder", "/tools/prompt-builder"),
+            ("Browse more examples", "/examples"),
+            ("Use the Prompt Library", "/prompt-library"),
         ]),
     ],
 }
@@ -227,6 +229,7 @@ PRO = {
             ("How to write the labels", "/gaiish-syntax"),
             ("Read the language specification", "/gaiish-language/specification"),
             ("Compare with BASIC", "/gaiish-basic"),
+            ("Check component definitions", "/dictionary"),
         ]),
     ],
 }
