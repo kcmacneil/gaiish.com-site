@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clarity — gaiish</title>
+    <meta name="description" content="Say one thing at a time, in plain words, with no hidden assumptions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Clarity</h1>
+      <p class="hero-sub">Say one thing at a time, in plain words, with no hidden assumptions</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Principles">
+      <ul>
+        <li><a href="/principles/clarity" class="current">Clarity</a></li>
+        <li><a href="/principles/context">Context</a></li>
+        <li><a href="/principles/intent">Intent</a></li>
+        <li><a href="/principles/precision">Precision</a></li>
+        <li><a href="/principles/result">Result</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">A model cannot ask you what you really meant before it answers — it answers the sentence you actually wrote. Clarity is removing the ambiguity that would force it to guess: one request per instruction, ordinary words, and every assumption stated rather than implied.</p>
+      </section>
+
+      <section class="prose">
+        <h2>What clarity looks like</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>One request at a time.</strong> A prompt that asks for a summary, a translation and a critique gets a shallow attempt at all three. Split them, or number them explicitly so each is answered in turn.</li>
+          <li><strong>Plain words.</strong> Jargon and internal shorthand ("make it pop", "the usual format") mean nothing outside your head. Say the concrete thing you want changed.</li>
+          <li><strong>No hidden assumptions.</strong> If the answer depends on a fact the model has not been told — which product, which version, which audience — it will invent one. State it instead.</li>
+          <li><strong>Unambiguous references.</strong> Avoid "it", "this" and "the above" when several things could match. Name the thing.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Common failures</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Compound questions.</strong> "Is this secure and how do I deploy it?" — the model optimises for whichever half it read as primary.</li>
+          <li><strong>Implied standards.</strong> "Make it professional" leaves the model to pick a register; "Rewrite in third person, no contractions" does not.</li>
+          <li><strong>Negation without an alternative.</strong> "Don't be verbose" tells the model what to avoid, not what to produce. Give a length instead.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>Fix the login bug and tell me if the rest of the code is okay.</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>The login form rejects valid credentials when the email contains a plus sign.
+Find the cause in auth/validate.js and propose a fix.
+Answer only about that bug — I will ask about the rest of the file separately.</pre>
+          </div>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Other principles">
+        <a class="next" href="/principles/context">Context &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

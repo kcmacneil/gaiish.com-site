@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Context — gaiish</title>
+    <meta name="description" content="Give the model the documents, constraints and audience it cannot infer." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Context</h1>
+      <p class="hero-sub">Give the model the documents, constraints and audience it cannot infer</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Principles">
+      <ul>
+        <li><a href="/principles/clarity">Clarity</a></li>
+        <li><a href="/principles/context" class="current">Context</a></li>
+        <li><a href="/principles/intent">Intent</a></li>
+        <li><a href="/principles/precision">Precision</a></li>
+        <li><a href="/principles/result">Result</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">Everything the model knows about your situation arrives in the prompt. Context is the deliberate supply of that background: the source material, the rules you are bound by, and the reader you are writing for — none of which the model can look up on its own.</p>
+      </section>
+
+      <section class="prose">
+        <h2>What to supply</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Source material.</strong> Paste the code, the document, the error output, the data. A quoted excerpt beats a description of it every time.</li>
+          <li><strong>Constraints.</strong> Budget, deadline, stack, style guide, word limit, compliance rules, things that must not change.</li>
+          <li><strong>Audience.</strong> Who reads the output and what they already know. A note for a board and a note for an engineer differ mostly in assumed context.</li>
+          <li><strong>Prior attempts.</strong> What you already tried and why it failed, so the model does not repeat it.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>How to organise it</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Label the parts.</strong> Headings or tags ("SOURCE:", "RULES:", "TASK:") keep long prompts navigable and stop the model from confusing data with instructions.</li>
+          <li><strong>Put the task last.</strong> With a lot of context, ending on the instruction keeps the request salient.</li>
+          <li><strong>Retrieve rather than dump.</strong> When the corpus is large, use retrieval to pull only the relevant passages — see <a href="/topics/embeddings-rag">Embeddings &amp; RAG</a>.</li>
+          <li><strong>Prune stale context.</strong> Contradictory leftovers from earlier turns are worse than no context at all.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>Write release notes for our new version.</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>AUDIENCE: existing customers, non-technical.
+CONSTRAINTS: max 200 words, no version numbers, British English.
+SOURCE (merged PR titles):
+- Faster search indexing
+- Fix: duplicate invoices on retry
+- New CSV export in Reports
+TASK: write the release notes from the source above.</pre>
+          </div>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Other principles">
+        <a class="prev" href="/principles/clarity">&larr; Clarity</a>
+        <a class="next" href="/principles/intent">Intent &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

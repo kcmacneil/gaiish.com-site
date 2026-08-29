@@ -150,8 +150,13 @@ h2 {
   border-top: 2px solid var(--accent);
 }
 
+.pillars li:hover {
+  border-top-color: #0b5570;
+}
+
 .pillars .step {
   display: block;
+  text-decoration: none;
   color: var(--accent);
   font-weight: 700;
   font-size: 0.8125rem;
@@ -164,10 +169,55 @@ h2 {
   color: var(--line);
 }
 
+.pillars a.step:hover {
+  text-decoration: underline;
+}
+
 .pillars p {
   margin: 0.5rem 0 0;
   color: var(--muted);
   font-size: 0.9375rem;
+}
+
+/* Prompt examples */
+.example {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.example .label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.example .label.weak {
+  color: #a08a5f;
+}
+
+.example .label.strong {
+  color: var(--accent);
+}
+
+.example pre {
+  margin: 0;
+  padding: 1.25rem;
+  background: var(--alt-bg);
+  border-left: 2px solid var(--line);
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.example div:last-child pre {
+  border-left-color: var(--accent);
 }
 
 /* Values */

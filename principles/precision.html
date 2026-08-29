@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Precision — gaiish</title>
+    <meta name="description" content="Tighten the wording, bound the scope, and say what to leave out." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Precision</h1>
+      <p class="hero-sub">Tighten the wording, bound the scope, and say what to leave out</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Principles">
+      <ul>
+        <li><a href="/principles/clarity">Clarity</a></li>
+        <li><a href="/principles/context">Context</a></li>
+        <li><a href="/principles/intent">Intent</a></li>
+        <li><a href="/principles/precision" class="current">Precision</a></li>
+        <li><a href="/principles/result">Result</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">Precision is the editing pass on your own prompt. Every vague quantifier, unbounded scope and unstated exclusion is a decision handed to the model — usually to be resolved as a longer, hedged, more generic answer than you wanted.</p>
+      </section>
+
+      <section class="prose">
+        <h2>Tighten</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Replace quantifiers with numbers.</strong> "A few examples" becomes "exactly three examples"; "short" becomes "under 120 words".</li>
+          <li><strong>Bound the scope.</strong> Name the files, the date range, the sections in play — and say that everything else is out of scope.</li>
+          <li><strong>State exclusions.</strong> "No preamble", "no apologies", "do not restate the question", "do not suggest alternatives I did not ask for".</li>
+          <li><strong>Fix the vocabulary.</strong> If a term is ambiguous in your domain, define it inline the first time you use it.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Guardrails</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Handle the unknown case.</strong> Say what to do when the answer is not in the material: "reply exactly UNKNOWN" beats an invented answer.</li>
+          <li><strong>Constrain the output space.</strong> Enumerate the allowed values for a classification instead of accepting free text.</li>
+          <li><strong>Beware over-constraining.</strong> Too many rules crowd out the task; keep the constraints that change the answer and drop the decorative ones.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>Summarise this report and give some recommendations.</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>Summarise the attached report in exactly 5 bullets, each under 20 words.
+Then give 3 recommendations, ranked by expected impact, each with the sentence from the report that supports it.
+Use only the report; if something is not covered, write NOT IN REPORT.
+No introduction or closing remarks.</pre>
+          </div>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Other principles">
+        <a class="prev" href="/principles/intent">&larr; Intent</a>
+        <a class="next" href="/principles/result">Result &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

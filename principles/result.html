@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Result — gaiish</title>
+    <meta name="description" content="Check the output against the goal, then refine rather than restart." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Result</h1>
+      <p class="hero-sub">Check the output against the goal, then refine rather than restart</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Principles">
+      <ul>
+        <li><a href="/principles/clarity">Clarity</a></li>
+        <li><a href="/principles/context">Context</a></li>
+        <li><a href="/principles/intent">Intent</a></li>
+        <li><a href="/principles/precision">Precision</a></li>
+        <li><a href="/principles/result" class="current">Result</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">The first response is a draft, not a verdict on the model. Result is the closing loop: compare what came back with the goal you stated, name the specific gap, and iterate on that gap — rather than rewriting the prompt from scratch and losing everything that already worked.</p>
+      </section>
+
+      <section class="prose">
+        <h2>Check</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Against your own criteria.</strong> You stated the goal and format in the prompt; grade the answer on exactly those, not on general impression.</li>
+          <li><strong>Verify the facts.</strong> Claims, citations, numbers and APIs need checking against the source — fluency is not accuracy.</li>
+          <li><strong>Run it.</strong> For code, SQL or configuration, execution is the fastest and least forgiving reviewer.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Refine</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Change one thing at a time.</strong> Add the missing constraint and re-run. Rewriting everything makes it impossible to tell what helped.</li>
+          <li><strong>Correct with specifics.</strong> "Too long" is weak feedback; "cut section 2 to three sentences and drop the examples" is actionable.</li>
+          <li><strong>Keep what worked.</strong> Quote the good paragraph back and ask for the rest to match it.</li>
+          <li><strong>Promote a winning prompt.</strong> When a phrasing consistently works, save it as a template — a reusable prompt is an asset.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Know when to restart</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Wrong premise.</strong> If the model misread the task at the root, further patching compounds the error — restate the task cleanly.</li>
+          <li><strong>Polluted context.</strong> After many corrections the thread may contain contradictions; start fresh with the refined prompt.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>That&#x27;s not what I wanted, try again.</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>Good: the structure and the tone in section 1 — keep them.
+Wrong: section 2 lists features, but I asked for customer benefits.
+Rewrite section 2 only, as 3 benefit statements of one sentence each. Leave the rest untouched.</pre>
+          </div>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Other principles">
+        <a class="prev" href="/principles/precision">&larr; Precision</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

@@ -5,6 +5,7 @@ The gaiish.com site. gaiish is a language humans use to optimise communication w
 ## Files
 
 - `index.html` — front page
+- `principles/*.html` — the five gaiish principles (clarity, context, intent, precision, result) with prompt examples
 - `topics/*.html` — detail pages (transformers, diffusion, multimodal, embeddings & RAG, fine-tuning, agents)
 - `assets/hero.jpg` — hero image
 - `assets/brand/` — brand reference image and alternate renders used as templates for new imagery

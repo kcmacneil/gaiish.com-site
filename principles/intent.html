@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Intent — gaiish</title>
+    <meta name="description" content="State the goal and the format, not just the topic." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Intent</h1>
+      <p class="hero-sub">State the goal and the format, not just the topic</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Principles">
+      <ul>
+        <li><a href="/principles/clarity">Clarity</a></li>
+        <li><a href="/principles/context">Context</a></li>
+        <li><a href="/principles/intent" class="current">Intent</a></li>
+        <li><a href="/principles/precision">Precision</a></li>
+        <li><a href="/principles/result">Result</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">A topic tells the model what to talk about; intent tells it what the output is for. Naming the outcome — the decision to be supported, the artefact to be produced, the shape it must arrive in — is usually the single highest-leverage line in a prompt.</p>
+      </section>
+
+      <section class="prose">
+        <h2>Name the outcome</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>The job to be done.</strong> "Help me decide whether to migrate" produces a different answer from "Explain database migration", even though the topic is identical.</li>
+          <li><strong>The artefact.</strong> An email, a table, a checklist, a patch, a JSON object — say which.</li>
+          <li><strong>The format.</strong> Sections, length, ordering, schema. If the output feeds a program, give the exact schema and say that nothing else should be emitted.</li>
+          <li><strong>The success test.</strong> Tell the model how you will judge the answer, and it will aim at that target.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Techniques</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Show an example.</strong> One short sample of the desired output shape conveys more than a paragraph describing it.</li>
+          <li><strong>Assign a role only when it changes the content.</strong> "You are a tax accountant" shifts vocabulary and priorities; "You are a helpful assistant" changes nothing.</li>
+          <li><strong>Say what happens next.</strong> "This goes straight into a slide" implies brevity without you having to specify it.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>Tell me about our churn numbers.</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>GOAL: help me decide whether to fund a retention project this quarter.
+FORMAT: a 5-row table (segment, churn %, trend, likely cause, suggested action), then one paragraph with your recommendation.
+DATA: attached CSV of monthly churn by segment.</pre>
+          </div>
+        </div>
+      </section>
+
+      <nav class="pager" aria-label="Other principles">
+        <a class="prev" href="/principles/context">&larr; Context</a>
+        <a class="next" href="/principles/precision">Precision &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>
