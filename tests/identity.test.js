@@ -2,7 +2,8 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { isAllowedOrigin } = require("../api/identify");
+const identifyHandler = require("../api/identify");
+const { isAllowedOrigin } = identifyHandler;
 const {
   isValidEmail,
   isValidPhone,
@@ -18,12 +19,41 @@ test("validates email and phone identities", () => {
   assert.equal(isValidEmail("person@example.com"), true);
   assert.equal(isValidEmail("not-an-email"), false);
   assert.equal(isValidEmail("a".repeat(250) + "@x.com"), false);
+  assert.equal(isValidEmail('a"b@x.com'), false);
+  assert.equal(isValidEmail("a\\\\b@x.com"), false);
+  assert.equal(isValidEmail("a(b)@x.com"), false);
+  assert.equal(isValidEmail("a\nb@x.com"), false);
   assert.equal(isValidPhone("+14155550123"), true);
   assert.equal(isValidPhone("4155550123"), false);
   assert.equal(isValidIdentity({ email: "person@example.com" }), true);
   assert.equal(isValidIdentity({ phone: "+14155550123" }), true);
   assert.equal(isValidIdentity({ email: "bad", phone: "+14155550123" }), false);
   assert.equal(isValidIdentity({}), false);
+});
+
+test("rejects unsafe email input at the HTTP boundary", async () => {
+  const response = { headers: {}, statusCode: null, body: null };
+  const res = {
+    setHeader(name, value) {
+      response.headers[name] = value;
+    },
+    status(statusCode) {
+      response.statusCode = statusCode;
+      return this;
+    },
+    json(body) {
+      response.body = body;
+      return this;
+    },
+  };
+  await identifyHandler({
+    method: "POST",
+    headers: { origin: "http://localhost:8000" },
+    body: { email: 'a"b@example.com' },
+  }, res);
+  assert.equal(response.statusCode, 400);
+  assert.deepEqual(response.body, { error: "invalid_identity" });
+  assert.equal(response.headers["Cache-Control"], "no-store");
 });
 
 test("mints the required Crockford internal user ID format", () => {
@@ -144,4 +174,93 @@ test("omits absent profile attributes", () => {
       signup_source: "/learn-gaiish",
     },
   });
+});
+
+test("records affirmative consent without writing false", () => {
+  const consentBody = profileImportBody(
+    { email: "person@example.com" },
+    "usr_0123456789ABCDEFGHJKMNPQRS",
+    { minted: false, consent: true, now: "2026-08-29T00:00:00.000Z" }
+  );
+  assert.equal(consentBody.data.attributes.properties.gaiish_updates_consent, true);
+  assert.equal(
+    consentBody.data.attributes.properties.gaiish_updates_consent_date,
+    "2026-08-29T00:00:00.000Z"
+  );
+  const noConsentBody = profileImportBody(
+    { email: "person@example.com" },
+    "usr_0123456789ABCDEFGHJKMNPQRS",
+    { minted: false, consent: false, now: "2026-08-29T00:00:00.000Z" }
+  );
+  assert.equal("gaiish_updates_consent" in noConsentBody.data.attributes.properties, false);
+  assert.equal(
+    "gaiish_updates_consent_date" in noConsentBody.data.attributes.properties,
+    false
+  );
+  const absentConsentBody = profileImportBody(
+    { email: "person@example.com" },
+    "usr_0123456789ABCDEFGHJKMNPQRS",
+    { minted: false, now: "2026-08-29T00:00:00.000Z" }
+  );
+  assert.equal(
+    "gaiish_updates_consent" in absentConsentBody.data.attributes.properties,
+    false
+  );
+});
+
+test("serializes the HTTP response with the documented snake_case keys", async () => {
+  const previousFetch = global.fetch;
+  const previousKey = process.env.KLAVIYO_PRIVATE_API_KEY;
+  const calls = [];
+  global.fetch = async (url, options) => {
+    calls.push({ url, options });
+    if (calls.length === 1) {
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({ data: [] }),
+      };
+    }
+    return {
+      ok: true,
+      status: 201,
+      json: async () => ({ data: { id: "profile_http" } }),
+    };
+  };
+  process.env.KLAVIYO_PRIVATE_API_KEY = "secret";
+  const response = { headers: {}, statusCode: null, body: null };
+  const res = {
+    setHeader(name, value) {
+      response.headers[name] = value;
+    },
+    status(statusCode) {
+      response.statusCode = statusCode;
+      return this;
+    },
+    json(body) {
+      response.body = body;
+      return this;
+    },
+  };
+  try {
+    await identifyHandler({
+      method: "POST",
+      headers: { origin: "http://localhost:8000" },
+      body: { email: "person@example.com", consent: true },
+    }, res);
+  } finally {
+    global.fetch = previousFetch;
+    if (previousKey === undefined) delete process.env.KLAVIYO_PRIVATE_API_KEY;
+    else process.env.KLAVIYO_PRIVATE_API_KEY = previousKey;
+  }
+  assert.equal(response.statusCode, 200);
+  assert.equal(response.headers["Cache-Control"], "no-store");
+  assert.deepEqual(Object.keys(response.body).sort(), [
+    "internal_user_id",
+    "klaviyo_profile_id",
+  ]);
+  assert.match(response.body.internal_user_id, /^usr_[0-9A-HJKMNP-TV-Z]{26}$/);
+  assert.equal(response.body.klaviyo_profile_id, "profile_http");
+  const importBody = JSON.parse(calls[1].options.body);
+  assert.equal(importBody.data.attributes.properties.gaiish_updates_consent, true);
 });

@@ -108,6 +108,7 @@
     if (input.firstName) payload.first_name = input.firstName;
     if (input.lastName) payload.last_name = input.lastName;
     if (input.source) payload.source = input.source;
+    if (input.consent) payload.consent = true;
     return fetch("/api/identify", {
       method: "POST",
       headers: { "content-type": "application/json", accept: "application/json" },
@@ -133,7 +134,8 @@
       phone: value(details.phone),
       first_name: value(details.firstName),
       last_name: value(details.lastName),
-      source: value(details.source)
+      source: value(details.source),
+      consent: details.consent === true
     };
     var result = { ok: false, internalUserId: null };
     var serverIdentity = null;
@@ -151,6 +153,7 @@
           if (input.first_name) properties.first_name = input.first_name;
           if (input.last_name) properties.last_name = input.last_name;
           if (input.source) properties.signup_source = input.source;
+          if (input.consent) properties.gaiish_updates_consent = true;
           if (serverIdentity.klaviyo_profile_id) {
             properties.klaviyo_profile_id = serverIdentity.klaviyo_profile_id;
           }
@@ -215,13 +218,16 @@
         var result = await window.gaiishIdentify({
           email: email,
           firstName: firstName,
+          consent: true,
           source: location.pathname
         });
-        window.gaiishTrack("lead_captured", {
-          source: location.pathname,
-          form_name: "gaiish_guide_download",
-          content_type: "pdf"
-        });
+        if (typeof window.gaiishTrack === "function") {
+          window.gaiishTrack("lead_captured", {
+            source: location.pathname,
+            form_name: "gaiish_guide_download",
+            content_type: "pdf"
+          });
+        }
         if (result.ok) {
           form.outerHTML = '<p class="capture-success" role="status">Thanks — your guide is ready. '
             + '<a href="' + GUIDE_URL + '">Download the Gaiish reference guide (PDF)</a>.</p>';

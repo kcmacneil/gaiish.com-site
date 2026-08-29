@@ -72,7 +72,10 @@ module.exports = async (req, res) => {
   const fetchImpl = (url, options) => global.fetch(url, { ...options, signal: controller.signal });
   try {
     const result = await resolveIdentity(body, { apiKey, fetchImpl });
-    send(res, 200, result);
+    send(res, 200, {
+      internal_user_id: result.internalUserId,
+      klaviyo_profile_id: result.klaviyoProfileId,
+    });
   } catch (error) {
     const status = typeof error.klaviyoStatus === "number" ? error.klaviyoStatus : undefined;
     logFailure("identity_lookup_failed", status);

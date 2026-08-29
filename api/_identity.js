@@ -12,7 +12,10 @@ function hasValue(value) {
 }
 
 function isValidEmail(email) {
-  return typeof email === "string" && email.length <= 254 && EMAIL_RE.test(email);
+  return typeof email === "string" &&
+    email.length <= 254 &&
+    !/[\\\"()\u0000-\u001f\u007f]/.test(email) &&
+    EMAIL_RE.test(email);
 }
 
 function isValidPhone(phone) {
@@ -72,6 +75,10 @@ function profileImportBody(identity, internalUserId, options = {}) {
     properties.signup_date = options.now || new Date().toISOString();
     if (hasValue(identity.source)) properties.signup_source = identity.source;
   }
+  if (options.consent === true) {
+    properties.gaiish_updates_consent = true;
+    properties.gaiish_updates_consent_date = options.now || new Date().toISOString();
+  }
   attributes.properties = properties;
   return { data: { type: "profile", attributes } };
 }
@@ -101,6 +108,7 @@ async function resolveIdentity(identity, options = {}) {
   const importBody = profileImportBody(identity, internalUserId, {
     minted,
     now: options.now,
+    consent: identity.consent,
   });
   const importResponse = await fetchImpl(
     "https://a.klaviyo.com/api/profile-import",

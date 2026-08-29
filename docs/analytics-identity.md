@@ -65,8 +65,9 @@ through the Browser SDK `Identify` API when available. The PII user properties a
 - `first_name`
 - `last_name`
 
-It also sets the non-contact properties `klaviyo_profile_id` and `signup_source` when values are
-available. No prompt text, source material or form contents are sent as event properties.
+It also sets the non-contact properties `klaviyo_profile_id`, `signup_source` and
+`gaiish_updates_consent` when values are available. No prompt text, source material or form
+contents are sent as event properties.
 
 The Amplitude SDK loads asynchronously. `site.js` exposes `window.gaiishAnalyticsReady(callback)`
 and flushes callbacks immediately after its single `amplitude.init` call. `identity.js` uses
@@ -80,6 +81,10 @@ Klaviyo identifies profiles primarily by email or phone. The browser sends its i
 entry with the supplied `email`, `phone_number`, `first_name`, `last_name`, and the resolved
 `internal_user_id` when the server returned one. If the server is unavailable, the Klaviyo
 identify call still contains the contact and name fields but omits `internal_user_id`.
+When the capture-form checkbox is checked, the server records
+`gaiish_updates_consent: true` and `gaiish_updates_consent_date` on the Klaviyo profile. This
+only records a profile property; it does not subscribe anyone to a Klaviyo list. List
+subscription still requires a Klaviyo list ID and a separate deliberate implementation.
 
 The private API key exists only as the `KLAVIYO_PRIVATE_API_KEY` Vercel environment variable.
 It is never sent to the browser or written to logs.
@@ -90,7 +95,8 @@ It is never sent to the browser or written to logs.
 2. The visitor completes the required-consent reference-guide form on the homepage,
    `/learn-gaiish` or `/dictionary`.
 3. `/api/identify` validates the origin and email/phone, resolves or creates the Klaviyo
-   profile ID and stable internal ID, and returns those IDs.
+   profile ID and stable internal ID, records affirmative consent as a Klaviyo profile
+   property, and returns those IDs.
 4. Amplitude receives `internal_user_id` as `user_id` and the listed user properties.
 5. Klaviyo receives its email/phone identity and the same internal ID custom property.
 6. The browser stores only `{ internal_user_id, klaviyo_profile_id }` in localStorage under
@@ -105,11 +111,17 @@ Klaviyo profile.
 
 ## Consent and known gap
 
-The capture form requires the checkbox: “Email me Gaiish updates. Unsubscribe any time.” There
-is currently no cookie-consent banner. Amplitude and Klaviyo load on page load, including for
-visitors in the EU, so consent management for those page-load technologies is a known GDPR/EU
-gap. Do not describe the checkbox as solving that broader gap; a future consent decision must
-govern provider loading as well as lead capture.
+The capture form requires the checkbox: “Email me Gaiish updates. Unsubscribe any time.” A
+checked box is recorded as the Klaviyo profile properties `gaiish_updates_consent: true` and
+`gaiish_updates_consent_date`; it is mirrored as the Amplitude user property
+`gaiish_updates_consent`. This is profile-property recording only: no Klaviyo list subscription
+occurs because the site does not have a Klaviyo list ID. List subscription still needs a list ID
+and an explicit implementation.
+
+There is currently no cookie-consent banner. Amplitude and Klaviyo load on page load, including
+for visitors in the EU, so consent management for those page-load technologies is a known
+GDPR/EU gap. Do not describe the checkbox as solving that broader gap; a future consent decision
+must govern provider loading as well as lead capture.
 
 ## Troubleshooting
 
