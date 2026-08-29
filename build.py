@@ -57,7 +57,7 @@ def write_sitemap(routes):
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s\n</urlset>\n'
         % "\n".join(urls)
     )
-    with open(os.path.join(ROOT, "sitemap.xml"), "w") as handle:
+    with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as handle:
         handle.write(document)
 
 
@@ -68,7 +68,7 @@ def write_robots():
         "\n"
         "Sitemap: %s/sitemap.xml\n" % config.SITE_URL
     )
-    with open(os.path.join(ROOT, "robots.txt"), "w") as handle:
+    with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as handle:
         handle.write(document)
 
 
@@ -92,7 +92,7 @@ def write_vercel_config():
             }
         ],
     }
-    with open(os.path.join(ROOT, "vercel.json"), "w") as handle:
+    with open(os.path.join(ROOT, "vercel.json"), "w", encoding="utf-8") as handle:
         json.dump(document, handle, indent=2)
         handle.write("\n")
 

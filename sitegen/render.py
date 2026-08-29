@@ -332,6 +332,7 @@ def render_page(page):
     scripts = "".join(
         '    <script src="%s" defer></script>\n' % src for src in page.get("scripts", [])
     )
+    scripts += '    <script src="/assets/amplitude.js" defer></script>\n'
     scripts += '    <script src="/site.js" defer></script>\n'
 
     return DOCUMENT % {
@@ -358,6 +359,6 @@ def output_path(root, route):
 def write_page(root, page):
     path = output_path(root, page["route"])
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as handle:
+    with open(path, "w", encoding="utf-8") as handle:
         handle.write(render_page(page))
     return path
