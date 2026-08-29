@@ -138,6 +138,7 @@ HOME = {
          '<a href="/outcomes/collaborate">collaborate</a>, '
          '<a href="/outcomes/optimize">optimize</a> and '
          '<a href="/outcomes/empower">empower</a> describe what changes when you do.'),
+        ("capture", None),
         ("callout", "A developing language",
          "Gaiish is a developing methodology and vocabulary for human–AI communication, "
          "documented here as it evolves. It is not an industry standard, and this site makes no "
@@ -305,6 +306,7 @@ LEARN = {
             ("Specification", "The formal write-up of the language, versioned.",
              "/gaiish-language/specification"),
         ]),
+        ("capture", None),
     ],
 }
 

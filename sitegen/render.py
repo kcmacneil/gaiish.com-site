@@ -35,6 +35,7 @@ BLOCK TYPES (tuples, first element is the type):
     ("table", ["Col", ...], [[cell, ...], ...])
     ("links", [("Label", "/url"), ...])
     ("html", "<raw markup>")
+    ("capture", None)                     # Email capture form for the reference guide
 """
 
 import html
@@ -86,6 +87,29 @@ def _cards(entries):
         else:
             items.append('<article class="card"><h3>%s</h3><p>%s</p></article>' % (esc(title), body))
     return '<div class="grid">%s</div>' % "".join(items)
+
+
+def _capture():
+    return """<section class="capture-panel" aria-labelledby="capture-heading">
+  <h2 id="capture-heading">Get the Gaiish reference guide (PDF)</h2>
+  <p>Receive the Gaiish key concepts and definitions guide for reference.</p>
+  <form class="capture-form" data-capture-form>
+    <div class="field">
+      <label for="capture-email">Email</label>
+      <input id="capture-email" name="email" type="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="capture-first-name">First name <span>(optional)</span></label>
+      <input id="capture-first-name" name="first_name" autocomplete="given-name">
+    </div>
+    <label class="consent-label" for="capture-consent">
+      <input id="capture-consent" name="consent" type="checkbox" required>
+      <span>Email me Gaiish updates. Unsubscribe any time.</span>
+    </label>
+    <button type="submit" class="cta cta-primary">Get the reference guide</button>
+    <p class="capture-status" data-capture-status role="status" aria-live="polite"></p>
+  </form>
+</section>"""
 
 
 def _compare(traditional, gaiish, why):
@@ -154,6 +178,8 @@ def render_block(block):
         return _steps(block[1])
     if kind == "cards":
         return _cards(block[1])
+    if kind == "capture":
+        return _capture()
     if kind == "compare":
         return _compare(block[1], block[2], block[3] if len(block) > 3 else None)
     if kind == "table":
@@ -333,7 +359,10 @@ def render_page(page):
         for block in page["blocks"]
     )
 
-    scripts = '    <script src="/site.js" defer></script>\n'
+    scripts = (
+        '    <script src="/site.js" defer></script>\n'
+        '    <script src="/identity.js" defer></script>\n'
+    )
     scripts += "".join(
         '    <script src="%s" defer></script>\n' % src for src in page.get("scripts", [])
     )

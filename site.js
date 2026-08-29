@@ -29,6 +29,33 @@
   var AMPLITUDE_API_KEY = "4a2afc52a58978951b1f9581137bc7a1";
 
   var queue = [];
+  var analyticsReady = false;
+  var analyticsReadyCallbacks = [];
+
+  window.gaiishAnalyticsReady = function (callback) {
+    if (typeof callback !== "function") return;
+    if (analyticsReady) {
+      try {
+        callback();
+      } catch (error) {
+        // A provider callback must not interrupt the site's other scripts.
+      }
+    } else {
+      analyticsReadyCallbacks.push(callback);
+    }
+  };
+
+  function flushAnalyticsReady() {
+    analyticsReady = true;
+    while (analyticsReadyCallbacks.length) {
+      var callback = analyticsReadyCallbacks.shift();
+      try {
+        callback();
+      } catch (error) {
+        // A provider callback must not interrupt the site's other scripts.
+      }
+    }
+  }
 
   function loadAmplitude() {
     if (!AMPLITUDE_API_KEY) return;
@@ -49,6 +76,7 @@
         fetchRemoteConfig: true,
         autocapture: { attribution: true, pageViews: true, sessions: true, elementInteractions: false }
       });
+      flushAnalyticsReady();
       while (queue.length) {
         var queued = queue.shift();
         window.amplitude.track(queued[0], queued[1]);

@@ -140,6 +140,7 @@ for letter in _letters:
             ("p", term["short"]),
             ("links", [("Read full entry", "/dictionary/" + term["slug"])])
         ]
+DICTIONARY["blocks"].append(("capture", None))
 
 
 EXAMPLES = [

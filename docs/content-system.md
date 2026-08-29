@@ -99,6 +99,8 @@ and also supports a pre-initialization queue: events raised before the SDK finis
 held in memory and flushed after initialization. Current tool events are `tool_viewed`,
 `prompt_generated`, `prompt_saved`, `prompt_copied`, `prompt_cleared`, `prompt_analyzed` and
 `prompt_converted`; analyzer score bands and tool/source identifiers are metadata only.
+The identity layer and its server-resolved internal user ID are documented in
+[`docs/analytics-identity.md`](analytics-identity.md).
 
 **Never pass prompt text, field values or source material to analytics.** The tools run in the
 browser and do not submit prompts to the site server. Session replay is masked so recordings do
