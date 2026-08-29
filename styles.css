@@ -797,7 +797,7 @@ button.hotspot {
   text-decoration: none;
 }
 
-.sitenav > ul > li > a::after {
+.sitenav > ul > li.nav-group > a::after {
   content: "▾";
   margin-left: 0.45rem;
   color: #7fd6e6;
@@ -807,6 +807,22 @@ button.hotspot {
 .sitenav > ul > li > a:hover,
 .sitenav > ul > li > a.current {
   color: #7fd6e6;
+}
+
+.sitenav > ul > li > a.nav-cta {
+  min-height: 0;
+  padding: 0.45rem 0.7rem;
+  color: #071b30;
+  background: #7fd6e6;
+  border: 1px solid #7fd6e6;
+  border-radius: 2px;
+}
+
+.sitenav > ul > li > a.nav-cta:hover,
+.sitenav > ul > li > a.nav-cta:focus-visible,
+.sitenav > ul > li > a.nav-cta.current {
+  color: #ffffff;
+  background: transparent;
 }
 
 .nav-sub {
@@ -1322,6 +1338,11 @@ button.hotspot {
     padding: 0.65rem 0;
   }
 
+  .sitenav > ul > li > a.nav-cta {
+    width: fit-content;
+    padding: 0.65rem 0.75rem;
+  }
+
   .nav-sub {
     position: static;
     min-width: 0;
@@ -1606,6 +1627,59 @@ button.cta:focus-visible {
 .capture-success {
   margin-bottom: 0;
   color: #0f6f8f;
+}
+
+.guide-modal {
+  width: min(42rem, calc(100% - 2rem));
+  max-width: 42rem;
+  padding: 0;
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid #9bbbc5;
+  box-shadow: 0 1rem 3rem rgba(4, 12, 26, 0.35);
+}
+
+.guide-modal::backdrop {
+  background: rgba(4, 12, 26, 0.72);
+}
+
+.guide-modal-content {
+  position: relative;
+  padding: 2.5rem;
+}
+
+.guide-modal .capture-panel {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-top: 0;
+}
+
+.guide-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  padding: 0.35rem 0.55rem;
+  color: #0f6f8f;
+  background: transparent;
+  border: 1px solid #9bbbc5;
+  font: 700 0.7rem var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guide-modal-close:hover,
+.guide-modal-close:focus-visible {
+  color: #ffffff;
+  background: #0f6f8f;
+}
+
+@media (max-width: 52rem) {
+  .guide-modal-content {
+    padding: 2.5rem 1.25rem 1.5rem;
+  }
 }
 
 .prompt-result {

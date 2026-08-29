@@ -89,27 +89,27 @@ def _cards(entries):
     return '<div class="grid">%s</div>' % "".join(items)
 
 
-def _capture():
-    return """<section class="capture-panel" aria-labelledby="capture-heading">
-  <h2 id="capture-heading">Get the Gaiish reference guide (PDF)</h2>
+def _capture(prefix):
+    return """<section class="capture-panel" aria-labelledby="%(prefix)s-heading">
+  <h2 id="%(prefix)s-heading">Get the Gaiish reference guide (PDF)</h2>
   <p>Receive the Gaiish key concepts and definitions guide for reference.</p>
   <form class="capture-form" data-capture-form>
     <div class="field">
-      <label for="capture-email">Email</label>
-      <input id="capture-email" name="email" type="email" autocomplete="email" required>
+      <label for="%(prefix)s-email">Email</label>
+      <input id="%(prefix)s-email" name="email" type="email" autocomplete="email" required>
     </div>
     <div class="field">
-      <label for="capture-first-name">First name <span>(optional)</span></label>
-      <input id="capture-first-name" name="first_name" autocomplete="given-name">
+      <label for="%(prefix)s-first-name">First name <span>(optional)</span></label>
+      <input id="%(prefix)s-first-name" name="first_name" autocomplete="given-name">
     </div>
-    <label class="consent-label" for="capture-consent">
-      <input id="capture-consent" name="consent" type="checkbox" required>
+    <label class="consent-label" for="%(prefix)s-consent">
+      <input id="%(prefix)s-consent" name="consent" type="checkbox" required>
       <span>Email me Gaiish updates. Unsubscribe any time.</span>
     </label>
     <button type="submit" class="cta cta-primary">Get the reference guide</button>
     <p class="capture-status" data-capture-status role="status" aria-live="polite"></p>
   </form>
-</section>"""
+</section>""" % {"prefix": prefix}
 
 
 def _compare(traditional, gaiish, why):
@@ -179,7 +179,7 @@ def render_block(block):
     if kind == "cards":
         return _cards(block[1])
     if kind == "capture":
-        return _capture()
+        return _capture("capture")
     if kind == "compare":
         return _compare(block[1], block[2], block[3] if len(block) > 3 else None)
     if kind == "table":
@@ -199,15 +199,27 @@ def render_block(block):
 def _nav(nav_key):
     items = []
     for label, url, children in config.NAV:
-        current = ' class="current"' if url == nav_key else ""
+        classes = []
+        if url == nav_key:
+            classes.append("current")
+        if not children and url == "/free-guide":
+            classes.append("nav-cta")
+        class_attr = ' class="%s"' % " ".join(classes) if classes else ""
+        data_attr = ' data-guide-modal-trigger' if url == "/free-guide" else ""
         sub = "".join(
             '<li><a href="%s">%s</a></li>' % (child_url, esc(child_label))
             for child_label, child_url in children
         )
-        items.append(
-            '<li class="nav-group"><a href="%s"%s>%s</a><ul class="nav-sub">%s</ul></li>'
-            % (url, current, esc(label), sub)
-        )
+        if children:
+            items.append(
+                '<li class="nav-group"><a href="%s"%s>%s</a><ul class="nav-sub">%s</ul></li>'
+                % (url, class_attr, esc(label), sub)
+            )
+        else:
+            items.append(
+                '<li><a href="%s"%s%s>%s</a></li>'
+                % (url, class_attr, data_attr, esc(label))
+            )
     return (
         '<nav class="sitenav" aria-label="Primary">'
         '<a class="brand" href="/">gaiish</a>'
@@ -306,7 +318,7 @@ DOCUMENT = """<!DOCTYPE html>
 %(body)s
     </main>
 %(footer)s
-  %(scripts)s  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/Vnzfjv/klaviyo.js?company_id=Vnzfjv"></script>
+  %(scripts)s%(modal)s  <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/Vnzfjv/klaviyo.js?company_id=Vnzfjv"></script>
   <script type="text/javascript">
   !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
   </script>
@@ -366,6 +378,16 @@ def render_page(page):
     scripts += "".join(
         '    <script src="%s" defer></script>\n' % src for src in page.get("scripts", [])
     )
+    modal = (
+        '<dialog id="guide-modal" class="guide-modal" data-guide-modal '
+        'aria-labelledby="modal-capture-heading">\n'
+        '  <div class="guide-modal-content">\n'
+        '    <button type="button" class="guide-modal-close" data-guide-modal-close '
+        'aria-label="Close">Close</button>\n'
+        '    %s\n'
+        '  </div>\n'
+        '</dialog>\n' % _capture("modal-capture")
+    )
 
     return DOCUMENT % {
         "title": esc(title),
@@ -378,6 +400,7 @@ def render_page(page):
         "header": header,
         "body": body,
         "footer": _footer(),
+        "modal": modal,
         "scripts": scripts,
     }
 

@@ -447,4 +447,26 @@ METHOD = {
 }
 
 
-PAGES = [HOME, WHAT_IS, LEARN, METHOD]
+FREE_GUIDE = {
+    "route": "/free-guide",
+    "title": "Free Gaiish Reference Guide",
+    "description": (
+        "Get the free Gaiish reference guide: key concepts and definitions for communicating "
+        "more clearly with generative AI."
+    ),
+    "eyebrow": "Reference guide",
+    "h1": "Free Gaiish Reference Guide",
+    "lede": (
+        "Get the Gaiish key concepts and definitions guide as a practical reference for "
+        "human–AI communication."
+    ),
+    "breadcrumbs": [],
+    "nav_key": "/free-guide",
+    "updated": config.LAST_UPDATED,
+    "blocks": [
+        ("capture", None),
+    ],
+}
+
+
+PAGES = [HOME, WHAT_IS, LEARN, METHOD, FREE_GUIDE]

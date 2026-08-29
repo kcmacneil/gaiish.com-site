@@ -93,6 +93,7 @@ NAV = [
         ("About", "/about"),
         ("Origin of Gaiish", "/origin-of-gaiish"),
     ]),
+    ("Free Guide", "/free-guide", []),
 ]
 
 FOOTER_LINKS = [

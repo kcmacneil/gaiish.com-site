@@ -205,6 +205,30 @@
     });
   };
 
+  function setupGuideModal() {
+    var dialog = document.querySelector("[data-guide-modal]");
+    var trigger = document.querySelector("[data-guide-modal-trigger]");
+    if (!dialog || !trigger || !window.HTMLDialogElement ||
+        typeof window.HTMLDialogElement.prototype.showModal !== "function") {
+      return;
+    }
+    var close = dialog.querySelector("[data-guide-modal-close]");
+    trigger.addEventListener("click", function (event) {
+      event.preventDefault();
+      dialog.showModal();
+      var email = dialog.querySelector('[name="email"]');
+      if (email) email.focus();
+    });
+    if (close) {
+      close.addEventListener("click", function () {
+        dialog.close();
+      });
+    }
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+
   function setupCaptureForms() {
     document.querySelectorAll("[data-capture-form]").forEach(function (form) {
       form.addEventListener("submit", async function (event) {
@@ -242,8 +266,12 @@
 
   applyStoredIdentity();
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupCaptureForms);
+    document.addEventListener("DOMContentLoaded", function () {
+      setupCaptureForms();
+      setupGuideModal();
+    });
   } else {
     setupCaptureForms();
+    setupGuideModal();
   }
 })();
