@@ -445,6 +445,10 @@ tbody tr:hover {
   padding: 3rem 1.5rem 0;
 }
 
+.prose:has(> .framework) {
+  max-width: 68rem;
+}
+
 .prose:last-of-type {
   padding-bottom: 3rem;
 }
@@ -956,6 +960,10 @@ button.hotspot {
   margin-right: auto;
 }
 
+.prose:has(> .framework) > .framework {
+  max-width: 68rem;
+}
+
 .prose > p {
   color: var(--muted);
 }
@@ -1033,6 +1041,7 @@ button.hotspot {
   display: block;
   font-family: var(--serif);
   font-size: 1.15rem;
+  overflow-wrap: anywhere;
 }
 
 .fw-q {
@@ -1298,6 +1307,10 @@ button.hotspot {
 
   .sitenav.nav-open > ul {
     display: flex;
+  }
+
+  .sitenav.nav-open .nav-sub {
+    display: block;
   }
 
   .sitenav > ul > li {

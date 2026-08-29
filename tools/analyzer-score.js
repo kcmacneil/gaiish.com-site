@@ -118,14 +118,20 @@
   }
 
   function labelledSections(text) {
-    // Splits "LABEL: body" sections so substance can be attributed per component.
+    // Splits "LABEL: body" sections so substance can be attributed per component. Both written
+    // forms count: the label alone on its line, and "LABEL: body" on a single line.
     var sections = {};
-    var pattern = /^[ \t]*([A-Za-z][A-Za-z /_-]{1,30}?)[ \t]*:[ \t]*$|^[ \t]*([A-Za-z][A-Za-z /_-]{1,30}?)[ \t]*:[ \t]+(.*)$/gm;
+    var pattern = /^[ \t]*([A-Za-z][A-Za-z /_-]{1,30}?)[ \t]*:[ \t]*(.*)$/gm;
     var match;
     var order = [];
     while ((match = pattern.exec(text)) !== null) {
-      var label = (match[1] || match[2] || "").trim().toLowerCase();
-      order.push({ label: label, start: match.index, bodyStart: pattern.lastIndex });
+      var label = match[1].trim().toLowerCase();
+      var inline = match[2];
+      order.push({
+        label: label,
+        start: match.index,
+        bodyStart: match.index + match[0].length - inline.length
+      });
     }
     for (var i = 0; i < order.length; i += 1) {
       var end = i + 1 < order.length ? order[i + 1].start : text.length;
