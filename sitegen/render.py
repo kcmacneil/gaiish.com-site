@@ -220,13 +220,17 @@ def _nav(nav_key):
                 '<li><a href="%s"%s%s>%s</a></li>'
                 % (url, class_attr, data_attr, esc(label))
             )
+    mobile_cta_class = "nav-cta nav-cta-mobile"
+    if nav_key == "/free-guide":
+        mobile_cta_class += " current"
     return (
         '<nav class="sitenav" aria-label="Primary">'
         '<a class="brand" href="/">gaiish</a>'
+        '<a class="%s" href="/free-guide" data-guide-modal-trigger>Free Guide</a>'
         '<button class="nav-toggle" type="button" aria-expanded="false" '
         'aria-controls="sitenav-list">Menu</button>'
         '<ul id="sitenav-list">%s</ul>'
-        "</nav>" % "".join(items)
+        "</nav>" % (mobile_cta_class, "".join(items))
     )
 
 

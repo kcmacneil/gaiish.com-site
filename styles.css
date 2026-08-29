@@ -859,6 +859,26 @@ button.hotspot {
   background: rgba(127, 214, 230, 0.14);
 }
 
+.nav-cta-mobile {
+  display: none;
+  margin-left: auto;
+  padding: 0.55rem 0.8rem;
+  color: #071b30;
+  background: #7fd6e6;
+  border: 1px solid #7fd6e6;
+  border-radius: 3px;
+  font: 700 0.7rem var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-cta-mobile:hover,
+.nav-cta-mobile:focus-visible {
+  color: #ffffff;
+  background: transparent;
+}
+
 .nav-toggle {
   display: none;
   margin-left: auto;
@@ -1309,8 +1329,13 @@ button.hotspot {
     padding-bottom: 1rem;
   }
 
+  .nav-cta-mobile {
+    display: block;
+  }
+
   .nav-toggle {
     display: block;
+    margin-left: 0.6rem;
   }
 
   .sitenav > ul {
