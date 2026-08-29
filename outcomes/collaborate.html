@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Collaborate — gaiish</title>
+    <meta name="description" content="Work together with AI smarter." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Collaborate</h1>
+      <p class="hero-sub">Work together with AI smarter</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Outcomes">
+      <ul>
+        <li><a href="/outcomes/communicate">Communicate</a></li>
+        <li><a href="/outcomes/collaborate" class="current">Collaborate</a></li>
+        <li><a href="/outcomes/optimize">Optimize</a></li>
+        <li><a href="/outcomes/empower">Empower</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">Collaboration is what happens after the first answer. Instead of treating the model as a vending machine, you treat it as a colleague who has read nothing about your situation: you supply the material, it drafts, you react to specifics, and the two of you converge — with the model doing the typing and you doing the judging.</p>
+      </section>
+
+      <section class="prose">
+        <h2>How the loop works</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Give it the room to work in.</strong> Documents, data, code, prior decisions. A model with your context beats a bigger model without it.</li>
+          <li><strong>Draft, then react.</strong> Ask for a draft early and correct concretely — “rewrite section 2 as three benefit statements”, not “this is off”.</li>
+          <li><strong>Split the roles.</strong> Let the model generate options and do the legwork; keep taste, priorities and final judgement on your side.</li>
+          <li><strong>Keep the thread clean.</strong> Prune contradictions as you go; an argumentative history degrades every later answer.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Ways to divide the work</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Draft and critique.</strong> One pass writes, a second pass reviews against your criteria and lists only what fails.</li>
+          <li><strong>Grounded conversation.</strong> Retrieval puts your own documents into the exchange so answers cite your sources — see <a href="/topics/embeddings-rag">Embeddings &amp; RAG</a>.</li>
+          <li><strong>Mixed media.</strong> Screenshots, diagrams and recordings are legitimate input for a multimodal model — see <a href="/topics/multimodal">Multimodal Systems</a>.</li>
+          <li><strong>Shared standards.</strong> A reusable house-style block pasted into every session keeps output consistent across people.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>That draft isn&#x27;t right, do it again.</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>Keep: the structure and the opening paragraph.
+Fix: section 2 is feature-led; I need customer benefits.
+Add: the migration timing from the attached plan.
+Rewrite section 2 only, three sentences, and list any fact you had to assume.</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="prose">
+        <h2>Related on this site</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="/principles/context">Context — supply what the model cannot infer</a></li>
+          <li><a href="/topics/embeddings-rag">Embeddings &amp; RAG — ground answers in your documents</a></li>
+          <li><a href="/topics/multimodal">Multimodal Systems — work with images, audio and documents</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other outcomes">
+        <a class="prev" href="/outcomes/communicate">&larr; Communicate</a>
+        <a class="next" href="/outcomes/optimize">Optimize &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Optimize — gaiish</title>
+    <meta name="description" content="Get better results every time." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Optimize</h1>
+      <p class="hero-sub">Get better results every time</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Outcomes">
+      <ul>
+        <li><a href="/outcomes/communicate">Communicate</a></li>
+        <li><a href="/outcomes/collaborate">Collaborate</a></li>
+        <li><a href="/outcomes/optimize" class="current">Optimize</a></li>
+        <li><a href="/outcomes/empower">Empower</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">Optimising is turning a lucky prompt into a reliable one. You measure the output against criteria you wrote down, change one thing, measure again — and keep the phrasing that wins. Without measurement, prompt tuning is superstition.</p>
+      </section>
+
+      <section class="prose">
+        <h2>Measure before you tune</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Write the criteria first.</strong> Correctness, format, tone, length — the same criteria you should have put in the prompt.</li>
+          <li><strong>Build a tiny evaluation set.</strong> Ten to twenty real inputs with known-good answers catch far more regressions than intuition.</li>
+          <li><strong>Score consistently.</strong> Exact match or a rubric applied the same way each run; a second model can grade if the rubric is explicit.</li>
+          <li><strong>Change one variable.</strong> Prompt wording, context, model, temperature — one at a time, or you learn nothing.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Levers, cheapest first</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Sharper wording.</strong> Numbers instead of quantifiers, exclusions stated — see <a href="/principles/precision">Precision</a>.</li>
+          <li><strong>Better context.</strong> Retrieval that pulls the right passage beats a longer prompt full of noise.</li>
+          <li><strong>Examples in the prompt.</strong> A couple of worked examples often outperform paragraphs of instruction.</li>
+          <li><strong>A different model size.</strong> Route easy cases to a small model and hard ones to a frontier model; measure both.</li>
+          <li><strong>Fine-tuning, last.</strong> Only once the prompt is stable and you have data — see <a href="/topics/fine-tuning">Fine-Tuning &amp; Alignment</a>.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>Classify these support tickets.</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>Classify each ticket as exactly one of: BILLING, BUG, HOWTO, OTHER.
+Output JSON: {&quot;id&quot;: &quot;&quot;, &quot;label&quot;: &quot;&quot;, &quot;confidence&quot;: 0.0-1.0}. No other text.
+If the ticket fits none of the labels, use OTHER with confidence 0.
+Examples:
+&quot;card declined twice&quot; -&gt; BILLING
+&quot;export button spins forever&quot; -&gt; BUG</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="prose">
+        <h2>Related on this site</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="/principles/precision">Precision — tighten wording and bound scope</a></li>
+          <li><a href="/principles/result">Result — check, then refine rather than restart</a></li>
+          <li><a href="/topics/fine-tuning">Fine-Tuning &amp; Alignment — when prompting is not enough</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other outcomes">
+        <a class="prev" href="/outcomes/collaborate">&larr; Collaborate</a>
+        <a class="next" href="/outcomes/empower">Empower &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

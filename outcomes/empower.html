@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Empower — gaiish</title>
+    <meta name="description" content="Augment human potential with AI." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Empower</h1>
+      <p class="hero-sub">Augment human potential with AI</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Outcomes">
+      <ul>
+        <li><a href="/outcomes/communicate">Communicate</a></li>
+        <li><a href="/outcomes/collaborate">Collaborate</a></li>
+        <li><a href="/outcomes/optimize">Optimize</a></li>
+        <li><a href="/outcomes/empower" class="current">Empower</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">Empowerment is the point of the other three. When communication is clear, collaboration is fluent and results are measured, the model stops being a novelty and starts removing the work that never needed a human — leaving the judgement, the taste and the accountability where they belong.</p>
+      </section>
+
+      <section class="prose">
+        <h2>Where the leverage is</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Drafting.</strong> First versions of documents, code, tests and plans are cheap to generate and easy to judge.</li>
+          <li><strong>Understanding.</strong> Summarising a long thread, explaining unfamiliar code, translating jargon for another audience.</li>
+          <li><strong>Doing.</strong> With tools, a model can search, query, run and file — not just answer. See <a href="/topics/agents">Agents &amp; Tool Use</a>.</li>
+          <li><strong>Access.</strong> People without the specialist skill — SQL, regex, legalese — can now ask for the outcome in plain language.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Keeping the human in charge</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Own the decision.</strong> The model proposes; a person accountable for the outcome disposes.</li>
+          <li><strong>Verify what matters.</strong> Facts, numbers, citations and anything irreversible get checked before use.</li>
+          <li><strong>Gate the irreversible.</strong> Payments, deletions and production changes need explicit approval, not autonomy.</li>
+          <li><strong>Grow the skill.</strong> Save the prompts that work; a good prompt library compounds across a team.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>Can you do my weekly report?</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>Every Monday I write a status report from three sources.
+SOURCES: this week&#x27;s merged PRs, the incident log, the support queue export.
+TASK: draft the report as: 1) shipped, 2) incidents and resolution, 3) top 3 customer issues.
+Rules: only facts present in the sources; mark anything ambiguous as NEEDS REVIEW.
+I will review and send it — do not draft an email to anyone.</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="prose">
+        <h2>Related on this site</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="/topics/agents">Agents &amp; Tool Use — models that act, not just answer</a></li>
+          <li><a href="/principles/result">Result — verify before you rely on it</a></li>
+          <li><a href="/topics/fine-tuning">Fine-Tuning &amp; Alignment — shaping model behaviour</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other outcomes">
+        <a class="prev" href="/outcomes/optimize">&larr; Optimize</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>

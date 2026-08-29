@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Communicate — gaiish</title>
+    <meta name="description" content="Express your ideas with purpose." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="hero hero-compact">
+      <nav class="wordmark"><a class="brand" href="/">gaiish</a></nav>
+      <h1>Communicate</h1>
+      <p class="hero-sub">Express your ideas with purpose</p>
+    </header>
+
+    <nav class="topics-nav" aria-label="Outcomes">
+      <ul>
+        <li><a href="/outcomes/communicate" class="current">Communicate</a></li>
+        <li><a href="/outcomes/collaborate">Collaborate</a></li>
+        <li><a href="/outcomes/optimize">Optimize</a></li>
+        <li><a href="/outcomes/empower">Empower</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="prose">
+        <p class="lede">Most disappointing model output is a communication failure, not a capability failure. Communicating with purpose means the request carries everything a competent stranger would need: the task, the material, the constraints and the shape of the answer — written once, properly, instead of five times in frustration.</p>
+      </section>
+
+      <section class="prose">
+        <h2>What changes when you communicate well</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>Fewer rounds.</strong> A brief that names the audience, length and format usually lands in one attempt; a vague one takes four.</li>
+          <li><strong>Answers you can use as-is.</strong> Specify the artefact — email, table, patch, slide — and the output drops straight into the work rather than needing a rewrite.</li>
+          <li><strong>Less invented detail.</strong> Every unstated fact is a gap the model fills by guessing. Stating them is the cheapest hallucination control there is.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Patterns worth reusing</h2>
+        <span class="rule"></span>
+        <ul class="detail">
+          <li><strong>The brief.</strong> Audience, goal, constraints, source material, format — five labelled lines, in that order, with the task last.</li>
+          <li><strong>The exemplar.</strong> Paste one output you liked and ask for the same shape with new content.</li>
+          <li><strong>The contract.</strong> For machine-read output, give the exact schema and add “emit only valid JSON, no commentary”.</li>
+          <li><strong>The escape hatch.</strong> Say what to do when the material does not answer the question, so the model reports a gap instead of filling it.</li>
+        </ul>
+      </section>
+
+      <section class="prose">
+        <h2>Example</h2>
+        <span class="rule"></span>
+        <div class="example">
+          <div>
+            <span class="label weak">Vague</span>
+            <pre>Write something about our new pricing.</pre>
+          </div>
+          <div>
+            <span class="label strong">Better</span>
+            <pre>AUDIENCE: existing customers on the Team plan.
+GOAL: explain the new pricing without triggering churn.
+CONSTRAINTS: under 150 words, no jargon, one clear call to action.
+SOURCE: Team goes from $20 to $24/seat on 1 March; annual billing unchanged; two new features included.
+FORMAT: email with subject line and body.</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="prose">
+        <h2>Related on this site</h2>
+        <span class="rule"></span>
+        <ul class="detail plain">
+          <li><a href="/principles/clarity">Clarity — say one thing at a time</a></li>
+          <li><a href="/principles/intent">Intent — state the goal and the format</a></li>
+          <li><a href="/topics/transformers">Transformers &amp; LLMs — why wording matters so much</a></li>
+        </ul>
+      </section>
+
+      <nav class="pager" aria-label="Other outcomes">
+        <a class="next" href="/outcomes/collaborate">Collaborate &rarr;</a>
+      </nav>
+    </main>
+
+    <footer>
+      <p><a href="/">Back to the front page</a> · Deployed on Vercel</p>
+    </footer>
+  </body>
+</html>
