@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaiish for Education — Gaiish</title>
+    <meta name="description" content="How educators and students can teach structured AI communication with Gaiish, including a classroom example and an academic-integrity note." />
+    <link rel="canonical" href="https://gaiish.com/gaiish-for-education" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gaiish" />
+    <meta property="og:title" content="Gaiish for Education — Gaiish" />
+    <meta property="og:description" content="How educators and students can teach structured AI communication with Gaiish, including a classroom example and an academic-integrity note." />
+    <meta property="og:url" content="https://gaiish.com/gaiish-for-education" />
+    <meta property="og:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gaiish for Education — Gaiish" />
+    <meta name="twitter:description" content="How educators and students can teach structured AI communication with Gaiish, including a classroom example and an academic-integrity note." />
+    <meta name="twitter:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Use","item":"https://gaiish.com/gaiish-for-education"},{"@type":"ListItem","position":3,"name":"Gaiish for Education","item":"https://gaiish.com/gaiish-for-education"}]}</script>
+  </head>
+  <body class="doc">
+<nav class="sitenav" aria-label="Primary"><a class="brand" href="/">gaiish</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sitenav-list">Menu</button><ul id="sitenav-list"><li class="nav-group"><a href="/learn-gaiish">Learn</a><ul class="nav-sub"><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></li><li class="nav-group"><a href="/gaiish-language">Language</a><ul class="nav-sub"><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification v1.0</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/changelog">Changelog</a></li></ul></li><li class="nav-group"><a href="/examples">Examples</a><ul class="nav-sub"><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li></ul></li><li class="nav-group"><a href="/tools">Tools</a><ul class="nav-sub"><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></li><li class="nav-group"><a href="/prompt-engineering">Context</a><ul class="nav-sub"><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li></ul></li><li class="nav-group"><a href="/gaiish-for-business">Use</a><ul class="nav-sub"><li><a href="/gaiish-for-business">Gaiish for Business</a></li><li><a href="/gaiish-for-education">Gaiish for Education</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></li></ul></nav>
+    <header class="pagehead"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><a href="/gaiish-for-education">Use</a><span aria-current="page">Gaiish for Education</span></nav><p class="eyebrow">Applied use</p><h1>Gaiish for Education</h1><p class="page-lede">Teach the structure of a request, not a bag of magic phrases. Students can show what they know by making goals, evidence, constraints and checks explicit.</p><p class="page-meta">Last updated 2026-08-29 · <a href="/about">Author</a></p></header>
+    <main id="main">
+      <section class="prose"><h2 id="structure">A teachable structure</h2><span class="rule"></span></section>
+      <section class="prose"><p>Gaiish gives a class a way to discuss why an AI response went wrong. Was the goal unclear? Was the source material missing? Did the output ignore a format requirement? Was there no validation step? Those questions move the conversation from “the AI is bad” or “the student found the right phrase” to the design of the communication.</p></section>
+      <section class="prose"><p>An educator can introduce BASIC for low-stakes practice, then use the full method or PRO to make evidence boundaries and evaluation criteria explicit. Students should still learn the subject matter; a structure helps them direct and inspect a model, but it does not substitute for reading, reasoning or source evaluation.</p></section>
+      <section class="prose"><h2 id="example">Worked example — comparing two explanations</h2><span class="rule"></span></section>
+      <section class="prose"><div class="compare"><div class="compare-side"><span class="label weak">Traditional prompt</span><pre>Explain photosynthesis for my class.</pre></div><div class="compare-side"><span class="label strong">Gaiish prompt</span><pre>GOAL:
+Help Year 9 students explain the inputs, process and output of photosynthesis in their own words after reading the supplied passage.
+
+CONTEXT:
+[paste the class passage]
+Students know that plants need light but have not learned the chemical equation. Audience: mixed reading confidence, 13–14 years old.
+
+ACTION:
+Draft an explanation, then write three questions that reveal whether a student can distinguish an input from an output.
+
+OUTPUT:
+A 180-word explanation, a simple text equation, and three questions with answer keys. Use no jargon that the passage does not define.</pre></div></div><div class="compare-why"><h3>Why this works better</h3><p>The second version gives the model a source, a learning goal, an age range, a boundary around new vocabulary and a way to make the result assessable. The teacher can compare the answer with the passage and edit the questions. Structure can improve instruction adherence and reduce ambiguity, but the educator remains responsible for accuracy and suitability.</p></div></section>
+      <section class="prose"><h2 id="integrity">Academic integrity</h2><span class="rule"></span></section>
+      <section class="prose"><aside class="callout"><span class="label">Use must follow the course rules</span><p>Whether and how students may use generative AI is an institutional and instructor decision. Follow the assignment policy, disclose permitted assistance and do not present generated work as your own where that is prohibited. A Gaiish prompt can make the interaction more transparent by recording the goal, source material and requested output; it does not make unauthorised work acceptable.</p></aside></section>
+      <section class="prose"><h2 id="activity">A classroom activity</h2><span class="rule"></span></section>
+      <section class="prose"><ol class="detail"><li>Give pairs the same vague request and ask them to predict what the model would have to guess.</li><li>Have each pair rewrite it with GOAL, CONTEXT, ACTION and OUTPUT.</li><li>Compare the two outputs against the source passage and the stated learning goal.</li><li>Add a validation instruction and discuss which errors it catches and which still need a human check.</li></ol></section>
+      <section class="prose"><p class="links"><a href="/learn-gaiish">Learn Gaiish</a><a href="/gaiish-syntax">Gaiish Syntax</a><a href="/gaiish-language/specification">The language specification</a><a href="/generative-ai">Generative AI background</a></p></section>
+    </main>
+<footer class="sitefooter"><div class="footer-cols"><div><h2>Learn</h2><ul><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li><li><a href="/gaiish-map">Interactive Gaiish Map</a></li><li><a href="/changelog">Changelog</a></li></ul></div><div><h2>Tools</h2><ul><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></div><div><h2>Background</h2><ul><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></div></div><p class="footer-note">Gaiish is a language humans use to optimize communication with Generative AI models. · <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a> · Deployed on Vercel</p></footer>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

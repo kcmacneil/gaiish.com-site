@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaiish Syntax — Gaiish</title>
+    <meta name="description" content="Gaiish syntax: write uppercase component labels followed by a colon, keep one component per block, paste material under CONTEXT, and use modifiers deliberately." />
+    <link rel="canonical" href="https://gaiish.com/gaiish-syntax" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gaiish" />
+    <meta property="og:title" content="Gaiish Syntax — Gaiish" />
+    <meta property="og:description" content="Gaiish syntax: write uppercase component labels followed by a colon, keep one component per block, paste material under CONTEXT, and use modifiers deliberately." />
+    <meta property="og:url" content="https://gaiish.com/gaiish-syntax" />
+    <meta property="og:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gaiish Syntax — Gaiish" />
+    <meta name="twitter:description" content="Gaiish syntax: write uppercase component labels followed by a colon, keep one component per block, paste material under CONTEXT, and use modifiers deliberately." />
+    <meta name="twitter:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Learn","item":"https://gaiish.com/learn-gaiish"},{"@type":"ListItem","position":3,"name":"Gaiish Syntax","item":"https://gaiish.com/gaiish-syntax"}]}</script>
+  </head>
+  <body class="doc">
+<nav class="sitenav" aria-label="Primary"><a class="brand" href="/">gaiish</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sitenav-list">Menu</button><ul id="sitenav-list"><li class="nav-group"><a href="/learn-gaiish" class="current">Learn</a><ul class="nav-sub"><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></li><li class="nav-group"><a href="/gaiish-language">Language</a><ul class="nav-sub"><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification v1.0</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/changelog">Changelog</a></li></ul></li><li class="nav-group"><a href="/examples">Examples</a><ul class="nav-sub"><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li></ul></li><li class="nav-group"><a href="/tools">Tools</a><ul class="nav-sub"><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></li><li class="nav-group"><a href="/prompt-engineering">Context</a><ul class="nav-sub"><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li></ul></li><li class="nav-group"><a href="/gaiish-for-business">Use</a><ul class="nav-sub"><li><a href="/gaiish-for-business">Gaiish for Business</a></li><li><a href="/gaiish-for-education">Gaiish for Education</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></li></ul></nav>
+    <header class="pagehead"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><a href="/learn-gaiish">Learn</a><span aria-current="page">Gaiish Syntax</span></nav><p class="eyebrow">Written form</p><h1>Gaiish Syntax</h1><p class="page-lede">A small written convention makes a prompt legible to humans and models: uppercase labels, one component per block, and a blank line between blocks.</p><p class="page-meta">Last updated 2026-08-29 · <a href="/about">Author</a></p></header>
+    <main id="main">
+      <section class="prose"><h2 id="convention">The basic convention</h2><span class="rule"></span></section>
+      <section class="prose"><p>Write a component name in uppercase, followed by a colon. Put the component's contents below it. Separate blocks with a blank line. Labels are signposts, not commands: the material below CONTEXT remains context even when it contains sentences that look like instructions.</p></section>
+      <section class="prose"><ul class="detail"><li><strong>Labels:</strong> use uppercase names such as INTENT:, CONTEXT:, INSTRUCTION:, CONSTRAINTS:, RESULT: and VALIDATION:.</li><li><strong>One block:</strong> keep one component's material together so a reader can see its scope.</li><li><strong>Blank lines:</strong> leave a blank line between blocks for scanning and for reliable section boundaries.</li><li><strong>Material:</strong> paste documents, data and examples under CONTEXT or KNOWLEDGE rather than hiding them in a vague instruction.</li></ul></section>
+      <section class="prose"><h2 id="skeleton">Canonical skeleton</h2><span class="rule"></span></section>
+      <section class="prose"><pre>INTENT:
+[what you are trying to accomplish and who will use the result]
+
+CONTEXT:
+[paste source material and describe the situation]
+
+INSTRUCTION:
+[the primary action the model should take]
+
+CONSTRAINTS:
+[limits, requirements, tone, exclusions and treatment of uncertainty]
+
+RESULT:
+[the artefact, sections, fields or format you expect]
+
+VALIDATION:
+[checks, citations, assumptions and missing information to report]</pre></section>
+      <section class="prose"><h2 id="frameworks">Framework labels</h2><span class="rule"></span></section>
+      <section class="prose"><p>The six canonical labels above map directly to the Gaiish method. BASIC uses GOAL:, CONTEXT:, ACTION: and OUTPUT:. PRO uses ROLE:, INTENT:, CONTEXT:, KNOWLEDGE:, CONSTRAINTS:, PROCESS:, OUTPUT: and VALIDATION:. Use the labels belonging to the framework you chose; do not add empty ceremony to a small request.</p></section>
+      <section class="prose"><p>Labels are case-insensitive in meaning, but uppercase is the written convention because it makes the structure immediately visible. A model may interpret equivalent wording differently, so keep names consistent within a team or document.</p></section>
+      <section class="prose"><h2 id="modifiers">Optional modifiers</h2><span class="rule"></span></section>
+      <section class="prose"><p>Modifiers add a useful instruction without pretending to be new components. Put them inside the block they qualify, and explain an unfamiliar modifier the first time it appears. Examples include a tone or audience modifier under CONSTRAINTS, a source priority under KNOWLEDGE, or a numbered process under PROCESS.</p></section>
+      <section class="prose"><pre>CONSTRAINTS:
+TONE: direct and calm.
+AUDIENCE: a non-specialist manager.
+LENGTH: no more than 500 words.
+EXCLUDE: unsupported claims and unexplained jargon.</pre></section>
+      <section class="prose"><h2 id="anti-patterns">What not to do</h2><span class="rule"></span></section>
+      <section class="prose"><ul class="detail"><li><strong>Do not hide the goal in a vague verb.</strong> “Do something with this” does not tell the model what success means.</li><li><strong>Do not paste instructions into CONTEXT without marking them.</strong> Separate source material from what you want the model to do.</li><li><strong>Do not make every sentence a new label.</strong> Components are blocks, not a decorative line-by-line format.</li><li><strong>Do not use contradictory constraints.</strong> Resolve “be exhaustive” and “use 50 words” before sending the prompt.</li><li><strong>Do not treat validation as a guarantee.</strong> A model's self-check is a useful pass, not independent proof.</li><li><strong>Do not assume labels erase ambiguity.</strong> Supply the facts, audience and boundaries the answer depends on.</li></ul></section>
+      <section class="prose"><h2 id="practice">Syntax in practice</h2><span class="rule"></span></section>
+      <section class="prose"><p>Start with the smallest framework that fits. Write the blocks in a stable order, then read only the labels: can another person reconstruct the task from them? Read the contents next: is each claim in the right block, and does validation check the actual constraints? This two-pass habit catches missing structure before a model does.</p></section>
+      <section class="prose"><p class="links"><a href="/gaiish-basic">Read Gaiish BASIC</a><a href="/gaiish-pro">Read Gaiish PRO</a><a href="/gaiish-language/specification">Specification</a></p></section>
+    </main>
+<footer class="sitefooter"><div class="footer-cols"><div><h2>Learn</h2><ul><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li><li><a href="/gaiish-map">Interactive Gaiish Map</a></li><li><a href="/changelog">Changelog</a></li></ul></div><div><h2>Tools</h2><ul><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></div><div><h2>Background</h2><ul><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></div></div><p class="footer-note">Gaiish is a language humans use to optimize communication with Generative AI models. · <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a> · Deployed on Vercel</p></footer>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

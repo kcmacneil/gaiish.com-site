@@ -1,5 +1,66 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/prompt-builder",
+      "destination": "/tools/prompt-builder",
+      "permanent": true
+    },
+    {
+      "source": "/prompt-analyzer",
+      "destination": "/tools/prompt-analyzer",
+      "permanent": true
+    },
+    {
+      "source": "/specification",
+      "destination": "/gaiish-language/specification",
+      "permanent": true
+    },
+    {
+      "source": "/method",
+      "destination": "/gaiish-method",
+      "permanent": true
+    },
+    {
+      "source": "/basic",
+      "destination": "/gaiish-basic",
+      "permanent": true
+    },
+    {
+      "source": "/pro",
+      "destination": "/gaiish-pro",
+      "permanent": true
+    },
+    {
+      "source": "/learn",
+      "destination": "/learn-gaiish",
+      "permanent": true
+    },
+    {
+      "source": "/glossary",
+      "destination": "/dictionary",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    }
+  ]
 }

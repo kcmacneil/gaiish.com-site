@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Gaiish Method — Gaiish</title>
+    <meta name="description" content="The Gaiish method in full: intent, context, instruction, constraints, result and validation — what each component communicates to a generative AI model, and how to write it." />
+    <link rel="canonical" href="https://gaiish.com/gaiish-method" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gaiish" />
+    <meta property="og:title" content="The Gaiish Method — Gaiish" />
+    <meta property="og:description" content="The Gaiish method in full: intent, context, instruction, constraints, result and validation — what each component communicates to a generative AI model, and how to write it." />
+    <meta property="og:url" content="https://gaiish.com/gaiish-method" />
+    <meta property="og:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Gaiish Method — Gaiish" />
+    <meta name="twitter:description" content="The Gaiish method in full: intent, context, instruction, constraints, result and validation — what each component communicates to a generative AI model, and how to write it." />
+    <meta name="twitter:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Learn","item":"https://gaiish.com/learn-gaiish"},{"@type":"ListItem","position":3,"name":"The Gaiish Method","item":"https://gaiish.com/gaiish-method"}]}</script>
+  </head>
+  <body class="doc">
+<nav class="sitenav" aria-label="Primary"><a class="brand" href="/">gaiish</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sitenav-list">Menu</button><ul id="sitenav-list"><li class="nav-group"><a href="/learn-gaiish" class="current">Learn</a><ul class="nav-sub"><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></li><li class="nav-group"><a href="/gaiish-language">Language</a><ul class="nav-sub"><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification v1.0</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/changelog">Changelog</a></li></ul></li><li class="nav-group"><a href="/examples">Examples</a><ul class="nav-sub"><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li></ul></li><li class="nav-group"><a href="/tools">Tools</a><ul class="nav-sub"><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></li><li class="nav-group"><a href="/prompt-engineering">Context</a><ul class="nav-sub"><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li></ul></li><li class="nav-group"><a href="/gaiish-for-business">Use</a><ul class="nav-sub"><li><a href="/gaiish-for-business">Gaiish for Business</a></li><li><a href="/gaiish-for-education">Gaiish for Education</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></li></ul></nav>
+    <header class="pagehead"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><a href="/learn-gaiish">Learn</a><span aria-current="page">The Gaiish Method</span></nav><p class="eyebrow">Framework</p><h1>The Gaiish Method</h1><p class="page-lede">Intent → Context → Instruction → Constraints → Result → Validation. Six components, each answering a question the model cannot answer for itself.</p><p class="page-meta">Last updated 2026-08-29 · <a href="/about">Author</a></p></header>
+    <main id="main">
+      <section class="prose"><ol class="framework" aria-label="The Gaiish framework: intent, context, instruction, constraints, result, validation"><li><a href="/gaiish-method#intent"><span class="fw-name">Intent</span><span class="fw-q">What are you trying to accomplish?</span></a></li><li><a href="/gaiish-method#context"><span class="fw-name">Context</span><span class="fw-q">What does the AI need to know?</span></a></li><li><a href="/gaiish-method#instruction"><span class="fw-name">Instruction</span><span class="fw-q">What should the AI do?</span></a></li><li><a href="/gaiish-method#constraints"><span class="fw-name">Constraints</span><span class="fw-q">What rules, limits, tone, format, requirements or exclusions apply?</span></a></li><li><a href="/gaiish-method#result"><span class="fw-name">Result</span><span class="fw-q">What should the finished output look like?</span></a></li><li><a href="/gaiish-method#validation"><span class="fw-name">Validation</span><span class="fw-q">How should the AI verify the result satisfies the request?</span></a></li></ol></section>
+      <section class="prose"><h2 id="intent">Intent</h2><span class="rule"></span></section>
+      <section class="prose"><p><strong>What are you trying to accomplish?</strong></p></section>
+      <section class="prose"><p>Intent is the outcome behind the request, not the request itself. "Summarise this report" is an instruction; "decide whether to renew this contract" is an intent. State it and the model can judge which details matter — omit it and every detail looks equally important.</p></section>
+      <section class="prose"><ul class="detail"><li>Name the decision, deliverable or change you are working toward.</li><li>Say who the output is for and what they will do with it.</li><li>One intent per prompt. Two intents produce a shallow attempt at both.</li></ul></section>
+      <section class="prose"><h2 id="context">Context</h2><span class="rule"></span></section>
+      <section class="prose"><p><strong>What does the AI need to know?</strong></p></section>
+      <section class="prose"><p>Context is everything the model cannot infer: the documents, the situation, the audience, the decisions already made. A model with your context outperforms a larger model without it.</p></section>
+      <section class="prose"><ul class="detail"><li>Paste the material rather than describing it.</li><li>Include the constraints of the situation, not just the task — team size, deadline, systems in use.</li><li>Say what has already been tried and rejected, so the model does not propose it.</li><li>When the corpus is too large to paste, retrieval puts the right passage in the prompt for you — see <a href="/topics/embeddings-rag">embeddings and RAG</a>.</li></ul></section>
+      <section class="prose"><h2 id="instruction">Instruction</h2><span class="rule"></span></section>
+      <section class="prose"><p><strong>What should the AI do?</strong></p></section>
+      <section class="prose"><p>The instruction is the verb: analyse, draft, rewrite, extract, classify, compare. Keep it single and explicit, and number the steps when the work has an order.</p></section>
+      <section class="prose"><ul class="detail"><li>Use one primary verb; if you need several, number them.</li><li>Say what to do, not only what to avoid — "be concise" is not an instruction, "three sentences" is.</li><li>Separate the instruction from the material so the model cannot confuse the two.</li></ul></section>
+      <section class="prose"><h2 id="constraints">Constraints</h2><span class="rule"></span></section>
+      <section class="prose"><p><strong>What rules, limits, tone, format, requirements or exclusions apply?</strong></p></section>
+      <section class="prose"><p>Constraints are the boundary of an acceptable answer. They are also where most disappointment originates, because an unstated constraint is invisible until it is violated.</p></section>
+      <section class="prose"><ul class="detail"><li>Quantify: word counts, row counts, time periods, currency, reading level.</li><li>State exclusions explicitly — what to leave out is an instruction too.</li><li>Name the tone and register rather than adjectives like "professional".</li><li>Say what to do with uncertainty: report gaps rather than fill them.</li></ul></section>
+      <section class="prose"><h2 id="result">Result</h2><span class="rule"></span></section>
+      <section class="prose"><p><strong>What should the finished output look like?</strong></p></section>
+      <section class="prose"><p>Describe the artefact, not the topic. A named shape — sections, columns, a schema — is the difference between an essay and something you can use directly.</p></section>
+      <section class="prose"><ul class="detail"><li>List the sections or columns you expect, in order.</li><li>For machine-read output, give the exact schema and forbid commentary.</li><li>Paste an exemplar when you have one: one good example beats a paragraph of description.</li></ul></section>
+      <section class="prose"><h2 id="validation">Validation</h2><span class="rule"></span></section>
+      <section class="prose"><p><strong>How should the AI verify the result satisfies the request?</strong></p></section>
+      <section class="prose"><p>Validation asks the model to check its own output against the request before presenting it, and to be explicit about what it could not do. It is the component most often left out entirely.</p></section>
+      <section class="prose"><ul class="detail"><li>Ask it to check the output against each constraint and report violations.</li><li>Ask it to list the assumptions it made and the facts it could not find.</li><li>Require citations to the supplied material for factual claims.</li><li>Remember that self-checking is not proof — verify anything irreversible yourself.</li></ul></section>
+      <section class="prose"><h2 id="example">The method in one prompt</h2><span class="rule"></span></section>
+      <section class="prose"><div class="compare"><div class="compare-side"><span class="label weak">Traditional prompt</span><pre>Help me improve our onboarding emails.</pre></div><div class="compare-side"><span class="label strong">Gaiish prompt</span><pre>INTENT:
+Reduce first-week churn by improving the onboarding email sequence.
+
+CONTEXT:
+[paste the current 3 emails]
+Product: team scheduling tool. Free trial is 14 days.
+Activation = inviting one teammate. 38% of trials never activate.
+Audience: office managers, not technical.
+
+INSTRUCTION:
+Rewrite the three emails so each one drives the single next action toward activation.
+
+CONSTRAINTS:
+Max 120 words per email. One call to action each. No feature tours, no discounts. Plain language, no exclamation marks.
+
+OUTPUT:
+For each email: subject line, body, and one sentence on the action it drives.
+
+VALIDATION:
+Confirm every email is under 120 words with exactly one call to action, and list any claim about the product you could not verify from the material above.</pre></div></div><div class="compare-why"><h3>Why this works better</h3><p>Each component is doing distinct work: the intent explains why the emails exist, the context supplies the activation metric the model could never guess, the constraints rule out the two things it would otherwise reach for (feature tours and discounts), and validation catches invented product claims before you read them.</p></div></section>
+      <section class="prose"><h2 id="related">Related</h2><span class="rule"></span></section>
+      <section class="prose"><div class="grid"><article class="card"><h3><a href="/gaiish-basic">Gaiish BASIC</a></h3><p>The four-line beginner shape of the same six components.</p><a class="more" href="/gaiish-basic">Read more</a></article><article class="card"><h3><a href="/gaiish-pro">Gaiish PRO</a></h3><p>The eight-component shape for advanced work.</p><a class="more" href="/gaiish-pro">Read more</a></article><article class="card"><h3><a href="/gaiish-syntax">Gaiish Syntax</a></h3><p>How to write the components down consistently.</p><a class="more" href="/gaiish-syntax">Read more</a></article><article class="card"><h3><a href="/gaiish-language/specification">Specification</a></h3><p>The formal, versioned definition.</p><a class="more" href="/gaiish-language/specification">Read more</a></article></div></section>
+    </main>
+<footer class="sitefooter"><div class="footer-cols"><div><h2>Learn</h2><ul><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li><li><a href="/gaiish-map">Interactive Gaiish Map</a></li><li><a href="/changelog">Changelog</a></li></ul></div><div><h2>Tools</h2><ul><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></div><div><h2>Background</h2><ul><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></div></div><p class="footer-note">Gaiish is a language humans use to optimize communication with Generative AI models. · <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a> · Deployed on Vercel</p></footer>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

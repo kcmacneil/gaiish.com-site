@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaiish Language Specification v1.0 — Gaiish</title>
+    <meta name="description" content="Gaiish Language Specification — Version 1.0: purpose, design philosophy, vocabulary, grammar, declarations, modifiers, examples and anti-patterns." />
+    <link rel="canonical" href="https://gaiish.com/gaiish-language/specification" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gaiish" />
+    <meta property="og:title" content="Gaiish Language Specification v1.0 — Gaiish" />
+    <meta property="og:description" content="Gaiish Language Specification — Version 1.0: purpose, design philosophy, vocabulary, grammar, declarations, modifiers, examples and anti-patterns." />
+    <meta property="og:url" content="https://gaiish.com/gaiish-language/specification" />
+    <meta property="og:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gaiish Language Specification v1.0 — Gaiish" />
+    <meta name="twitter:description" content="Gaiish Language Specification — Version 1.0: purpose, design philosophy, vocabulary, grammar, declarations, modifiers, examples and anti-patterns." />
+    <meta name="twitter:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Language","item":"https://gaiish.com/gaiish-language"},{"@type":"ListItem","position":3,"name":"Gaiish Language Specification v1.0","item":"https://gaiish.com/gaiish-language/specification"}]}</script>
+  </head>
+  <body class="doc">
+<nav class="sitenav" aria-label="Primary"><a class="brand" href="/">gaiish</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sitenav-list">Menu</button><ul id="sitenav-list"><li class="nav-group"><a href="/learn-gaiish">Learn</a><ul class="nav-sub"><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></li><li class="nav-group"><a href="/gaiish-language" class="current">Language</a><ul class="nav-sub"><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification v1.0</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/changelog">Changelog</a></li></ul></li><li class="nav-group"><a href="/examples">Examples</a><ul class="nav-sub"><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li></ul></li><li class="nav-group"><a href="/tools">Tools</a><ul class="nav-sub"><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></li><li class="nav-group"><a href="/prompt-engineering">Context</a><ul class="nav-sub"><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li></ul></li><li class="nav-group"><a href="/gaiish-for-business">Use</a><ul class="nav-sub"><li><a href="/gaiish-for-business">Gaiish for Business</a></li><li><a href="/gaiish-for-education">Gaiish for Education</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></li></ul></nav>
+    <header class="pagehead"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><a href="/gaiish-language">Language</a><span aria-current="page">Gaiish Language Specification v1.0</span></nav><p class="eyebrow">Specification v1.0</p><h1>Gaiish Language Specification — Version 1.0</h1><p class="page-lede">A working specification for the language humans use to optimize communication with Generative AI models.</p><p class="page-meta">Last updated 2026-08-29 · <a href="/about">Author</a></p></header>
+    <main id="main">
+      <section class="prose"><aside class="callout"><span class="label">Status</span><p>Version 1.0 documents the current language design. It is a developing methodology, not an externally recognised standard. Future versions such as 1.1 or 2.0 can be added as sibling routes and linked from this page without rewriting this version.</p></aside></section>
+      <section class="prose"><h2 id="purpose">1. Purpose</h2><span class="rule"></span></section>
+      <section class="prose"><p>Gaiish provides a common way to express a human request to a generative AI model. Its purpose is to make the parts of a request that affect interpretation — intent, context, instructions, constraints, result and validation — explicit and reviewable. It does not define a model API, a programming language or a guarantee about an output.</p></section>
+      <section class="prose"><h2 id="design-philosophy">2. Design philosophy</h2><span class="rule"></span></section>
+      <section class="prose"><p>Gaiish favours explicit meaning over clever phrasing, reusable structure over one-off tricks and human review over declarations of certainty. A writer should be able to show a colleague what the model was told, what evidence it received and how the answer will be checked. The method is model-independent, while acknowledging that models interpret the same text differently.</p></section>
+      <section class="prose"><p>The language is deliberately additive. A writer can start with a small BASIC prompt and add PRO fields or the full six-component method as the task demands. Structure can improve instruction adherence and reduce ambiguity, but it cannot supply facts that were never provided or make a model's answer independently true.</p></section>
+      <section class="prose"><h2 id="vocabulary">3. Vocabulary</h2><span class="rule"></span></section>
+      <section class="prose"><div class="table-wrap"><table><thead><tr><th scope="col">Term</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>Gaiish</td><td>A language and methodology for structured human–AI communication.</td></tr><tr><td>Component</td><td>A named kind of information carried by a Gaiish prompt.</td></tr><tr><td>Declaration</td><td>A labelled block that states one component for a task.</td></tr><tr><td>Material</td><td>Source text, data or examples supplied to the model.</td></tr><tr><td>Modifier</td><td>An optional instruction inside a block that narrows how it is used.</td></tr><tr><td>Framework</td><td>A selected shape of the vocabulary, such as BASIC or PRO.</td></tr></tbody></table></div></section>
+      <section class="prose"><h2 id="grammar">4. Grammar</h2><span class="rule"></span></section>
+      <section class="prose"><p>A Gaiish document consists of one or more declarations. A declaration begins with an uppercase label followed by a colon. Its content continues until the next declaration. A blank line between blocks is recommended for human scanning and clear boundaries. The canonical six-component order is Intent, Context, Instruction, Constraints, Result and Validation; BASIC and PRO define their own documented subsets or expansions.</p></section>
+      <section class="prose"><pre>LABEL:
+The material belonging to LABEL.
+It may contain multiple sentences or pasted source text.
+
+NEXT LABEL:
+The next declaration.</pre></section>
+      <section class="prose"><h2 id="intent">5. Intent declarations</h2><span class="rule"></span></section>
+      <section class="prose"><p>INTENT: states the outcome behind the request: the decision, change or deliverable that makes the work useful. It is different from the verb in INSTRUCTION:. Include the audience or downstream use when those details affect trade-offs. Keep one primary outcome per prompt; name a second prompt when the work truly has two independent goals.</p></section>
+      <section class="prose"><pre>INTENT:
+Prepare a decision brief for the finance lead so she can choose whether to renew the vendor contract.</pre></section>
+      <section class="prose"><h2 id="context">6. Context declarations</h2><span class="rule"></span></section>
+      <section class="prose"><p>CONTEXT: states the situation and supplies what the model cannot infer. Paste the source material under this label, then identify the audience, relevant history, systems, timing and decisions already made. Context is not a place to hide the task; use INSTRUCTION: for the task.</p></section>
+      <section class="prose"><pre>CONTEXT:
+The reader is a non-technical customer. The current help article is below.
+[paste article]</pre></section>
+      <section class="prose"><h2 id="instruction">7. Instruction declarations</h2><span class="rule"></span></section>
+      <section class="prose"><p>INSTRUCTION: names the action with a clear primary verb: analyse, draft, extract, compare, classify, translate or rewrite. Number ordered actions. Say what to do, not only what to avoid, and keep the action separate from pasted material.</p></section>
+      <section class="prose"><h2 id="constraints">8. Constraint declarations</h2><span class="rule"></span></section>
+      <section class="prose"><p>CONSTRAINTS: defines the boundaries of an acceptable answer. It may include scope, length, count, tone, audience, budget, deadline, exclusions, safety requirements and what to do with uncertainty. Quantified constraints are easier to inspect than vague adjectives. Contradictory constraints should be resolved before the prompt is sent.</p></section>
+      <section class="prose"><h2 id="output">9. Output declarations</h2><span class="rule"></span></section>
+      <section class="prose"><p>RESULT: or OUTPUT: names the finished artefact and its shape. State headings, columns, fields, schema, order and format. A result declaration describes something a person can use, not merely the topic the model should discuss.</p></section>
+      <section class="prose"><h2 id="validation">10. Validation instructions</h2><span class="rule"></span></section>
+      <section class="prose"><p>VALIDATION: asks the model to check its response against the declared request. Require it to recheck constraints, support claims with supplied sources, flag missing material and list assumptions. This is a self-check, not proof: a human must verify facts and anything consequential before relying on it.</p></section>
+      <section class="prose"><h2 id="modifiers">11. Modifiers</h2><span class="rule"></span></section>
+      <section class="prose"><p>Modifiers are optional, local instructions within a declaration. They are useful when a task needs a tone, audience, source priority or explicit treatment of uncertainty. A modifier does not become a new canonical component. Define a team-specific modifier the first time it is used and do not let a dense collection of modifiers obscure the main declarations.</p></section>
+      <section class="prose"><pre>CONSTRAINTS:
+TONE: direct, calm and non-technical.
+LENGTH: no more than 300 words.
+EXCLUDE: claims not supported by the supplied source.</pre></section>
+      <section class="prose"><h2 id="examples">12. Examples</h2><span class="rule"></span></section>
+      <section class="prose"><p>A small request can use BASIC. A request that needs explicit evidence boundaries and review can use the six-component method or PRO. The framework choice is part of good communication: use enough structure to expose the decisions that matter, not so much that labels become ceremony.</p></section>
+      <section class="prose"><pre>GOAL:
+Help a new manager prepare for her first one-to-one.
+
+CONTEXT:
+The meeting is 30 minutes. The manager has the employee&#x27;s role description below.
+[paste role description]
+
+ACTION:
+Draft five open questions that invite discussion of priorities and support.
+
+OUTPUT:
+A numbered list, with one sentence explaining the purpose of each question.</pre></section>
+      <section class="prose"><p class="links"><a href="/gaiish-pro#worked-example">See a full PRO example</a><a href="/gaiish-basic#example-1">Compare BASIC prompts</a><a href="/gaiish-syntax">Read practical syntax</a></p></section>
+      <section class="prose"><h2 id="anti-patterns">13. Anti-patterns</h2><span class="rule"></span></section>
+      <section class="prose"><ul class="detail"><li>A label with no useful content: INTENT: alone does not communicate an outcome.</li><li>A single paragraph that mixes source material, instructions and constraints so no reader can tell which is which.</li><li>Conflicting limits, such as exhaustive coverage in ten words, left for the model to resolve silently.</li><li>Provider-specific hidden assumptions presented as if they were part of the language.</li><li>A request for confidence or certainty instead of a validation rule and an explicit way to report gaps.</li></ul></section>
+      <section class="prose"><h2 id="models">14. Model-specific considerations</h2><span class="rule"></span></section>
+      <section class="prose"><p>Gaiish is designed to be usable across ChatGPT, Claude, Gemini, Copilot, Grok, Llama, Mistral, DeepSeek and Qwen, but no two models interpret text identically. Context limits, instruction following, tool access, system messages and output controls vary by model and product. Keep declarations explicit, test the actual model you will use, and validate the returned result. Do not describe a provider's private behaviour as a Gaiish rule.</p></section>
+      <section class="prose"><h2 id="version-history">15. Version history</h2><span class="rule"></span></section>
+      <section class="prose"><p>Version 1.0 is the initial published specification in this repository. The version is supplied by config.SPEC_VERSION so a future version can be rendered as a sibling route, for example /gaiish-language/specification/1.1 or /gaiish-language/specification/2.0, while this document remains addressable.</p></section>
+      <section class="prose"><h2 id="changelog">16. Changelog</h2><span class="rule"></span></section>
+      <section class="prose"><div class="table-wrap"><table><thead><tr><th scope="col">Version</th><th scope="col">Change</th></tr></thead><tbody><tr><td>1.0</td><td>Initial language specification and site documentation for this build.</td></tr></tbody></table></div></section>
+      <section class="prose"><aside class="callout"><span class="label">Scope of this document</span><p>This specification makes no claim of external standards recognition, adoption, endorsement or research findings. See the <a href="/changelog">site changelog</a> for implementation changes and <a href="/research">research</a> for the planned study infrastructure.</p></aside></section>
+    </main>
+<footer class="sitefooter"><div class="footer-cols"><div><h2>Learn</h2><ul><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li><li><a href="/gaiish-map">Interactive Gaiish Map</a></li><li><a href="/changelog">Changelog</a></li></ul></div><div><h2>Tools</h2><ul><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></div><div><h2>Background</h2><ul><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></div></div><p class="footer-note">Gaiish is a language humans use to optimize communication with Generative AI models. · <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a> · Deployed on Vercel</p></footer>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

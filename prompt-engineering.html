@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prompt Engineering — Gaiish</title>
+    <meta name="description" content="A practical, honest introduction to prompt engineering and how Gaiish structures intent, context, instructions, constraints, results and validation." />
+    <link rel="canonical" href="https://gaiish.com/prompt-engineering" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gaiish" />
+    <meta property="og:title" content="Prompt Engineering — Gaiish" />
+    <meta property="og:description" content="A practical, honest introduction to prompt engineering and how Gaiish structures intent, context, instructions, constraints, results and validation." />
+    <meta property="og:url" content="https://gaiish.com/prompt-engineering" />
+    <meta property="og:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Prompt Engineering — Gaiish" />
+    <meta name="twitter:description" content="A practical, honest introduction to prompt engineering and how Gaiish structures intent, context, instructions, constraints, results and validation." />
+    <meta name="twitter:image" content="https://gaiish.com/assets/brand-board.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Context","item":"https://gaiish.com/prompt-engineering"},{"@type":"ListItem","position":3,"name":"Prompt Engineering","item":"https://gaiish.com/prompt-engineering"}]}</script>
+  </head>
+  <body class="doc">
+<nav class="sitenav" aria-label="Primary"><a class="brand" href="/">gaiish</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sitenav-list">Menu</button><ul id="sitenav-list"><li class="nav-group"><a href="/learn-gaiish">Learn</a><ul class="nav-sub"><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></li><li class="nav-group"><a href="/gaiish-language">Language</a><ul class="nav-sub"><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification v1.0</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/changelog">Changelog</a></li></ul></li><li class="nav-group"><a href="/examples">Examples</a><ul class="nav-sub"><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li></ul></li><li class="nav-group"><a href="/tools">Tools</a><ul class="nav-sub"><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></li><li class="nav-group"><a href="/prompt-engineering" class="current">Context</a><ul class="nav-sub"><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li></ul></li><li class="nav-group"><a href="/gaiish-for-business">Use</a><ul class="nav-sub"><li><a href="/gaiish-for-business">Gaiish for Business</a></li><li><a href="/gaiish-for-education">Gaiish for Education</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></li></ul></nav>
+    <header class="pagehead"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><a href="/prompt-engineering">Context</a><span aria-current="page">Prompt Engineering</span></nav><p class="eyebrow">Practice</p><h1>Prompt Engineering</h1><p class="page-lede">Prompt engineering is the practice of designing, testing and refining instructions for a generative AI system.</p><p class="page-meta">Last updated 2026-08-29 · <a href="/about">Author</a></p></header>
+    <main id="main">
+      <section class="prose"><p>A prompt is an interface between a person's goal and a model's probabilistic interpretation. Prompt engineering makes that interface more deliberate: choose the right context, write an unambiguous task, specify the result, test the response and refine the part that failed. It applies to a one-off question and to prompts embedded in a product or workflow.</p></section>
+      <section class="prose"><h2 id="includes">What the practice includes</h2><span class="rule"></span></section>
+      <section class="prose"><ul class="detail"><li>Understanding the task, audience, source material and model you are working with.</li><li>Writing instructions that say what to do, with useful constraints and an explicit output shape.</li><li>Testing representative inputs and checking results rather than judging one lucky answer.</li><li>Iterating from evidence: preserve what works, then change one unclear or missing part at a time.</li><li>Designing human review for factual, sensitive or consequential outputs.</li></ul></section>
+      <section class="prose"><h2 id="structure">A structure for the work</h2><span class="rule"></span></section>
+      <section class="prose"><p>Gaiish is one way to organise prompt-engineering practice. Its vocabulary puts the questions in view: what is the intent, what context is missing, what instruction should run, which constraints matter, what result is usable and how will it be validated? It does not replace testing, model knowledge or domain expertise.</p></section>
+      <section class="prose"><ol class="framework" aria-label="The Gaiish framework: intent, context, instruction, constraints, result, validation"><li><a href="/gaiish-method#intent"><span class="fw-name">Intent</span><span class="fw-q">What are you trying to accomplish?</span></a></li><li><a href="/gaiish-method#context"><span class="fw-name">Context</span><span class="fw-q">What does the AI need to know?</span></a></li><li><a href="/gaiish-method#instruction"><span class="fw-name">Instruction</span><span class="fw-q">What should the AI do?</span></a></li><li><a href="/gaiish-method#constraints"><span class="fw-name">Constraints</span><span class="fw-q">What rules, limits, tone, format, requirements or exclusions apply?</span></a></li><li><a href="/gaiish-method#result"><span class="fw-name">Result</span><span class="fw-q">What should the finished output look like?</span></a></li><li><a href="/gaiish-method#validation"><span class="fw-name">Validation</span><span class="fw-q">How should the AI verify the result satisfies the request?</span></a></li></ol></section>
+      <section class="prose"><div class="compare"><div class="compare-side"><span class="label weak">Traditional prompt</span><pre>Make this report better and shorter.</pre></div><div class="compare-side"><span class="label strong">Gaiish prompt</span><pre>INTENT:
+Give a board member the evidence needed to decide whether to continue the pilot.
+
+CONTEXT:
+[paste report]
+The reader has five minutes and has not seen the underlying data.
+
+INSTRUCTION:
+Extract the decision-relevant findings and rewrite the report around them.
+
+CONSTRAINTS:
+Do not remove caveats or change numbers. Use plain language and no more than 700 words.
+
+RESULT:
+Executive summary, evidence table, risks and decision question.
+
+VALIDATION:
+Check every number against the source and list any finding the report does not support.</pre></div></div><div class="compare-why"><h3>Why this works better</h3><p>The structured prompt makes the engineering choices inspectable. It names the reader and decision, supplies the report, limits the rewrite, defines a usable shape and requires source checks. It can improve instruction adherence and reduce ambiguity, while the output still needs review.</p></div></section>
+      <section class="prose"><h2 id="next">Go deeper</h2><span class="rule"></span></section>
+      <section class="prose"><p class="links"><a href="/gaiish-method">The Gaiish Method</a><a href="/gaiish-vs-prompt-engineering">Gaiish vs prompt engineering</a><a href="/generative-ai">Generative AI foundations</a><a href="/topics/embeddings-rag">Topics: embeddings and RAG</a><a href="/topics/agents">Topics: agents</a></p></section>
+    </main>
+<footer class="sitefooter"><div class="footer-cols"><div><h2>Learn</h2><ul><li><a href="/what-is-gaiish">What Is Gaiish?</a></li><li><a href="/learn-gaiish">Learn Gaiish</a></li><li><a href="/gaiish-method">The Gaiish Method</a></li><li><a href="/gaiish-basic">Gaiish BASIC</a></li><li><a href="/gaiish-pro">Gaiish PRO</a></li><li><a href="/gaiish-syntax">Gaiish Syntax</a></li></ul></div><div><h2>Reference</h2><ul><li><a href="/gaiish-language">Gaiish Language</a></li><li><a href="/gaiish-language/specification">Specification</a></li><li><a href="/dictionary">Dictionary</a></li><li><a href="/examples">Examples</a></li><li><a href="/prompt-library">Prompt Library</a></li><li><a href="/gaiish-map">Interactive Gaiish Map</a></li><li><a href="/changelog">Changelog</a></li></ul></div><div><h2>Tools</h2><ul><li><a href="/tools/prompt-builder">Prompt Builder</a></li><li><a href="/tools/prompt-analyzer">Prompt Analyzer</a></li></ul></div><div><h2>Background</h2><ul><li><a href="/prompt-engineering">Prompt Engineering</a></li><li><a href="/gaiish-vs-prompt-engineering">Gaiish vs Prompt Engineering</a></li><li><a href="/generative-ai">Generative AI</a></li><li><a href="/research">Research</a></li><li><a href="/about">About</a></li><li><a href="/origin-of-gaiish">Origin of Gaiish</a></li></ul></div></div><p class="footer-note">Gaiish is a language humans use to optimize communication with Generative AI models. · <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a> · Deployed on Vercel</p></footer>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

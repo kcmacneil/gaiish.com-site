@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>gaiish — The Language of Human–AI Collaboration</title>
+    <meta
+      name="description"
+      content="gaiish is a language humans use to optimise communication with generative AI models: clarity, context, intent, precision, result. Explore the map — every element opens the idea behind it."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="stage-page">
+    <main class="stage">
+      <figure class="brandmap">
+        <img
+          src="/assets/brand-board.jpg"
+          width="1024"
+          height="682"
+          alt="gaiish — the language of human–AI collaboration: clarity, context, intent, precision, result; communicate, collaborate, optimize, empower."
+        />
+        <button class="hotspot" data-panel="gaiish" style="left: 31.5%; top: 16%; width: 37%; height: 22%"><span>What is gaiish?</span></button>
+        <button class="hotspot" data-panel="clarity" style="left: 12.7%; top: 16.57%; width: 10.74%; height: 8.36%"><span>Clarity</span></button>
+        <button class="hotspot" data-panel="context" style="left: 14.65%; top: 27.86%; width: 10.94%; height: 8.21%"><span>Context</span></button>
+        <button class="hotspot" data-panel="intent" style="left: 16.6%; top: 39%; width: 10.25%; height: 8.21%"><span>Intent</span></button>
+        <button class="hotspot" data-panel="precision" style="left: 14.84%; top: 50.15%; width: 11.72%; height: 8.21%"><span>Precision</span></button>
+        <button class="hotspot" data-panel="result" style="left: 11.52%; top: 60.56%; width: 10.94%; height: 8.36%"><span>Result</span></button>
+        <button class="hotspot" data-panel="generative-ai" style="left: 38.87%; top: 59.24%; width: 14.36%; height: 4.55%"><span>Generative AI</span></button>
+        <button class="hotspot" data-panel="communicate" style="left: 14.45%; top: 74.05%; width: 13.09%; height: 19.79%"><span>Communicate</span></button>
+        <button class="hotspot" data-panel="collaborate" style="left: 33.69%; top: 74.05%; width: 13.38%; height: 19.79%"><span>Collaborate</span></button>
+        <button class="hotspot" data-panel="optimize" style="left: 52.73%; top: 74.05%; width: 12.5%; height: 19.79%"><span>Optimize</span></button>
+        <button class="hotspot" data-panel="empower" style="left: 71.09%; top: 74.05%; width: 16.02%; height: 19.79%"><span>Empower</span></button>
+      </figure>
+
+      <p class="stage-hint">Select anything on the map — or use the list below — to open the idea behind it.</p>
+
+      <nav class="stage-links" aria-label="The gaiish map">
+        <button data-panel="clarity">Clarity</button>
+        <button data-panel="context">Context</button>
+        <button data-panel="intent">Intent</button>
+        <button data-panel="precision">Precision</button>
+        <button data-panel="result">Result</button>
+        <button data-panel="communicate">Communicate</button>
+        <button data-panel="collaborate">Collaborate</button>
+        <button data-panel="optimize">Optimize</button>
+        <button data-panel="empower">Empower</button>
+        <button data-panel="generative-ai">Generative AI</button>
+      </nav>
+    </main>
+
+    <dialog class="popin" id="popin" aria-labelledby="popin-title">
+      <button class="popin-close" type="button" data-close aria-label="Close">&times;</button>
+      <div class="popin-body"></div>
+    </dialog>
+
+    <div hidden id="panels">
+      <article data-panel="gaiish">
+        <p class="popin-eyebrow">The Language of Human–AI Collaboration</p>
+        <h2>gaiish</h2>
+        <p>
+          Models answer the prompt you actually wrote. gaiish is the practice of writing that prompt well —
+          saying what you mean, supplying the background the model cannot see, and naming the outcome you
+          expect.
+        </p>
+        <ul>
+          <li>Five moves take an idea from your head to a result you can use: clarity, context, intent, precision, result.</li>
+          <li>Four things change when you make them: you communicate, collaborate, optimize and empower.</li>
+        </ul>
+        <p class="popin-links">
+          <a href="/principles/clarity">Start with clarity</a>
+          <a href="/generative-ai">The technology behind it</a>
+        </p>
+      </article>
+
+      <article data-panel="clarity">
+        <p class="popin-eyebrow">Principle 1 of 5</p>
+        <h2>Clarity</h2>
+        <p>Say one thing at a time, in plain words, with no hidden assumptions.</p>
+        <ul>
+          <li>One request per instruction — a prompt asking for three things gets a shallow attempt at all three.</li>
+          <li>Plain words instead of internal shorthand: name the concrete change you want.</li>
+          <li>Every fact the answer depends on is stated, or the model invents one.</li>
+        </ul>
+        <p class="popin-links"><a href="/principles/clarity">Read the full page, with examples</a></p>
+      </article>
+
+      <article data-panel="context">
+        <p class="popin-eyebrow">Principle 2 of 5</p>
+        <h2>Context</h2>
+        <p>Give the model the documents, constraints and audience it cannot infer.</p>
+        <ul>
+          <li>Paste the material rather than describing it — a model with your context beats a bigger model without it.</li>
+          <li>Name the audience, the constraints and the decisions already made.</li>
+          <li>When the corpus is large, retrieval puts the right passage in the prompt for you.</li>
+        </ul>
+        <p class="popin-links">
+          <a href="/principles/context">Read the full page, with examples</a>
+          <a href="/topics/embeddings-rag">Embeddings &amp; RAG</a>
+        </p>
+      </article>
+
+      <article data-panel="intent">
+        <p class="popin-eyebrow">Principle 3 of 5</p>
+        <h2>Intent</h2>
+        <p>State the goal and the format, not just the topic.</p>
+        <ul>
+          <li>A topic gets you an essay; a goal gets you the thing you needed.</li>
+          <li>Name the artefact — email, table, patch, JSON — and its length.</li>
+          <li>Say what the output will be used for, so the model can judge trade-offs.</li>
+        </ul>
+        <p class="popin-links"><a href="/principles/intent">Read the full page, with examples</a></p>
+      </article>
+
+      <article data-panel="precision">
+        <p class="popin-eyebrow">Principle 4 of 5</p>
+        <h2>Precision</h2>
+        <p>Tighten the wording, bound the scope, and say what to leave out.</p>
+        <ul>
+          <li>Numbers instead of quantifiers: "three bullets, 20 words each", not "keep it short".</li>
+          <li>Bound the scope — which file, which period, which product.</li>
+          <li>Exclusions are instructions too: say what not to cover.</li>
+        </ul>
+        <p class="popin-links"><a href="/principles/precision">Read the full page, with examples</a></p>
+      </article>
+
+      <article data-panel="result">
+        <p class="popin-eyebrow">Principle 5 of 5</p>
+        <h2>Result</h2>
+        <p>Check the output against the goal, then refine rather than restart.</p>
+        <ul>
+          <li>Judge the answer against the criteria you set, not against a vague feeling.</li>
+          <li>Keep what works and correct the specific part that does not.</li>
+          <li>Verify facts, numbers and citations before you rely on them.</li>
+        </ul>
+        <p class="popin-links"><a href="/principles/result">Read the full page, with examples</a></p>
+      </article>
+
+      <article data-panel="generative-ai">
+        <p class="popin-eyebrow">The technology</p>
+        <h2>Generative AI</h2>
+        <p>
+          Generative AI describes models that produce new content — text, images, audio, video and code —
+          rather than only classifying what already exists. Trained on very large corpora, they learn the
+          structure of language and media well enough to continue, translate, summarise and invent.
+        </p>
+        <ul>
+          <li>Transformers and LLMs, diffusion models, multimodal systems.</li>
+          <li>Embeddings and retrieval, fine-tuning and alignment, agents and tool use.</li>
+          <li>A reference table of the widely used language model families.</li>
+        </ul>
+        <p class="popin-links">
+          <a href="/generative-ai">Technologies and language models</a>
+          <a href="/topics/transformers">Transformers &amp; LLMs</a>
+        </p>
+      </article>
+
+      <article data-panel="communicate">
+        <p class="popin-eyebrow">Outcome</p>
+        <h2>Communicate</h2>
+        <p>Express your ideas with purpose.</p>
+        <ul>
+          <li>Most disappointing output is a communication failure, not a capability failure.</li>
+          <li>A brief that names audience, length and format usually lands in one attempt.</li>
+          <li>Stating the unstated is the cheapest hallucination control there is.</li>
+        </ul>
+        <p class="popin-links">
+          <a href="/outcomes/communicate">Read the full page, with examples</a>
+          <a href="/principles/clarity">Clarity</a>
+        </p>
+      </article>
+
+      <article data-panel="collaborate">
+        <p class="popin-eyebrow">Outcome</p>
+        <h2>Collaborate</h2>
+        <p>Work together with AI smarter.</p>
+        <ul>
+          <li>Collaboration is what happens after the first answer: draft, then react to specifics.</li>
+          <li>Supply the room to work in — documents, data, prior decisions.</li>
+          <li>The model generates and does the legwork; you keep taste and judgement.</li>
+        </ul>
+        <p class="popin-links">
+          <a href="/outcomes/collaborate">Read the full page, with examples</a>
+          <a href="/principles/context">Context</a>
+        </p>
+      </article>
+
+      <article data-panel="optimize">
+        <p class="popin-eyebrow">Outcome</p>
+        <h2>Optimize</h2>
+        <p>Get better results every time.</p>
+        <ul>
+          <li>Turn a lucky prompt into a reliable one by measuring it against written criteria.</li>
+          <li>Ten to twenty real inputs catch far more regressions than intuition.</li>
+          <li>Change one variable at a time — wording, context, model — or you learn nothing.</li>
+        </ul>
+        <p class="popin-links">
+          <a href="/outcomes/optimize">Read the full page, with examples</a>
+          <a href="/principles/precision">Precision</a>
+        </p>
+      </article>
+
+      <article data-panel="empower">
+        <p class="popin-eyebrow">Outcome</p>
+        <h2>Empower</h2>
+        <p>Augment human potential with AI.</p>
+        <ul>
+          <li>The model removes the work that never needed a human: drafting, summarising, legwork.</li>
+          <li>With tools it can search, query, run and file — not just answer.</li>
+          <li>Judgement, taste and accountability stay with the person who owns the outcome.</li>
+        </ul>
+        <p class="popin-links">
+          <a href="/outcomes/empower">Read the full page, with examples</a>
+          <a href="/topics/agents">Agents &amp; Tool Use</a>
+        </p>
+      </article>
+    </div>
+
+    <footer class="stage-footer">
+      <p>
+        <a href="/generative-ai">Generative AI</a>
+        <a href="/principles/clarity">Principles</a>
+        <a href="/outcomes/communicate">Outcomes</a>
+        <a href="https://github.com/kcmacneil/gaiish.com-site">Source</a>
+      </p>
+    </footer>
+
+    <script src="/map.js" defer></script>
+  </body>
+</html>
