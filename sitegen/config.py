@@ -11,7 +11,7 @@ SITE_DESCRIPTION = (
 DEFAULT_OG_IMAGE = "/assets/brand-board.jpg"
 
 # Author / reviewer metadata. Placeholders — the site owner supplies the real values.
-AUTHOR = "Gaiish"
+AUTHOR = "KCMacN"
 AUTHOR_URL = SITE_URL + "/about"
 SPEC_VERSION = "1.0"
 LAST_UPDATED = "2026-08-29"

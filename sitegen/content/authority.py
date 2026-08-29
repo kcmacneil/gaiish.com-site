@@ -25,10 +25,8 @@ ABOUT = {
          "unverifiable claims."),
         ("h2", "Who maintains it", "maintainer"),
         ("p",
-         "Site owner: [Site owner name]. Maintainer contact: [Maintainer contact]. The owner and "
-         "maintainer details will be replaced with factual information supplied by the site "
-         "owner. No authors, credentials, partnerships, endorsements or audience numbers are "
-         "being inferred here."),
+         "Site owner and maintainer: KCMacN. No additional owner details, credentials, "
+         "partnerships, endorsements or audience numbers are being claimed here."),
         ("h2", "What we claim", "claims"),
         ("p",
          "Gaiish is documented here as a developing language and methodology. The site may say "
@@ -82,8 +80,8 @@ ORIGIN = {
          "method can be taught, reviewed and revised."),
         ("p",
          "This page intentionally does not assign a founder, date, discovery story or chain of "
-         "influence that has not been supplied by the site owner. The factual maintainer details "
-         "belong on the <a href=\"/about\">About</a> page when they are available."),
+         "influence that has not been supplied by the site owner. The site is maintained by "
+         "KCMacN."),
         ("h2", "Still developing", "developing"),
         ("p",
          "The architecture allows additional frameworks, dictionary entries, examples and "
