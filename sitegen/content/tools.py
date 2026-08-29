@@ -23,7 +23,7 @@ TOOLS_HUB = {
                     "isAccessibleForFree": True, "description": "A browser-based heuristic prompt analyzer with no account."}],
     }],
     "blocks": [
-        ("callout", "Private by design", "Everything runs in your browser. Nothing you type is sent to a server or to analytics. Do not paste material into any tool unless you are allowed to use it in your browser."),
+        ("callout", "Private by design", "Everything runs in your browser: your text is not sent to a server for analysis and is never included in analytics events. This site does record masked session replays — Amplitude captures page layout and interactions with all text and form fields masked, so the words you type are not recorded. Do not paste material into any tool unless you are allowed to use it in your browser."),
         ("cards", [
             ("Prompt Builder", "Answer ten guided fields and get a formatted Gaiish prompt. Copy it or save it locally on this device.", "/tools/prompt-builder"),
             ("Prompt Analyzer", "Inspect how explicitly a prompt expresses the six Gaiish components. The score is a heuristic, not a validated measurement.", "/tools/prompt-analyzer"),
@@ -46,13 +46,13 @@ BUILDER = {
         "name": "Gaiish Prompt Builder", "url": config.SITE_URL + "/tools/prompt-builder",
         "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
         "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-        "description": "A free browser-based form for building a Gaiish prompt. No account is required; entries are not sent to a server or analytics.",
+        "description": "A free browser-based form for building a Gaiish prompt. No account is required; entries are processed in your browser and are not sent to a server for analysis.",
         "featureList": ["Guided Gaiish fields", "Local browser saving", "Clipboard copy"],
     }],
     "blocks": [("html", """
 <div class="tool-layout">
   <form id="prompt-builder-form" class="tool-form">
-    <p class="privacy-note"><strong>Private by design:</strong> this tool runs in your browser. Nothing you type is sent to a server or analytics.</p>
+    <p class="privacy-note"><strong>Private by design:</strong> this tool runs in your browser. Your text is not sent to a server for analysis and is never included in analytics events. Session replay is enabled site-wide with all text and form fields masked, so recordings show layout and interactions, not what you type.</p>
     <p class="form-intro">Fields marked recommended help most tasks. You can leave a field blank and add it later.</p>
     <div class="field"><label for="builder-intent">Goal / Intent <span>(recommended)</span></label><p id="hint-builder-intent" class="field-hint">What outcome should this work support, and who will use it?</p><textarea id="builder-intent" name="intent" aria-describedby="hint-builder-intent" rows="3"></textarea></div>
     <div class="field"><label for="builder-context">Context <span>(recommended)</span></label><p id="hint-builder-context" class="field-hint">Add the situation, audience and source material the model cannot infer.</p><textarea id="builder-context" name="context" aria-describedby="hint-builder-context" rows="4"></textarea></div>
@@ -90,13 +90,13 @@ ANALYZER = {
         "name": "Gaiish Prompt Analyzer", "url": config.SITE_URL + "/tools/prompt-analyzer",
         "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
         "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-        "description": "A free browser-based heuristic analyzer for prompt structure. No account is required; prompt text is not sent to a server or analytics.",
+        "description": "A free browser-based heuristic analyzer for prompt structure. No account is required; prompt text is processed in your browser and is not sent to a server for analysis.",
         "featureList": ["Gaiish component breakdown", "Heuristic score", "Convert to Gaiish"],
     }],
     "blocks": [("html", """
 <div class="analyzer-layout">
   <form id="prompt-analyzer-form" class="tool-form">
-    <p class="privacy-note"><strong>Private by design:</strong> this tool runs in your browser. Nothing you type is sent to a server or analytics.</p>
+    <p class="privacy-note"><strong>Private by design:</strong> this tool runs in your browser. Your text is not sent to a server for analysis and is never included in analytics events. Session replay is enabled site-wide with all text and form fields masked, so recordings show layout and interactions, not what you type.</p>
     <label for="analyzer-input">Prompt to analyze</label>
     <p id="hint-analyzer-input" class="field-hint">Paste a prompt. It will be inspected locally and never submitted.</p>
     <textarea id="analyzer-input" aria-describedby="hint-analyzer-input" rows="12" placeholder="Write a marketing plan for my company."></textarea>

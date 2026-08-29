@@ -23,7 +23,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Gaiish Prompt Builder","url":"https://gaiish.com/tools/prompt-builder","applicationCategory":"BusinessApplication","operatingSystem":"Web","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free browser-based form for building a Gaiish prompt. No account is required; entries are not sent to a server or analytics.","featureList":["Guided Gaiish fields","Local browser saving","Clipboard copy"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Gaiish Prompt Builder","url":"https://gaiish.com/tools/prompt-builder","applicationCategory":"BusinessApplication","operatingSystem":"Web","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A free browser-based form for building a Gaiish prompt. No account is required; entries are processed in your browser and are not sent to a server for analysis.","featureList":["Guided Gaiish fields","Local browser saving","Clipboard copy"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gaiish.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://gaiish.com/tools"},{"@type":"ListItem","position":3,"name":"Gaiish Prompt Builder","item":"https://gaiish.com/tools/prompt-builder"}]}</script>
   </head>
   <body class="doc">
@@ -33,7 +33,7 @@
       <section class="prose">
 <div class="tool-layout">
   <form id="prompt-builder-form" class="tool-form">
-    <p class="privacy-note"><strong>Private by design:</strong> this tool runs in your browser. Nothing you type is sent to a server or analytics.</p>
+    <p class="privacy-note"><strong>Private by design:</strong> this tool runs in your browser. Your text is not sent to a server for analysis and is never included in analytics events. Session replay is enabled site-wide with all text and form fields masked, so recordings show layout and interactions, not what you type.</p>
     <p class="form-intro">Fields marked recommended help most tasks. You can leave a field blank and add it later.</p>
     <div class="field"><label for="builder-intent">Goal / Intent <span>(recommended)</span></label><p id="hint-builder-intent" class="field-hint">What outcome should this work support, and who will use it?</p><textarea id="builder-intent" name="intent" aria-describedby="hint-builder-intent" rows="3"></textarea></div>
     <div class="field"><label for="builder-context">Context <span>(recommended)</span></label><p id="hint-builder-context" class="field-hint">Add the situation, audience and source material the model cannot infer.</p><textarea id="builder-context" name="context" aria-describedby="hint-builder-context" rows="4"></textarea></div>

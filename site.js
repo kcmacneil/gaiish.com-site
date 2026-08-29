@@ -37,6 +37,14 @@
     script.async = true;
     script.onload = function () {
       if (!window.amplitude) return;
+      if (window.sessionReplay && typeof window.sessionReplay.plugin === "function") {
+        window.amplitude.add(
+          window.sessionReplay.plugin({
+            sampleRate: 1,
+            privacyConfig: { defaultMaskLevel: "conservative" }
+          })
+        );
+      }
       window.amplitude.init(AMPLITUDE_API_KEY, {
         fetchRemoteConfig: true,
         autocapture: { attribution: true, pageViews: true, sessions: true, elementInteractions: false }
@@ -54,6 +62,8 @@
   /*
    * Analytics event shim. It never receives prompt text; callers pass only an event name and
    * non-sensitive metadata. Events raised before the SDK is ready are queued and flushed.
+   * Amplitude session replay is enabled site-wide with conservative masking for all text and
+   * inputs.
    */
   window.gaiishTrack = function (event, detail) {
     if (Array.isArray(window.dataLayer)) {

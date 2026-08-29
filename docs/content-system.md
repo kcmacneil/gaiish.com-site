@@ -89,6 +89,10 @@ description and opening copy without making unsupported claims.
 in that file. This key is public by design for a browser SDK; it is not a secret key and must
 never be replaced with a server-side secret. Initialization enables remote configuration and
 autocapture for attribution, page views and sessions, while element interactions are disabled.
+The CDN loader's `sessionReplay` plugin is registered before initialization with `sampleRate: 1`
+and `privacyConfig.defaultMaskLevel: "conservative"`. Session replay is therefore enabled
+site-wide at full sampling, with all text and form inputs masked. Replay data is ingested through
+Amplitude's `api-sr.amplitude.com` endpoint.
 
 The `window.gaiishTrack(event, detail)` shim sends the event name and safe metadata to Amplitude
 and also supports a pre-initialization queue: events raised before the SDK finishes loading are
@@ -97,8 +101,9 @@ held in memory and flushed after initialization. Current tool events are `tool_v
 `prompt_converted`; analyzer score bands and tool/source identifiers are metadata only.
 
 **Never pass prompt text, field values or source material to analytics.** The tools run in the
-browser and do not submit prompts to the site server. Do not add prompt contents to event
-properties, localStorage-derived field payloads or future analytics integrations.
+browser and do not submit prompts to the site server. Session replay is masked so recordings do
+not contain typed text or form values. Do not add prompt contents to event properties,
+localStorage-derived field payloads or future analytics integrations.
 
 ## Preserved content and redirects
 
