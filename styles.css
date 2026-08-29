@@ -1574,7 +1574,7 @@ button.cta:focus-visible {
   text-transform: uppercase;
 }
 
-.capture-form label span {
+.capture-form label:not(.consent-label) span {
   color: #6c4bb3;
   font-size: 0.65rem;
 }

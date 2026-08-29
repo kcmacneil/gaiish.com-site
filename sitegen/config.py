@@ -113,6 +113,7 @@ FOOTER_LINKS = [
         ("Prompt Library", "/prompt-library"),
         ("Interactive Gaiish Map", "/gaiish-map"),
         ("Changelog", "/changelog"),
+        ("Free Guide", "/free-guide"),
     ]),
     ("Tools", [
         ("Prompt Builder", "/tools/prompt-builder"),

@@ -212,6 +212,7 @@
         typeof window.HTMLDialogElement.prototype.showModal !== "function") {
       return;
     }
+    if (trigger.classList.contains("current")) return;
     var close = dialog.querySelector("[data-guide-modal-close]");
     trigger.addEventListener("click", function (event) {
       event.preventDefault();

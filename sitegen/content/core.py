@@ -464,6 +464,18 @@ FREE_GUIDE = {
     "nav_key": "/free-guide",
     "updated": config.LAST_UPDATED,
     "blocks": [
+        ("h2", "What's inside", "whats-inside"),
+        ("p",
+         "The guide defines Gaiish, introduces the six components and their sequence, and "
+         "shows how BASIC, PRO and a traditional prompt compare with a Gaiish prompt."),
+        ("ul", [
+            "The six components: Intent, Context, Instruction, Constraints, Result and Validation.",
+            "The sequence: Intent → Context → Instruction → Constraints → Result → Validation.",
+            "Gaiish BASIC: Goal, Context, Action and Output.",
+            "Gaiish PRO: Role, Intent, Context, Knowledge, Constraints, Process, Output and Validation.",
+            "A traditional prompt and a Gaiish prompt, with why the structure helps.",
+            "18 dictionary definitions covering Gaiish terms and general generative-AI vocabulary.",
+        ]),
         ("capture", None),
     ],
 }

@@ -100,7 +100,7 @@ def _capture(prefix):
     </div>
     <div class="field">
       <label for="%(prefix)s-first-name">First name <span>(optional)</span></label>
-      <input id="%(prefix)s-first-name" name="first_name" autocomplete="given-name">
+      <input id="%(prefix)s-first-name" name="first_name" type="text" autocomplete="given-name">
     </div>
     <label class="consent-label" for="%(prefix)s-consent">
       <input id="%(prefix)s-consent" name="consent" type="checkbox" required>
