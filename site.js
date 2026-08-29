@@ -26,13 +26,43 @@
     });
   }
 
+  var AMPLITUDE_API_KEY = "4a2afc52a58978951b1f9581137bc7a1";
+
+  var queue = [];
+
+  function loadAmplitude() {
+    if (!AMPLITUDE_API_KEY) return;
+    var script = document.createElement("script");
+    script.src = "https://cdn.amplitude.com/script/" + AMPLITUDE_API_KEY + ".js";
+    script.async = true;
+    script.onload = function () {
+      if (!window.amplitude) return;
+      window.amplitude.init(AMPLITUDE_API_KEY, {
+        fetchRemoteConfig: true,
+        autocapture: { attribution: true, pageViews: true, sessions: true, elementInteractions: false }
+      });
+      while (queue.length) {
+        var queued = queue.shift();
+        window.amplitude.track(queued[0], queued[1]);
+      }
+    };
+    document.head.appendChild(script);
+  }
+
+  loadAmplitude();
+
   /*
-   * Analytics integrations may listen to this event shim. It never receives prompt text;
-   * callers should pass only an event name and non-sensitive metadata.
+   * Analytics event shim. It never receives prompt text; callers pass only an event name and
+   * non-sensitive metadata. Events raised before the SDK is ready are queued and flushed.
    */
   window.gaiishTrack = function (event, detail) {
     if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({ event: event, detail: detail });
+    }
+    if (window.amplitude && typeof window.amplitude.track === "function") {
+      window.amplitude.track(event, detail);
+    } else {
+      queue.push([event, detail]);
     }
   };
 })();
