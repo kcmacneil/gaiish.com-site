@@ -179,6 +179,45 @@ h2 {
   font-size: 0.9375rem;
 }
 
+/* Brand map */
+.brandmap {
+  position: relative;
+  max-width: 64rem;
+  margin: 3rem auto 0;
+  line-height: 0;
+}
+
+.brandmap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hotspot {
+  position: absolute;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.hotspot span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.hotspot:hover,
+.hotspot:focus-visible {
+  border-color: #7fd6e6;
+  background: rgba(127, 214, 230, 0.16);
+  outline: none;
+}
+
+.maplinks {
+  gap: 1.25rem 2rem;
+}
+
 /* Prompt examples */
 .example {
   display: grid;
