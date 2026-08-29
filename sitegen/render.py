@@ -329,10 +329,10 @@ def render_page(page):
         for block in page["blocks"]
     )
 
-    scripts = "".join(
+    scripts = '    <script src="/site.js" defer></script>\n'
+    scripts += "".join(
         '    <script src="%s" defer></script>\n' % src for src in page.get("scripts", [])
     )
-    scripts += '    <script src="/site.js" defer></script>\n'
 
     return DOCUMENT % {
         "title": esc(title),
