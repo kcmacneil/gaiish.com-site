@@ -1,12 +1,13 @@
 # gaiish.com-site
 
-The gaiish.com site: a front page about generative AI technologies with a reference list of language models, plus detail pages for each technology. Static site hosted on Vercel (project `gaiish-com-site`, domains gaiish.com and www.gaiish.com).
+The gaiish.com site. gaiish is a language humans use to optimise communication with generative AI models; the front page presents that idea (clarity, context, intent, precision, result), then covers the underlying generative AI technologies and a reference list of language models, with a detail page per technology. Static site hosted on Vercel (project `gaiish-com-site`, domains gaiish.com and www.gaiish.com).
 
 ## Files
 
 - `index.html` — front page
 - `topics/*.html` — detail pages (transformers, diffusion, multimodal, embeddings & RAG, fine-tuning, agents)
 - `assets/hero.jpg` — hero image
+- `assets/brand/` — brand reference image and alternate renders used as templates for new imagery
 - `styles.css` — styling
 - `vercel.json` — Vercel config (clean URLs)
 
