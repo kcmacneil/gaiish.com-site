@@ -2,7 +2,6 @@
   "use strict";
 
   var STORAGE_KEY = "gaiish_identity";
-  var GUIDE_URL = "/pdfguides/gaiish-key-concepts-and-definitions.pdf";
 
   function debugEnabled() {
     return location.hostname === "localhost" ||
@@ -254,12 +253,11 @@
           });
         }
         if (result.ok) {
-          form.outerHTML = '<p class="capture-success" role="status">Thanks — your guide is ready. '
-            + '<a href="' + GUIDE_URL + '">Download the Gaiish reference guide (PDF)</a>.</p>';
+          form.outerHTML = '<p class="capture-success" role="status">Thanks — check your email to '
+            + 'confirm your subscription. The Gaiish reference guide arrives once you confirm.</p>';
         } else {
           submit.disabled = false;
-          status.innerHTML = "We couldn't save your details right now, but you can still "
-            + '<a href="' + GUIDE_URL + '">download the Gaiish reference guide (PDF)</a>.';
+          status.textContent = "We couldn't sign you up right now. Please try again in a moment.";
         }
       });
     });
