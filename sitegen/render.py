@@ -332,7 +332,6 @@ def render_page(page):
     scripts = "".join(
         '    <script src="%s" defer></script>\n' % src for src in page.get("scripts", [])
     )
-    scripts += '    <script src="/assets/amplitude.js" defer></script>\n'
     scripts += '    <script src="/site.js" defer></script>\n'
 
     return DOCUMENT % {
