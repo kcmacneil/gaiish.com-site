@@ -128,7 +128,9 @@ must govern provider loading as well as lead capture.
 - **Amplitude is absent:** ad blockers can block the CDN loader. Check the browser network panel
   for `cdn.amplitude.com`; the tools and Klaviyo path should still fail gracefully.
 - **503 `identity_unavailable`:** `KLAVIYO_PRIVATE_API_KEY` is missing or empty in the Vercel
-  environment.
+  environment. Vercel injects environment variables at build time, so adding or changing the key
+  requires a new deployment (redeploy in the Vercel dashboard or push to `main`) before
+  `/api/identify` picks it up.
 - **502 `identity_lookup_failed`:** Klaviyo lookup or profile import failed or timed out. The
   server logs only the error code and Klaviyo status code, never contact values.
 - **Check a profile:** search Klaviyo by the submitted email or phone, then inspect the profile's
