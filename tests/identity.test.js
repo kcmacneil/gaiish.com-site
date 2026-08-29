@@ -2,6 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const fs = require("fs");
 const identifyHandler = require("../api/identify");
 const { isAllowedOrigin } = identifyHandler;
 const {
@@ -14,6 +15,14 @@ const {
   profileImportBody,
   resolveIdentity,
 } = require("../api/_identity");
+
+test("client identity requests use normalized snake_case name fields", () => {
+  const source = fs.readFileSync(require.resolve("../identity.js"), "utf8");
+  assert.match(source, /if \(input\.first_name\) payload\.first_name = input\.first_name;/);
+  assert.match(source, /if \(input\.last_name\) payload\.last_name = input\.last_name;/);
+  assert.doesNotMatch(source, /payload\.first_name = input\.firstName/);
+  assert.doesNotMatch(source, /payload\.last_name = input\.lastName/);
+});
 
 test("validates email and phone identities", () => {
   assert.equal(isValidEmail("person@example.com"), true);

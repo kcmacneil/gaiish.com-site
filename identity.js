@@ -105,8 +105,8 @@
     var payload = {};
     if (input.email) payload.email = input.email;
     if (input.phone) payload.phone = input.phone;
-    if (input.firstName) payload.first_name = input.firstName;
-    if (input.lastName) payload.last_name = input.lastName;
+    if (input.first_name) payload.first_name = input.first_name;
+    if (input.last_name) payload.last_name = input.last_name;
     if (input.source) payload.source = input.source;
     if (input.consent) payload.consent = true;
     return fetch("/api/identify", {
