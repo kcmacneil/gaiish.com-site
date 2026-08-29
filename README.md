@@ -38,8 +38,9 @@ npx vercel --prod # production deployment
 
 ## Identity environment variable
 
-The `/api/identify` Vercel function requires the `KLAVIYO_PRIVATE_API_KEY` environment variable.
-Set it in Vercel's project environment settings; never commit the key or expose it to browser
-code. The function resolves a server-generated `internal_user_id` against Klaviyo before the
-browser identifies the visitor in Amplitude. See
+The `/api/identify` Vercel function requires the `KLAVIYO_PRIVATE_API_KEY` and
+`KLAVIYO_LIST_ID` environment variables. Set both in Vercel's project environment settings;
+the gaiish.com list ID is `XcbCUG` and is not secret. Never commit the private key or expose it
+to browser code. The function resolves a server-generated `internal_user_id` against Klaviyo
+before the browser identifies the visitor in Amplitude. See
 [`docs/analytics-identity.md`](docs/analytics-identity.md) for the identity and privacy model.

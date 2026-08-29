@@ -71,10 +71,17 @@ module.exports = async (req, res) => {
   const timeout = setTimeout(() => controller.abort(), 10000);
   const fetchImpl = (url, options) => global.fetch(url, { ...options, signal: controller.signal });
   try {
-    const result = await resolveIdentity(body, { apiKey, fetchImpl });
+    const listId = typeof process.env.KLAVIYO_LIST_ID === "string"
+      ? process.env.KLAVIYO_LIST_ID.trim()
+      : "";
+    const result = await resolveIdentity(body, { apiKey, fetchImpl, listId });
+    if (result.emailSubscribeStatus !== null && !result.emailSubscribed) {
+      logFailure("email_subscribe_failed", result.emailSubscribeStatus);
+    }
     send(res, 200, {
       internal_user_id: result.internalUserId,
       klaviyo_profile_id: result.klaviyoProfileId,
+      email_subscribed: result.emailSubscribed,
     });
   } catch (error) {
     const status = typeof error.klaviyoStatus === "number" ? error.klaviyoStatus : undefined;

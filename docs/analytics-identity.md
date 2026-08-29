@@ -50,7 +50,8 @@ minted. The function always runs the Klaviyo profile import with the resolved ID
 contact/name fields, so a later phone submission can update the same profile.
 
 Email and phone are never used as the Amplitude `user_id`, event properties, URLs or response
-logs. The API response contains only `internal_user_id` and `klaviyo_profile_id`.
+logs. The API response contains the resolved IDs plus `email_subscribed`, which reports whether
+the email-marketing subscription call returned the accepted status.
 
 ## Provider identity
 
@@ -83,11 +84,21 @@ entry with the supplied `email`, `phone_number`, `first_name`, `last_name`, and 
 identify call still contains the contact and name fields but omits `internal_user_id`.
 When the capture-form checkbox is checked, the server records
 `gaiish_updates_consent: true` and `gaiish_updates_consent_date` on the Klaviyo profile. This
-only records a profile property; it does not subscribe anyone to a Klaviyo list. List
-subscription still requires a Klaviyo list ID and a separate deliberate implementation.
+also sends a POST to
+`https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs` with
+`SUBSCRIBED` email-marketing consent and the configured list relationship. This is email
+marketing consent only: the checkbox promises Gaiish email updates, never SMS, even when a
+phone number is supplied. The deployed function requires `KLAVIYO_LIST_ID`; for gaiish.com its
+value is `XcbCUG`.
 
-The private API key exists only as the `KLAVIYO_PRIVATE_API_KEY` Vercel environment variable.
-It is never sent to the browser or written to logs.
+The Klaviyo private key needs the `profiles:read`, `profiles:write`, `lists:write` and
+`subscriptions:write` scopes. A subscription failure is logged as
+`email_subscribe_failed` with the status code and does not fail the identity request: the
+resolved internal and Klaviyo IDs are still returned and `email_subscribed` is `false`.
+
+The private API key exists only as the `KLAVIYO_PRIVATE_API_KEY` Vercel environment variable,
+alongside the required `KLAVIYO_LIST_ID`. The key is never sent to the browser or written to
+logs.
 
 ## Anonymous to identified transition
 
@@ -96,7 +107,8 @@ It is never sent to the browser or written to logs.
    `/learn-gaiish` or `/dictionary`.
 3. `/api/identify` validates the origin and email/phone, resolves or creates the Klaviyo
    profile ID and stable internal ID, records affirmative consent as a Klaviyo profile
-   property, and returns those IDs.
+   property, subscribes the email to the configured email-marketing list, and returns those
+   IDs plus the subscription status.
 4. Amplitude receives `internal_user_id` as `user_id` and the listed user properties.
 5. Klaviyo receives its email/phone identity and the same internal ID custom property.
 6. The browser stores only `{ internal_user_id, klaviyo_profile_id }` in localStorage under
@@ -114,9 +126,14 @@ Klaviyo profile.
 The capture form requires the checkbox: “Email me Gaiish updates. Unsubscribe any time.” A
 checked box is recorded as the Klaviyo profile properties `gaiish_updates_consent: true` and
 `gaiish_updates_consent_date`; it is mirrored as the Amplitude user property
-`gaiish_updates_consent`. This is profile-property recording only: no Klaviyo list subscription
-occurs because the site does not have a Klaviyo list ID. List subscription still needs a list ID
-and an explicit implementation.
+`gaiish_updates_consent`. It also triggers the Klaviyo email-marketing subscription endpoint
+for the configured `KLAVIYO_LIST_ID`. This is never SMS consent, including when a phone number
+is supplied. A failed subscription is logged as `email_subscribe_failed` and does not fail the
+identity request.
+
+The Klaviyo private API key must have `profiles:read`, `profiles:write`, `lists:write` and
+`subscriptions:write` scopes. `KLAVIYO_LIST_ID` is required for the deployed opt-in flow; the
+gaiish.com list ID is `XcbCUG` and is not secret.
 
 There is currently no cookie-consent banner. Amplitude and Klaviyo load on page load, including
 for visitors in the EU, so consent management for those page-load technologies is a known
@@ -133,6 +150,9 @@ must govern provider loading as well as lead capture.
   `/api/identify` picks it up.
 - **502 `identity_lookup_failed`:** Klaviyo lookup or profile import failed or timed out. The
   server logs only the error code and Klaviyo status code, never contact values.
+- **`email_subscribe_failed`:** the identity was resolved, but the email-marketing opt-in call
+  returned a failure status. The request still succeeds with `email_subscribed: false`; inspect
+  the configured list ID and the key's `lists:write` and `subscriptions:write` scopes.
 - **Check a profile:** search Klaviyo by the submitted email or phone, then inspect the profile's
   custom properties for `internal_user_id`. The value should match the `usr_` format.
 - **No ID in localStorage:** inspect only `localStorage.gaiish_identity`; it should contain IDs

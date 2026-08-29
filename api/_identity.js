@@ -83,6 +83,27 @@ function profileImportBody(identity, internalUserId, options = {}) {
   return { data: { type: "profile", attributes } };
 }
 
+function subscribeBody(identity, options = {}) {
+  const attributes = {
+    email: identity.email,
+    subscriptions: { email: { marketing: { consent: "SUBSCRIBED" } } },
+  };
+  const jobAttributes = { profiles: { data: [{ type: "profile", attributes }] } };
+  if (hasValue(options.customSource)) jobAttributes.custom_source = options.customSource;
+  const body = {
+    data: {
+      type: "profile-subscription-bulk-create-job",
+      attributes: jobAttributes,
+    },
+  };
+  if (hasValue(options.listId)) {
+    body.data.relationships = {
+      list: { data: { type: "list", id: options.listId } },
+    };
+  }
+  return body;
+}
+
 function klaviyoError(status) {
   const error = new Error("Klaviyo request failed");
   error.klaviyoStatus = status;
@@ -131,7 +152,33 @@ async function resolveIdentity(identity, options = {}) {
   if (typeof klaviyoProfileId !== "string" || klaviyoProfileId === "") {
     throw klaviyoError(importResponse.status);
   }
-  return { internalUserId, klaviyoProfileId };
+  let emailSubscribeStatus = null;
+  if (identity.consent === true && hasValue(identity.email)) {
+    const subscribeResponse = await fetchImpl(
+      "https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs",
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Klaviyo-API-Key " + options.apiKey,
+          revision: "2024-10-15",
+          "content-type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify(subscribeBody(identity, {
+          listId: options.listId,
+          customSource: options.customSource || "Gaiish reference guide",
+        })),
+      }
+    );
+    emailSubscribeStatus = subscribeResponse.status;
+  }
+
+  return {
+    internalUserId,
+    klaviyoProfileId,
+    emailSubscribed: emailSubscribeStatus === 202,
+    emailSubscribeStatus,
+  };
 }
 
 module.exports = {
@@ -146,5 +193,6 @@ module.exports = {
   mintInternalUserId,
   lookupRequest,
   profileImportBody,
+  subscribeBody,
   resolveIdentity,
 };

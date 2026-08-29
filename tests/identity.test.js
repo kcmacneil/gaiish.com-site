@@ -13,6 +13,7 @@ const {
   lookupRequest,
   mintInternalUserId,
   profileImportBody,
+  subscribeBody,
   resolveIdentity,
 } = require("../api/_identity");
 
@@ -217,9 +218,123 @@ test("records affirmative consent without writing false", () => {
   );
 });
 
+test("constructs the exact email subscription body", () => {
+  const withList = subscribeBody(
+    { email: "person@example.com" },
+    { listId: "XcbCUG", customSource: "Gaiish reference guide" }
+  );
+  assert.equal(withList.data.type, "profile-subscription-bulk-create-job");
+  assert.equal(
+    withList.data.attributes.profiles.data[0].attributes.email,
+    "person@example.com"
+  );
+  assert.equal(
+    withList.data.attributes.profiles.data[0].attributes.subscriptions.email.marketing.consent,
+    "SUBSCRIBED"
+  );
+  assert.equal(withList.data.attributes.custom_source, "Gaiish reference guide");
+  assert.deepEqual(withList.data.relationships.list.data, {
+    type: "list",
+    id: "XcbCUG",
+  });
+
+  const withoutList = subscribeBody(
+    { email: "person@example.com" },
+    { customSource: "Gaiish reference guide" }
+  );
+  assert.equal("relationships" in withoutList.data, false);
+});
+
+test("subscribes only affirmative email consent", async () => {
+  async function run(identity) {
+    const calls = [];
+    const fetchImpl = async (url, options) => {
+      calls.push({ url, options });
+      if (calls.length === 1) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ data: [] }),
+        };
+      }
+      if (calls.length === 2) {
+        return {
+          ok: true,
+          status: 201,
+          json: async () => ({ data: { id: "profile_subscription" } }),
+        };
+      }
+      return {
+        ok: true,
+        status: 202,
+        json: async () => ({}),
+      };
+    };
+    const result = await resolveIdentity(identity, {
+      apiKey: "secret",
+      fetchImpl,
+      listId: "XcbCUG",
+    });
+    return { calls, result };
+  }
+
+  const optedIn = await run({ email: "person@example.com", consent: true });
+  assert.equal(optedIn.calls.length, 3);
+  assert.equal(
+    optedIn.calls[2].url,
+    "https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs"
+  );
+  assert.equal(optedIn.calls[2].options.method, "POST");
+  assert.equal(optedIn.calls[2].options.headers.revision, "2024-10-15");
+  assert.equal(optedIn.result.emailSubscribed, true);
+
+  const declined = await run({ email: "person@example.com", consent: false });
+  assert.equal(declined.calls.length, 2);
+  const unspecified = await run({ email: "person@example.com" });
+  assert.equal(unspecified.calls.length, 2);
+  const phoneOnly = await run({ phone: "+14155550123", consent: true });
+  assert.equal(phoneOnly.calls.length, 2);
+});
+
+test("preserves identity when email subscription fails", async () => {
+  const calls = [];
+  const fetchImpl = async (url, options) => {
+    calls.push({ url, options });
+    if (calls.length === 1) {
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({ data: [] }),
+      };
+    }
+    if (calls.length === 2) {
+      return {
+        ok: true,
+        status: 201,
+        json: async () => ({ data: { id: "profile_failed_subscription" } }),
+      };
+    }
+    return {
+      ok: false,
+      status: 403,
+      json: async () => ({}),
+    };
+  };
+  const result = await resolveIdentity(
+    { email: "person@example.com", consent: true },
+    { apiKey: "secret", fetchImpl, listId: "XcbCUG" }
+  );
+  assert.equal(calls.length, 3);
+  assert.match(result.internalUserId, /^usr_[0-9A-HJKMNP-TV-Z]{26}$/);
+  assert.equal(result.klaviyoProfileId, "profile_failed_subscription");
+  assert.equal(result.emailSubscribed, false);
+  assert.equal(result.emailSubscribeStatus, 403);
+});
+
 test("serializes the HTTP response with the documented snake_case keys", async () => {
   const previousFetch = global.fetch;
   const previousKey = process.env.KLAVIYO_PRIVATE_API_KEY;
+  const previousListId = process.env.KLAVIYO_LIST_ID;
   const calls = [];
   global.fetch = async (url, options) => {
     calls.push({ url, options });
@@ -230,13 +345,21 @@ test("serializes the HTTP response with the documented snake_case keys", async (
         json: async () => ({ data: [] }),
       };
     }
+    if (calls.length === 2) {
+      return {
+        ok: true,
+        status: 201,
+        json: async () => ({ data: { id: "profile_http" } }),
+      };
+    }
     return {
       ok: true,
-      status: 201,
-      json: async () => ({ data: { id: "profile_http" } }),
+      status: 202,
+      json: async () => ({}),
     };
   };
   process.env.KLAVIYO_PRIVATE_API_KEY = "secret";
+  process.env.KLAVIYO_LIST_ID = "XcbCUG";
   const response = { headers: {}, statusCode: null, body: null };
   const res = {
     setHeader(name, value) {
@@ -261,15 +384,19 @@ test("serializes the HTTP response with the documented snake_case keys", async (
     global.fetch = previousFetch;
     if (previousKey === undefined) delete process.env.KLAVIYO_PRIVATE_API_KEY;
     else process.env.KLAVIYO_PRIVATE_API_KEY = previousKey;
+    if (previousListId === undefined) delete process.env.KLAVIYO_LIST_ID;
+    else process.env.KLAVIYO_LIST_ID = previousListId;
   }
   assert.equal(response.statusCode, 200);
   assert.equal(response.headers["Cache-Control"], "no-store");
   assert.deepEqual(Object.keys(response.body).sort(), [
+    "email_subscribed",
     "internal_user_id",
     "klaviyo_profile_id",
   ]);
   assert.match(response.body.internal_user_id, /^usr_[0-9A-HJKMNP-TV-Z]{26}$/);
   assert.equal(response.body.klaviyo_profile_id, "profile_http");
+  assert.equal(response.body.email_subscribed, true);
   const importBody = JSON.parse(calls[1].options.body);
   assert.equal(importBody.data.attributes.properties.gaiish_updates_consent, true);
 });
